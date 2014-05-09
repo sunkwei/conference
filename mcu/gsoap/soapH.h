@@ -105,7 +105,7 @@ SOAP_FMAC3 double * SOAP_FMAC4 soap_get_double(struct soap*, double *, const cha
 #ifndef WITH_NOGLOBAL
 
 #ifndef SOAP_TYPE_SOAP_ENV__Fault
-#define SOAP_TYPE_SOAP_ENV__Fault (25)
+#define SOAP_TYPE_SOAP_ENV__Fault (40)
 #endif
 SOAP_FMAC3 void SOAP_FMAC4 soap_default_SOAP_ENV__Fault(struct soap*, struct SOAP_ENV__Fault *);
 SOAP_FMAC3 void SOAP_FMAC4 soap_serialize_SOAP_ENV__Fault(struct soap*, const struct SOAP_ENV__Fault *);
@@ -141,7 +141,7 @@ SOAP_FMAC3 void SOAP_FMAC4 soap_copy_SOAP_ENV__Fault(struct soap*, int, int, voi
 #ifndef WITH_NOGLOBAL
 
 #ifndef SOAP_TYPE_SOAP_ENV__Reason
-#define SOAP_TYPE_SOAP_ENV__Reason (24)
+#define SOAP_TYPE_SOAP_ENV__Reason (39)
 #endif
 SOAP_FMAC3 void SOAP_FMAC4 soap_default_SOAP_ENV__Reason(struct soap*, struct SOAP_ENV__Reason *);
 SOAP_FMAC3 void SOAP_FMAC4 soap_serialize_SOAP_ENV__Reason(struct soap*, const struct SOAP_ENV__Reason *);
@@ -177,7 +177,7 @@ SOAP_FMAC3 void SOAP_FMAC4 soap_copy_SOAP_ENV__Reason(struct soap*, int, int, vo
 #ifndef WITH_NOGLOBAL
 
 #ifndef SOAP_TYPE_SOAP_ENV__Detail
-#define SOAP_TYPE_SOAP_ENV__Detail (23)
+#define SOAP_TYPE_SOAP_ENV__Detail (38)
 #endif
 SOAP_FMAC3 void SOAP_FMAC4 soap_default_SOAP_ENV__Detail(struct soap*, struct SOAP_ENV__Detail *);
 SOAP_FMAC3 void SOAP_FMAC4 soap_serialize_SOAP_ENV__Detail(struct soap*, const struct SOAP_ENV__Detail *);
@@ -213,7 +213,7 @@ SOAP_FMAC3 void SOAP_FMAC4 soap_copy_SOAP_ENV__Detail(struct soap*, int, int, vo
 #ifndef WITH_NOGLOBAL
 
 #ifndef SOAP_TYPE_SOAP_ENV__Code
-#define SOAP_TYPE_SOAP_ENV__Code (21)
+#define SOAP_TYPE_SOAP_ENV__Code (36)
 #endif
 SOAP_FMAC3 void SOAP_FMAC4 soap_default_SOAP_ENV__Code(struct soap*, struct SOAP_ENV__Code *);
 SOAP_FMAC3 void SOAP_FMAC4 soap_serialize_SOAP_ENV__Code(struct soap*, const struct SOAP_ENV__Code *);
@@ -249,7 +249,7 @@ SOAP_FMAC3 void SOAP_FMAC4 soap_copy_SOAP_ENV__Code(struct soap*, int, int, void
 #ifndef WITH_NOGLOBAL
 
 #ifndef SOAP_TYPE_SOAP_ENV__Header
-#define SOAP_TYPE_SOAP_ENV__Header (20)
+#define SOAP_TYPE_SOAP_ENV__Header (35)
 #endif
 SOAP_FMAC3 void SOAP_FMAC4 soap_default_SOAP_ENV__Header(struct soap*, struct SOAP_ENV__Header *);
 SOAP_FMAC3 void SOAP_FMAC4 soap_serialize_SOAP_ENV__Header(struct soap*, const struct SOAP_ENV__Header *);
@@ -281,6 +281,286 @@ inline void soap_delete_SOAP_ENV__Header(struct soap *soap, struct SOAP_ENV__Hea
 SOAP_FMAC3 void SOAP_FMAC4 soap_copy_SOAP_ENV__Header(struct soap*, int, int, void*, size_t, const void*, size_t);
 
 #endif
+
+#ifndef SOAP_TYPE_mcu__delSink
+#define SOAP_TYPE_mcu__delSink (34)
+#endif
+SOAP_FMAC3 void SOAP_FMAC4 soap_default_mcu__delSink(struct soap*, struct mcu__delSink *);
+SOAP_FMAC3 void SOAP_FMAC4 soap_serialize_mcu__delSink(struct soap*, const struct mcu__delSink *);
+SOAP_FMAC3 int SOAP_FMAC4 soap_out_mcu__delSink(struct soap*, const char*, int, const struct mcu__delSink *, const char*);
+SOAP_FMAC3 struct mcu__delSink * SOAP_FMAC4 soap_in_mcu__delSink(struct soap*, const char*, struct mcu__delSink *, const char*);
+
+SOAP_FMAC3 int SOAP_FMAC4 soap_put_mcu__delSink(struct soap*, const struct mcu__delSink *, const char*, const char*);
+
+#ifndef soap_write_mcu__delSink
+#define soap_write_mcu__delSink(soap, data) ( soap_free_temp(soap), soap_begin_send(soap) || (soap_serialize_mcu__delSink(soap, data),0) || soap_put_mcu__delSink(soap, data, "mcu:delSink", NULL) || soap_end_send(soap), (soap)->error )
+#endif
+
+SOAP_FMAC3 struct mcu__delSink * SOAP_FMAC4 soap_get_mcu__delSink(struct soap*, struct mcu__delSink *, const char*, const char*);
+
+#ifndef soap_read_mcu__delSink
+#define soap_read_mcu__delSink(soap, data) ( soap_begin_recv(soap) || !soap_get_mcu__delSink(soap, data, NULL, NULL) || soap_end_recv(soap), (soap)->error )
+#endif
+
+SOAP_FMAC1 struct mcu__delSink * SOAP_FMAC2 soap_instantiate_mcu__delSink(struct soap*, int, const char*, const char*, size_t*);
+
+inline struct mcu__delSink * soap_new_mcu__delSink(struct soap *soap, int n = -1) { return soap_instantiate_mcu__delSink(soap, n, NULL, NULL, NULL); }
+
+inline struct mcu__delSink * soap_new_req_mcu__delSink(struct soap *soap) { struct mcu__delSink *_p = soap_instantiate_mcu__delSink(soap, -1, NULL, NULL, NULL); if (_p) { soap_default_mcu__delSink(soap, _p); } return _p; }
+
+inline struct mcu__delSink * soap_new_set_mcu__delSink(struct soap *soap, char *memberid, char *sinkid) { struct mcu__delSink *_p = soap_instantiate_mcu__delSink(soap, -1, NULL, NULL, NULL); if (_p) { soap_default_mcu__delSink(soap, _p); _p->memberid = memberid; _p->sinkid = sinkid; } return _p; }
+
+inline void soap_delete_mcu__delSink(struct soap *soap, struct mcu__delSink *p) { soap_delete(soap, p); }
+
+SOAP_FMAC3 void SOAP_FMAC4 soap_copy_mcu__delSink(struct soap*, int, int, void*, size_t, const void*, size_t);
+
+#ifndef SOAP_TYPE_mcu__addSink
+#define SOAP_TYPE_mcu__addSink (32)
+#endif
+SOAP_FMAC3 void SOAP_FMAC4 soap_default_mcu__addSink(struct soap*, struct mcu__addSink *);
+SOAP_FMAC3 void SOAP_FMAC4 soap_serialize_mcu__addSink(struct soap*, const struct mcu__addSink *);
+SOAP_FMAC3 int SOAP_FMAC4 soap_out_mcu__addSink(struct soap*, const char*, int, const struct mcu__addSink *, const char*);
+SOAP_FMAC3 struct mcu__addSink * SOAP_FMAC4 soap_in_mcu__addSink(struct soap*, const char*, struct mcu__addSink *, const char*);
+
+SOAP_FMAC3 int SOAP_FMAC4 soap_put_mcu__addSink(struct soap*, const struct mcu__addSink *, const char*, const char*);
+
+#ifndef soap_write_mcu__addSink
+#define soap_write_mcu__addSink(soap, data) ( soap_free_temp(soap), soap_begin_send(soap) || (soap_serialize_mcu__addSink(soap, data),0) || soap_put_mcu__addSink(soap, data, "mcu:addSink", NULL) || soap_end_send(soap), (soap)->error )
+#endif
+
+SOAP_FMAC3 struct mcu__addSink * SOAP_FMAC4 soap_get_mcu__addSink(struct soap*, struct mcu__addSink *, const char*, const char*);
+
+#ifndef soap_read_mcu__addSink
+#define soap_read_mcu__addSink(soap, data) ( soap_begin_recv(soap) || !soap_get_mcu__addSink(soap, data, NULL, NULL) || soap_end_recv(soap), (soap)->error )
+#endif
+
+SOAP_FMAC1 struct mcu__addSink * SOAP_FMAC2 soap_instantiate_mcu__addSink(struct soap*, int, const char*, const char*, size_t*);
+
+inline struct mcu__addSink * soap_new_mcu__addSink(struct soap *soap, int n = -1) { return soap_instantiate_mcu__addSink(soap, n, NULL, NULL, NULL); }
+
+inline struct mcu__addSink * soap_new_req_mcu__addSink(struct soap *soap) { struct mcu__addSink *_p = soap_instantiate_mcu__addSink(soap, -1, NULL, NULL, NULL); if (_p) { soap_default_mcu__addSink(soap, _p); } return _p; }
+
+inline struct mcu__addSink * soap_new_set_mcu__addSink(struct soap *soap, char *memberid) { struct mcu__addSink *_p = soap_instantiate_mcu__addSink(soap, -1, NULL, NULL, NULL); if (_p) { soap_default_mcu__addSink(soap, _p); _p->memberid = memberid; } return _p; }
+
+inline void soap_delete_mcu__addSink(struct soap *soap, struct mcu__addSink *p) { soap_delete(soap, p); }
+
+SOAP_FMAC3 void SOAP_FMAC4 soap_copy_mcu__addSink(struct soap*, int, int, void*, size_t, const void*, size_t);
+
+#ifndef SOAP_TYPE_mcu__VideoSinkResponse
+#define SOAP_TYPE_mcu__VideoSinkResponse (29)
+#endif
+
+#define soap_default_mcu__VideoSinkResponse(soap, a) soap_default_mcu__VideoSink(soap, a)
+
+SOAP_FMAC3 void SOAP_FMAC4 soap_serialize_mcu__VideoSinkResponse(struct soap*, const struct mcu__VideoSink *);
+SOAP_FMAC3 int SOAP_FMAC4 soap_out_mcu__VideoSinkResponse(struct soap*, const char*, int, const struct mcu__VideoSink *, const char*);
+SOAP_FMAC3 struct mcu__VideoSink * SOAP_FMAC4 soap_in_mcu__VideoSinkResponse(struct soap*, const char*, struct mcu__VideoSink *, const char*);
+
+SOAP_FMAC3 int SOAP_FMAC4 soap_put_mcu__VideoSinkResponse(struct soap*, const struct mcu__VideoSink *, const char*, const char*);
+
+#ifndef soap_write_mcu__VideoSinkResponse
+#define soap_write_mcu__VideoSinkResponse(soap, data) ( soap_free_temp(soap), soap_begin_send(soap) || (soap_serialize_mcu__VideoSinkResponse(soap, data),0) || soap_put_mcu__VideoSinkResponse(soap, data, "mcu:VideoSinkResponse", NULL) || soap_end_send(soap), (soap)->error )
+#endif
+
+SOAP_FMAC3 struct mcu__VideoSink * SOAP_FMAC4 soap_get_mcu__VideoSinkResponse(struct soap*, struct mcu__VideoSink *, const char*, const char*);
+
+#ifndef soap_read_mcu__VideoSinkResponse
+#define soap_read_mcu__VideoSinkResponse(soap, data) ( soap_begin_recv(soap) || !soap_get_mcu__VideoSinkResponse(soap, data, NULL, NULL) || soap_end_recv(soap), (soap)->error )
+#endif
+
+
+#define soap_instantiate_mcu__VideoSinkResponse soap_instantiate_mcu__VideoSink
+
+
+#define soap_copy_mcu__VideoSinkResponse soap_copy_mcu__VideoSink
+
+#ifndef SOAP_TYPE_mcu__VideoSink
+#define SOAP_TYPE_mcu__VideoSink (28)
+#endif
+SOAP_FMAC3 void SOAP_FMAC4 soap_default_mcu__VideoSink(struct soap*, struct mcu__VideoSink *);
+SOAP_FMAC3 void SOAP_FMAC4 soap_serialize_mcu__VideoSink(struct soap*, const struct mcu__VideoSink *);
+SOAP_FMAC3 int SOAP_FMAC4 soap_out_mcu__VideoSink(struct soap*, const char*, int, const struct mcu__VideoSink *, const char*);
+SOAP_FMAC3 struct mcu__VideoSink * SOAP_FMAC4 soap_in_mcu__VideoSink(struct soap*, const char*, struct mcu__VideoSink *, const char*);
+
+SOAP_FMAC3 int SOAP_FMAC4 soap_put_mcu__VideoSink(struct soap*, const struct mcu__VideoSink *, const char*, const char*);
+
+#ifndef soap_write_mcu__VideoSink
+#define soap_write_mcu__VideoSink(soap, data) ( soap_free_temp(soap), soap_begin_send(soap) || (soap_serialize_mcu__VideoSink(soap, data),0) || soap_put_mcu__VideoSink(soap, data, "mcu:VideoSink", NULL) || soap_end_send(soap), (soap)->error )
+#endif
+
+SOAP_FMAC3 struct mcu__VideoSink * SOAP_FMAC4 soap_get_mcu__VideoSink(struct soap*, struct mcu__VideoSink *, const char*, const char*);
+
+#ifndef soap_read_mcu__VideoSink
+#define soap_read_mcu__VideoSink(soap, data) ( soap_begin_recv(soap) || !soap_get_mcu__VideoSink(soap, data, NULL, NULL) || soap_end_recv(soap), (soap)->error )
+#endif
+
+SOAP_FMAC1 struct mcu__VideoSink * SOAP_FMAC2 soap_instantiate_mcu__VideoSink(struct soap*, int, const char*, const char*, size_t*);
+
+inline struct mcu__VideoSink * soap_new_mcu__VideoSink(struct soap *soap, int n = -1) { return soap_instantiate_mcu__VideoSink(soap, n, NULL, NULL, NULL); }
+
+inline struct mcu__VideoSink * soap_new_req_mcu__VideoSink(struct soap *soap, int id, int sourceid, struct mcu__MediaEndpoint& endpoint) { struct mcu__VideoSink *_p = soap_instantiate_mcu__VideoSink(soap, -1, NULL, NULL, NULL); if (_p) { soap_default_mcu__VideoSink(soap, _p); _p->id = id; _p->sourceid = sourceid; _p->endpoint = endpoint; } return _p; }
+
+inline struct mcu__VideoSink * soap_new_set_mcu__VideoSink(struct soap *soap, int id, int sourceid, struct mcu__MediaEndpoint& endpoint) { struct mcu__VideoSink *_p = soap_instantiate_mcu__VideoSink(soap, -1, NULL, NULL, NULL); if (_p) { soap_default_mcu__VideoSink(soap, _p); _p->id = id; _p->sourceid = sourceid; _p->endpoint = endpoint; } return _p; }
+
+inline void soap_delete_mcu__VideoSink(struct soap *soap, struct mcu__VideoSink *p) { soap_delete(soap, p); }
+
+SOAP_FMAC3 void SOAP_FMAC4 soap_copy_mcu__VideoSink(struct soap*, int, int, void*, size_t, const void*, size_t);
+
+#ifndef SOAP_TYPE_mcu__delSource
+#define SOAP_TYPE_mcu__delSource (27)
+#endif
+SOAP_FMAC3 void SOAP_FMAC4 soap_default_mcu__delSource(struct soap*, struct mcu__delSource *);
+SOAP_FMAC3 void SOAP_FMAC4 soap_serialize_mcu__delSource(struct soap*, const struct mcu__delSource *);
+SOAP_FMAC3 int SOAP_FMAC4 soap_out_mcu__delSource(struct soap*, const char*, int, const struct mcu__delSource *, const char*);
+SOAP_FMAC3 struct mcu__delSource * SOAP_FMAC4 soap_in_mcu__delSource(struct soap*, const char*, struct mcu__delSource *, const char*);
+
+SOAP_FMAC3 int SOAP_FMAC4 soap_put_mcu__delSource(struct soap*, const struct mcu__delSource *, const char*, const char*);
+
+#ifndef soap_write_mcu__delSource
+#define soap_write_mcu__delSource(soap, data) ( soap_free_temp(soap), soap_begin_send(soap) || (soap_serialize_mcu__delSource(soap, data),0) || soap_put_mcu__delSource(soap, data, "mcu:delSource", NULL) || soap_end_send(soap), (soap)->error )
+#endif
+
+SOAP_FMAC3 struct mcu__delSource * SOAP_FMAC4 soap_get_mcu__delSource(struct soap*, struct mcu__delSource *, const char*, const char*);
+
+#ifndef soap_read_mcu__delSource
+#define soap_read_mcu__delSource(soap, data) ( soap_begin_recv(soap) || !soap_get_mcu__delSource(soap, data, NULL, NULL) || soap_end_recv(soap), (soap)->error )
+#endif
+
+SOAP_FMAC1 struct mcu__delSource * SOAP_FMAC2 soap_instantiate_mcu__delSource(struct soap*, int, const char*, const char*, size_t*);
+
+inline struct mcu__delSource * soap_new_mcu__delSource(struct soap *soap, int n = -1) { return soap_instantiate_mcu__delSource(soap, n, NULL, NULL, NULL); }
+
+inline struct mcu__delSource * soap_new_req_mcu__delSource(struct soap *soap) { struct mcu__delSource *_p = soap_instantiate_mcu__delSource(soap, -1, NULL, NULL, NULL); if (_p) { soap_default_mcu__delSource(soap, _p); } return _p; }
+
+inline struct mcu__delSource * soap_new_set_mcu__delSource(struct soap *soap, char *memberid, char *sourceid) { struct mcu__delSource *_p = soap_instantiate_mcu__delSource(soap, -1, NULL, NULL, NULL); if (_p) { soap_default_mcu__delSource(soap, _p); _p->memberid = memberid; _p->sourceid = sourceid; } return _p; }
+
+inline void soap_delete_mcu__delSource(struct soap *soap, struct mcu__delSource *p) { soap_delete(soap, p); }
+
+SOAP_FMAC3 void SOAP_FMAC4 soap_copy_mcu__delSource(struct soap*, int, int, void*, size_t, const void*, size_t);
+
+#ifndef SOAP_TYPE_mcu__addSource
+#define SOAP_TYPE_mcu__addSource (25)
+#endif
+SOAP_FMAC3 void SOAP_FMAC4 soap_default_mcu__addSource(struct soap*, struct mcu__addSource *);
+SOAP_FMAC3 void SOAP_FMAC4 soap_serialize_mcu__addSource(struct soap*, const struct mcu__addSource *);
+SOAP_FMAC3 int SOAP_FMAC4 soap_out_mcu__addSource(struct soap*, const char*, int, const struct mcu__addSource *, const char*);
+SOAP_FMAC3 struct mcu__addSource * SOAP_FMAC4 soap_in_mcu__addSource(struct soap*, const char*, struct mcu__addSource *, const char*);
+
+SOAP_FMAC3 int SOAP_FMAC4 soap_put_mcu__addSource(struct soap*, const struct mcu__addSource *, const char*, const char*);
+
+#ifndef soap_write_mcu__addSource
+#define soap_write_mcu__addSource(soap, data) ( soap_free_temp(soap), soap_begin_send(soap) || (soap_serialize_mcu__addSource(soap, data),0) || soap_put_mcu__addSource(soap, data, "mcu:addSource", NULL) || soap_end_send(soap), (soap)->error )
+#endif
+
+SOAP_FMAC3 struct mcu__addSource * SOAP_FMAC4 soap_get_mcu__addSource(struct soap*, struct mcu__addSource *, const char*, const char*);
+
+#ifndef soap_read_mcu__addSource
+#define soap_read_mcu__addSource(soap, data) ( soap_begin_recv(soap) || !soap_get_mcu__addSource(soap, data, NULL, NULL) || soap_end_recv(soap), (soap)->error )
+#endif
+
+SOAP_FMAC1 struct mcu__addSource * SOAP_FMAC2 soap_instantiate_mcu__addSource(struct soap*, int, const char*, const char*, size_t*);
+
+inline struct mcu__addSource * soap_new_mcu__addSource(struct soap *soap, int n = -1) { return soap_instantiate_mcu__addSource(soap, n, NULL, NULL, NULL); }
+
+inline struct mcu__addSource * soap_new_req_mcu__addSource(struct soap *soap) { struct mcu__addSource *_p = soap_instantiate_mcu__addSource(soap, -1, NULL, NULL, NULL); if (_p) { soap_default_mcu__addSource(soap, _p); } return _p; }
+
+inline struct mcu__addSource * soap_new_set_mcu__addSource(struct soap *soap, char *memberid) { struct mcu__addSource *_p = soap_instantiate_mcu__addSource(soap, -1, NULL, NULL, NULL); if (_p) { soap_default_mcu__addSource(soap, _p); _p->memberid = memberid; } return _p; }
+
+inline void soap_delete_mcu__addSource(struct soap *soap, struct mcu__addSource *p) { soap_delete(soap, p); }
+
+SOAP_FMAC3 void SOAP_FMAC4 soap_copy_mcu__addSource(struct soap*, int, int, void*, size_t, const void*, size_t);
+
+#ifndef SOAP_TYPE_mcu__VideoSourceResponse
+#define SOAP_TYPE_mcu__VideoSourceResponse (22)
+#endif
+
+#define soap_default_mcu__VideoSourceResponse(soap, a) soap_default_mcu__VideoSource(soap, a)
+
+SOAP_FMAC3 void SOAP_FMAC4 soap_serialize_mcu__VideoSourceResponse(struct soap*, const struct mcu__VideoSource *);
+SOAP_FMAC3 int SOAP_FMAC4 soap_out_mcu__VideoSourceResponse(struct soap*, const char*, int, const struct mcu__VideoSource *, const char*);
+SOAP_FMAC3 struct mcu__VideoSource * SOAP_FMAC4 soap_in_mcu__VideoSourceResponse(struct soap*, const char*, struct mcu__VideoSource *, const char*);
+
+SOAP_FMAC3 int SOAP_FMAC4 soap_put_mcu__VideoSourceResponse(struct soap*, const struct mcu__VideoSource *, const char*, const char*);
+
+#ifndef soap_write_mcu__VideoSourceResponse
+#define soap_write_mcu__VideoSourceResponse(soap, data) ( soap_free_temp(soap), soap_begin_send(soap) || (soap_serialize_mcu__VideoSourceResponse(soap, data),0) || soap_put_mcu__VideoSourceResponse(soap, data, "mcu:VideoSourceResponse", NULL) || soap_end_send(soap), (soap)->error )
+#endif
+
+SOAP_FMAC3 struct mcu__VideoSource * SOAP_FMAC4 soap_get_mcu__VideoSourceResponse(struct soap*, struct mcu__VideoSource *, const char*, const char*);
+
+#ifndef soap_read_mcu__VideoSourceResponse
+#define soap_read_mcu__VideoSourceResponse(soap, data) ( soap_begin_recv(soap) || !soap_get_mcu__VideoSourceResponse(soap, data, NULL, NULL) || soap_end_recv(soap), (soap)->error )
+#endif
+
+
+#define soap_instantiate_mcu__VideoSourceResponse soap_instantiate_mcu__VideoSource
+
+
+#define soap_copy_mcu__VideoSourceResponse soap_copy_mcu__VideoSource
+
+#ifndef SOAP_TYPE_mcu__VideoSource
+#define SOAP_TYPE_mcu__VideoSource (21)
+#endif
+SOAP_FMAC3 void SOAP_FMAC4 soap_default_mcu__VideoSource(struct soap*, struct mcu__VideoSource *);
+SOAP_FMAC3 void SOAP_FMAC4 soap_serialize_mcu__VideoSource(struct soap*, const struct mcu__VideoSource *);
+SOAP_FMAC3 int SOAP_FMAC4 soap_out_mcu__VideoSource(struct soap*, const char*, int, const struct mcu__VideoSource *, const char*);
+SOAP_FMAC3 struct mcu__VideoSource * SOAP_FMAC4 soap_in_mcu__VideoSource(struct soap*, const char*, struct mcu__VideoSource *, const char*);
+
+SOAP_FMAC3 int SOAP_FMAC4 soap_put_mcu__VideoSource(struct soap*, const struct mcu__VideoSource *, const char*, const char*);
+
+#ifndef soap_write_mcu__VideoSource
+#define soap_write_mcu__VideoSource(soap, data) ( soap_free_temp(soap), soap_begin_send(soap) || (soap_serialize_mcu__VideoSource(soap, data),0) || soap_put_mcu__VideoSource(soap, data, "mcu:VideoSource", NULL) || soap_end_send(soap), (soap)->error )
+#endif
+
+SOAP_FMAC3 struct mcu__VideoSource * SOAP_FMAC4 soap_get_mcu__VideoSource(struct soap*, struct mcu__VideoSource *, const char*, const char*);
+
+#ifndef soap_read_mcu__VideoSource
+#define soap_read_mcu__VideoSource(soap, data) ( soap_begin_recv(soap) || !soap_get_mcu__VideoSource(soap, data, NULL, NULL) || soap_end_recv(soap), (soap)->error )
+#endif
+
+SOAP_FMAC1 struct mcu__VideoSource * SOAP_FMAC2 soap_instantiate_mcu__VideoSource(struct soap*, int, const char*, const char*, size_t*);
+
+inline struct mcu__VideoSource * soap_new_mcu__VideoSource(struct soap *soap, int n = -1) { return soap_instantiate_mcu__VideoSource(soap, n, NULL, NULL, NULL); }
+
+inline struct mcu__VideoSource * soap_new_req_mcu__VideoSource(struct soap *soap, int id, int codec, struct mcu__MediaEndpoint& endpoint) { struct mcu__VideoSource *_p = soap_instantiate_mcu__VideoSource(soap, -1, NULL, NULL, NULL); if (_p) { soap_default_mcu__VideoSource(soap, _p); _p->id = id; _p->codec = codec; _p->endpoint = endpoint; } return _p; }
+
+inline struct mcu__VideoSource * soap_new_set_mcu__VideoSource(struct soap *soap, int id, int codec, struct mcu__MediaEndpoint& endpoint) { struct mcu__VideoSource *_p = soap_instantiate_mcu__VideoSource(soap, -1, NULL, NULL, NULL); if (_p) { soap_default_mcu__VideoSource(soap, _p); _p->id = id; _p->codec = codec; _p->endpoint = endpoint; } return _p; }
+
+inline void soap_delete_mcu__VideoSource(struct soap *soap, struct mcu__VideoSource *p) { soap_delete(soap, p); }
+
+SOAP_FMAC3 void SOAP_FMAC4 soap_copy_mcu__VideoSource(struct soap*, int, int, void*, size_t, const void*, size_t);
+
+#ifndef SOAP_TYPE_mcu__MediaEndpoint
+#define SOAP_TYPE_mcu__MediaEndpoint (20)
+#endif
+SOAP_FMAC3 void SOAP_FMAC4 soap_default_mcu__MediaEndpoint(struct soap*, struct mcu__MediaEndpoint *);
+SOAP_FMAC3 void SOAP_FMAC4 soap_serialize_mcu__MediaEndpoint(struct soap*, const struct mcu__MediaEndpoint *);
+SOAP_FMAC3 int SOAP_FMAC4 soap_out_mcu__MediaEndpoint(struct soap*, const char*, int, const struct mcu__MediaEndpoint *, const char*);
+SOAP_FMAC3 struct mcu__MediaEndpoint * SOAP_FMAC4 soap_in_mcu__MediaEndpoint(struct soap*, const char*, struct mcu__MediaEndpoint *, const char*);
+
+SOAP_FMAC3 int SOAP_FMAC4 soap_put_mcu__MediaEndpoint(struct soap*, const struct mcu__MediaEndpoint *, const char*, const char*);
+
+#ifndef soap_write_mcu__MediaEndpoint
+#define soap_write_mcu__MediaEndpoint(soap, data) ( soap_free_temp(soap), soap_begin_send(soap) || (soap_serialize_mcu__MediaEndpoint(soap, data),0) || soap_put_mcu__MediaEndpoint(soap, data, "mcu:MediaEndpoint", NULL) || soap_end_send(soap), (soap)->error )
+#endif
+
+SOAP_FMAC3 struct mcu__MediaEndpoint * SOAP_FMAC4 soap_get_mcu__MediaEndpoint(struct soap*, struct mcu__MediaEndpoint *, const char*, const char*);
+
+#ifndef soap_read_mcu__MediaEndpoint
+#define soap_read_mcu__MediaEndpoint(soap, data) ( soap_begin_recv(soap) || !soap_get_mcu__MediaEndpoint(soap, data, NULL, NULL) || soap_end_recv(soap), (soap)->error )
+#endif
+
+SOAP_FMAC1 struct mcu__MediaEndpoint * SOAP_FMAC2 soap_instantiate_mcu__MediaEndpoint(struct soap*, int, const char*, const char*, size_t*);
+
+inline struct mcu__MediaEndpoint * soap_new_mcu__MediaEndpoint(struct soap *soap, int n = -1) { return soap_instantiate_mcu__MediaEndpoint(soap, n, NULL, NULL, NULL); }
+
+inline struct mcu__MediaEndpoint * soap_new_req_mcu__MediaEndpoint(struct soap *soap, int peerrtp, int peerrtcp, int rtp, int rtcp) { struct mcu__MediaEndpoint *_p = soap_instantiate_mcu__MediaEndpoint(soap, -1, NULL, NULL, NULL); if (_p) { soap_default_mcu__MediaEndpoint(soap, _p); _p->peerrtp = peerrtp; _p->peerrtcp = peerrtcp; _p->rtp = rtp; _p->rtcp = rtcp; } return _p; }
+
+inline struct mcu__MediaEndpoint * soap_new_set_mcu__MediaEndpoint(struct soap *soap, char *peerip, int peerrtp, int peerrtcp, char *ip, int rtp, int rtcp) { struct mcu__MediaEndpoint *_p = soap_instantiate_mcu__MediaEndpoint(soap, -1, NULL, NULL, NULL); if (_p) { soap_default_mcu__MediaEndpoint(soap, _p); _p->peerip = peerip; _p->peerrtp = peerrtp; _p->peerrtcp = peerrtcp; _p->ip = ip; _p->rtp = rtp; _p->rtcp = rtcp; } return _p; }
+
+inline void soap_delete_mcu__MediaEndpoint(struct soap *soap, struct mcu__MediaEndpoint *p) { soap_delete(soap, p); }
+
+SOAP_FMAC3 void SOAP_FMAC4 soap_copy_mcu__MediaEndpoint(struct soap*, int, int, void*, size_t, const void*, size_t);
 
 #ifndef SOAP_TYPE_mcu__getStatus
 #define SOAP_TYPE_mcu__getStatus (19)
@@ -469,7 +749,7 @@ SOAP_FMAC3 void SOAP_FMAC4 soap_copy_mcu__Version(struct soap*, int, int, void*,
 #ifndef WITH_NOGLOBAL
 
 #ifndef SOAP_TYPE_PointerToSOAP_ENV__Reason
-#define SOAP_TYPE_PointerToSOAP_ENV__Reason (27)
+#define SOAP_TYPE_PointerToSOAP_ENV__Reason (42)
 #endif
 SOAP_FMAC3 void SOAP_FMAC4 soap_serialize_PointerToSOAP_ENV__Reason(struct soap*, struct SOAP_ENV__Reason *const*);
 SOAP_FMAC3 int SOAP_FMAC4 soap_out_PointerToSOAP_ENV__Reason(struct soap*, const char *, int, struct SOAP_ENV__Reason *const*, const char *);
@@ -492,7 +772,7 @@ SOAP_FMAC3 struct SOAP_ENV__Reason ** SOAP_FMAC4 soap_get_PointerToSOAP_ENV__Rea
 #ifndef WITH_NOGLOBAL
 
 #ifndef SOAP_TYPE_PointerToSOAP_ENV__Detail
-#define SOAP_TYPE_PointerToSOAP_ENV__Detail (26)
+#define SOAP_TYPE_PointerToSOAP_ENV__Detail (41)
 #endif
 SOAP_FMAC3 void SOAP_FMAC4 soap_serialize_PointerToSOAP_ENV__Detail(struct soap*, struct SOAP_ENV__Detail *const*);
 SOAP_FMAC3 int SOAP_FMAC4 soap_out_PointerToSOAP_ENV__Detail(struct soap*, const char *, int, struct SOAP_ENV__Detail *const*, const char *);
@@ -515,7 +795,7 @@ SOAP_FMAC3 struct SOAP_ENV__Detail ** SOAP_FMAC4 soap_get_PointerToSOAP_ENV__Det
 #ifndef WITH_NOGLOBAL
 
 #ifndef SOAP_TYPE_PointerToSOAP_ENV__Code
-#define SOAP_TYPE_PointerToSOAP_ENV__Code (22)
+#define SOAP_TYPE_PointerToSOAP_ENV__Code (37)
 #endif
 SOAP_FMAC3 void SOAP_FMAC4 soap_serialize_PointerToSOAP_ENV__Code(struct soap*, struct SOAP_ENV__Code *const*);
 SOAP_FMAC3 int SOAP_FMAC4 soap_out_PointerToSOAP_ENV__Code(struct soap*, const char *, int, struct SOAP_ENV__Code *const*, const char *);

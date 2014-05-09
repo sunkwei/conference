@@ -15,7 +15,7 @@ compiling, linking, and/or using OpenSSL is allowed.
 
 #include "soapH.h"
 
-SOAP_SOURCE_STAMP("@(#) soapC.cpp ver 2.8.17r 2014-05-09 11:22:40 GMT")
+SOAP_SOURCE_STAMP("@(#) soapC.cpp ver 2.8.17r 2014-05-09 11:52:56 GMT")
 
 
 #ifndef WITH_NOGLOBAL
@@ -194,6 +194,24 @@ SOAP_FMAC3 void * SOAP_FMAC4 soap_getelement(struct soap *soap, int *type)
 		return soap_in_int(soap, NULL, NULL, "xsd:int");
 	case SOAP_TYPE_double:
 		return soap_in_double(soap, NULL, NULL, "xsd:double");
+	case SOAP_TYPE_mcu__delSink:
+		return soap_in_mcu__delSink(soap, NULL, NULL, "mcu:delSink");
+	case SOAP_TYPE_mcu__addSink:
+		return soap_in_mcu__addSink(soap, NULL, NULL, "mcu:addSink");
+	case SOAP_TYPE_mcu__VideoSinkResponse:
+		return soap_in_mcu__VideoSinkResponse(soap, NULL, NULL, "mcu:VideoSinkResponse");
+	case SOAP_TYPE_mcu__VideoSink:
+		return soap_in_mcu__VideoSink(soap, NULL, NULL, "mcu:VideoSink");
+	case SOAP_TYPE_mcu__delSource:
+		return soap_in_mcu__delSource(soap, NULL, NULL, "mcu:delSource");
+	case SOAP_TYPE_mcu__addSource:
+		return soap_in_mcu__addSource(soap, NULL, NULL, "mcu:addSource");
+	case SOAP_TYPE_mcu__VideoSourceResponse:
+		return soap_in_mcu__VideoSourceResponse(soap, NULL, NULL, "mcu:VideoSourceResponse");
+	case SOAP_TYPE_mcu__VideoSource:
+		return soap_in_mcu__VideoSource(soap, NULL, NULL, "mcu:VideoSource");
+	case SOAP_TYPE_mcu__MediaEndpoint:
+		return soap_in_mcu__MediaEndpoint(soap, NULL, NULL, "mcu:MediaEndpoint");
 	case SOAP_TYPE_mcu__getStatus:
 		return soap_in_mcu__getStatus(soap, NULL, NULL, "mcu:getStatus");
 	case SOAP_TYPE_mcu__StatusResponse:
@@ -234,6 +252,42 @@ SOAP_FMAC3 void * SOAP_FMAC4 soap_getelement(struct soap *soap, int *type)
 		if (!soap_match_tag(soap, t, "xsd:double"))
 		{	*type = SOAP_TYPE_double;
 			return soap_in_double(soap, NULL, NULL, NULL);
+		}
+		if (!soap_match_tag(soap, t, "mcu:delSink"))
+		{	*type = SOAP_TYPE_mcu__delSink;
+			return soap_in_mcu__delSink(soap, NULL, NULL, NULL);
+		}
+		if (!soap_match_tag(soap, t, "mcu:addSink"))
+		{	*type = SOAP_TYPE_mcu__addSink;
+			return soap_in_mcu__addSink(soap, NULL, NULL, NULL);
+		}
+		if (!soap_match_tag(soap, t, "mcu:VideoSinkResponse"))
+		{	*type = SOAP_TYPE_mcu__VideoSinkResponse;
+			return soap_in_mcu__VideoSinkResponse(soap, NULL, NULL, NULL);
+		}
+		if (!soap_match_tag(soap, t, "mcu:VideoSink"))
+		{	*type = SOAP_TYPE_mcu__VideoSink;
+			return soap_in_mcu__VideoSink(soap, NULL, NULL, NULL);
+		}
+		if (!soap_match_tag(soap, t, "mcu:delSource"))
+		{	*type = SOAP_TYPE_mcu__delSource;
+			return soap_in_mcu__delSource(soap, NULL, NULL, NULL);
+		}
+		if (!soap_match_tag(soap, t, "mcu:addSource"))
+		{	*type = SOAP_TYPE_mcu__addSource;
+			return soap_in_mcu__addSource(soap, NULL, NULL, NULL);
+		}
+		if (!soap_match_tag(soap, t, "mcu:VideoSourceResponse"))
+		{	*type = SOAP_TYPE_mcu__VideoSourceResponse;
+			return soap_in_mcu__VideoSourceResponse(soap, NULL, NULL, NULL);
+		}
+		if (!soap_match_tag(soap, t, "mcu:VideoSource"))
+		{	*type = SOAP_TYPE_mcu__VideoSource;
+			return soap_in_mcu__VideoSource(soap, NULL, NULL, NULL);
+		}
+		if (!soap_match_tag(soap, t, "mcu:MediaEndpoint"))
+		{	*type = SOAP_TYPE_mcu__MediaEndpoint;
+			return soap_in_mcu__MediaEndpoint(soap, NULL, NULL, NULL);
 		}
 		if (!soap_match_tag(soap, t, "mcu:getStatus"))
 		{	*type = SOAP_TYPE_mcu__getStatus;
@@ -342,6 +396,24 @@ SOAP_FMAC3 int SOAP_FMAC4 soap_putelement(struct soap *soap, const void *ptr, co
 		return soap_out_int(soap, tag, id, (const int *)ptr, "xsd:int");
 	case SOAP_TYPE_double:
 		return soap_out_double(soap, tag, id, (const double *)ptr, "xsd:double");
+	case SOAP_TYPE_mcu__delSink:
+		return soap_out_mcu__delSink(soap, tag, id, (const struct mcu__delSink *)ptr, "mcu:delSink");
+	case SOAP_TYPE_mcu__addSink:
+		return soap_out_mcu__addSink(soap, tag, id, (const struct mcu__addSink *)ptr, "mcu:addSink");
+	case SOAP_TYPE_mcu__VideoSinkResponse:
+		return soap_out_mcu__VideoSinkResponse(soap, tag, id, (const struct mcu__VideoSink *)ptr, "mcu:VideoSinkResponse");
+	case SOAP_TYPE_mcu__VideoSink:
+		return soap_out_mcu__VideoSink(soap, tag, id, (const struct mcu__VideoSink *)ptr, "mcu:VideoSink");
+	case SOAP_TYPE_mcu__delSource:
+		return soap_out_mcu__delSource(soap, tag, id, (const struct mcu__delSource *)ptr, "mcu:delSource");
+	case SOAP_TYPE_mcu__addSource:
+		return soap_out_mcu__addSource(soap, tag, id, (const struct mcu__addSource *)ptr, "mcu:addSource");
+	case SOAP_TYPE_mcu__VideoSourceResponse:
+		return soap_out_mcu__VideoSourceResponse(soap, tag, id, (const struct mcu__VideoSource *)ptr, "mcu:VideoSourceResponse");
+	case SOAP_TYPE_mcu__VideoSource:
+		return soap_out_mcu__VideoSource(soap, tag, id, (const struct mcu__VideoSource *)ptr, "mcu:VideoSource");
+	case SOAP_TYPE_mcu__MediaEndpoint:
+		return soap_out_mcu__MediaEndpoint(soap, tag, id, (const struct mcu__MediaEndpoint *)ptr, "mcu:MediaEndpoint");
 	case SOAP_TYPE_mcu__getStatus:
 		return soap_out_mcu__getStatus(soap, tag, id, (const struct mcu__getStatus *)ptr, "mcu:getStatus");
 	case SOAP_TYPE_mcu__StatusResponse:
@@ -376,6 +448,33 @@ SOAP_FMAC3 void SOAP_FMAC4 soap_markelement(struct soap *soap, const void *ptr, 
 	(void)soap; (void)ptr; (void)type; /* appease -Wall -Werror */
 	switch (type)
 	{
+	case SOAP_TYPE_mcu__delSink:
+		soap_serialize_mcu__delSink(soap, (const struct mcu__delSink *)ptr);
+		break;
+	case SOAP_TYPE_mcu__addSink:
+		soap_serialize_mcu__addSink(soap, (const struct mcu__addSink *)ptr);
+		break;
+	case SOAP_TYPE_mcu__VideoSinkResponse:
+		soap_serialize_mcu__VideoSinkResponse(soap, (const struct mcu__VideoSink *)ptr);
+		break;
+	case SOAP_TYPE_mcu__VideoSink:
+		soap_serialize_mcu__VideoSink(soap, (const struct mcu__VideoSink *)ptr);
+		break;
+	case SOAP_TYPE_mcu__delSource:
+		soap_serialize_mcu__delSource(soap, (const struct mcu__delSource *)ptr);
+		break;
+	case SOAP_TYPE_mcu__addSource:
+		soap_serialize_mcu__addSource(soap, (const struct mcu__addSource *)ptr);
+		break;
+	case SOAP_TYPE_mcu__VideoSourceResponse:
+		soap_serialize_mcu__VideoSourceResponse(soap, (const struct mcu__VideoSource *)ptr);
+		break;
+	case SOAP_TYPE_mcu__VideoSource:
+		soap_serialize_mcu__VideoSource(soap, (const struct mcu__VideoSource *)ptr);
+		break;
+	case SOAP_TYPE_mcu__MediaEndpoint:
+		soap_serialize_mcu__MediaEndpoint(soap, (const struct mcu__MediaEndpoint *)ptr);
+		break;
 	case SOAP_TYPE_mcu__getStatus:
 		soap_serialize_mcu__getStatus(soap, (const struct mcu__getStatus *)ptr);
 		break;
@@ -420,6 +519,20 @@ SOAP_FMAC3 void * SOAP_FMAC4 soap_instantiate(struct soap *soap, int t, const ch
 		return (void*)soap_instantiate_mcu__Status(soap, -1, type, arrayType, n);
 	case SOAP_TYPE_mcu__getStatus:
 		return (void*)soap_instantiate_mcu__getStatus(soap, -1, type, arrayType, n);
+	case SOAP_TYPE_mcu__MediaEndpoint:
+		return (void*)soap_instantiate_mcu__MediaEndpoint(soap, -1, type, arrayType, n);
+	case SOAP_TYPE_mcu__VideoSource:
+		return (void*)soap_instantiate_mcu__VideoSource(soap, -1, type, arrayType, n);
+	case SOAP_TYPE_mcu__addSource:
+		return (void*)soap_instantiate_mcu__addSource(soap, -1, type, arrayType, n);
+	case SOAP_TYPE_mcu__delSource:
+		return (void*)soap_instantiate_mcu__delSource(soap, -1, type, arrayType, n);
+	case SOAP_TYPE_mcu__VideoSink:
+		return (void*)soap_instantiate_mcu__VideoSink(soap, -1, type, arrayType, n);
+	case SOAP_TYPE_mcu__addSink:
+		return (void*)soap_instantiate_mcu__addSink(soap, -1, type, arrayType, n);
+	case SOAP_TYPE_mcu__delSink:
+		return (void*)soap_instantiate_mcu__delSink(soap, -1, type, arrayType, n);
 #ifndef WITH_NOGLOBAL
 	case SOAP_TYPE_SOAP_ENV__Header:
 		return (void*)soap_instantiate_SOAP_ENV__Header(soap, -1, type, arrayType, n);
@@ -444,6 +557,10 @@ SOAP_FMAC3 void * SOAP_FMAC4 soap_instantiate(struct soap *soap, int t, const ch
 		return (void*)soap_instantiate_mcu__VersionResponse(soap, -1, type, arrayType, n);
 	case SOAP_TYPE_mcu__StatusResponse:
 		return (void*)soap_instantiate_mcu__StatusResponse(soap, -1, type, arrayType, n);
+	case SOAP_TYPE_mcu__VideoSourceResponse:
+		return (void*)soap_instantiate_mcu__VideoSourceResponse(soap, -1, type, arrayType, n);
+	case SOAP_TYPE_mcu__VideoSinkResponse:
+		return (void*)soap_instantiate_mcu__VideoSinkResponse(soap, -1, type, arrayType, n);
 	}
 	return NULL;
 }
@@ -474,6 +591,48 @@ SOAP_FMAC3 int SOAP_FMAC4 soap_fdelete(struct soap_clist *p)
 			SOAP_DELETE((struct mcu__getStatus*)p->ptr);
 		else
 			SOAP_DELETE_ARRAY((struct mcu__getStatus*)p->ptr);
+		break;
+	case SOAP_TYPE_mcu__MediaEndpoint:
+		if (p->size < 0)
+			SOAP_DELETE((struct mcu__MediaEndpoint*)p->ptr);
+		else
+			SOAP_DELETE_ARRAY((struct mcu__MediaEndpoint*)p->ptr);
+		break;
+	case SOAP_TYPE_mcu__VideoSource:
+		if (p->size < 0)
+			SOAP_DELETE((struct mcu__VideoSource*)p->ptr);
+		else
+			SOAP_DELETE_ARRAY((struct mcu__VideoSource*)p->ptr);
+		break;
+	case SOAP_TYPE_mcu__addSource:
+		if (p->size < 0)
+			SOAP_DELETE((struct mcu__addSource*)p->ptr);
+		else
+			SOAP_DELETE_ARRAY((struct mcu__addSource*)p->ptr);
+		break;
+	case SOAP_TYPE_mcu__delSource:
+		if (p->size < 0)
+			SOAP_DELETE((struct mcu__delSource*)p->ptr);
+		else
+			SOAP_DELETE_ARRAY((struct mcu__delSource*)p->ptr);
+		break;
+	case SOAP_TYPE_mcu__VideoSink:
+		if (p->size < 0)
+			SOAP_DELETE((struct mcu__VideoSink*)p->ptr);
+		else
+			SOAP_DELETE_ARRAY((struct mcu__VideoSink*)p->ptr);
+		break;
+	case SOAP_TYPE_mcu__addSink:
+		if (p->size < 0)
+			SOAP_DELETE((struct mcu__addSink*)p->ptr);
+		else
+			SOAP_DELETE_ARRAY((struct mcu__addSink*)p->ptr);
+		break;
+	case SOAP_TYPE_mcu__delSink:
+		if (p->size < 0)
+			SOAP_DELETE((struct mcu__delSink*)p->ptr);
+		else
+			SOAP_DELETE_ARRAY((struct mcu__delSink*)p->ptr);
 		break;
 #ifndef WITH_NOGLOBAL
 	case SOAP_TYPE_SOAP_ENV__Header:
@@ -526,6 +685,18 @@ SOAP_FMAC3 int SOAP_FMAC4 soap_fdelete(struct soap_clist *p)
 			SOAP_DELETE((struct mcu__Status*)p->ptr);
 		else
 			SOAP_DELETE_ARRAY((struct mcu__Status*)p->ptr);
+		break;
+	case SOAP_TYPE_mcu__VideoSourceResponse:
+		if (p->size < 0)
+			SOAP_DELETE((struct mcu__VideoSource*)p->ptr);
+		else
+			SOAP_DELETE_ARRAY((struct mcu__VideoSource*)p->ptr);
+		break;
+	case SOAP_TYPE_mcu__VideoSinkResponse:
+		if (p->size < 0)
+			SOAP_DELETE((struct mcu__VideoSink*)p->ptr);
+		else
+			SOAP_DELETE_ARRAY((struct mcu__VideoSink*)p->ptr);
 		break;
 	default:	return SOAP_ERR;
 	}
@@ -1289,6 +1460,1042 @@ SOAP_FMAC3 void SOAP_FMAC4 soap_copy_SOAP_ENV__Header(struct soap *soap, int st,
 }
 
 #endif
+
+SOAP_FMAC3 void SOAP_FMAC4 soap_default_mcu__delSink(struct soap *soap, struct mcu__delSink *a)
+{
+	(void)soap; (void)a; /* appease -Wall -Werror */
+	soap_default_string(soap, &a->memberid);
+	soap_default_string(soap, &a->sinkid);
+}
+
+SOAP_FMAC3 void SOAP_FMAC4 soap_serialize_mcu__delSink(struct soap *soap, const struct mcu__delSink *a)
+{
+#ifndef WITH_NOIDREF
+	(void)soap; (void)a; /* appease -Wall -Werror */
+	soap_serialize_string(soap, &a->memberid);
+	soap_serialize_string(soap, &a->sinkid);
+#endif
+}
+
+SOAP_FMAC3 int SOAP_FMAC4 soap_out_mcu__delSink(struct soap *soap, const char *tag, int id, const struct mcu__delSink *a, const char *type)
+{
+	(void)soap; (void)tag; (void)id; (void)type;
+	if (soap_element_begin_out(soap, tag, soap_embedded_id(soap, id, a, SOAP_TYPE_mcu__delSink), type))
+		return soap->error;
+	if (soap_out_string(soap, "memberid", -1, &a->memberid, ""))
+		return soap->error;
+	if (soap_out_string(soap, "sinkid", -1, &a->sinkid, ""))
+		return soap->error;
+	return soap_element_end_out(soap, tag);
+}
+
+SOAP_FMAC3 struct mcu__delSink * SOAP_FMAC4 soap_in_mcu__delSink(struct soap *soap, const char *tag, struct mcu__delSink *a, const char *type)
+{
+	size_t soap_flag_memberid = 1;
+	size_t soap_flag_sinkid = 1;
+	if (soap_element_begin_in(soap, tag, 0, type))
+		return NULL;
+	a = (struct mcu__delSink *)soap_id_enter(soap, soap->id, a, SOAP_TYPE_mcu__delSink, sizeof(struct mcu__delSink), 0, NULL, NULL, NULL);
+	if (!a)
+		return NULL;
+	soap_default_mcu__delSink(soap, a);
+	if (soap->body && !*soap->href)
+	{
+		for (;;)
+		{	soap->error = SOAP_TAG_MISMATCH;
+			if (soap_flag_memberid && (soap->error == SOAP_TAG_MISMATCH || soap->error == SOAP_NO_TAG))
+				if (soap_in_string(soap, "memberid", &a->memberid, "xsd:string"))
+				{	soap_flag_memberid--;
+					continue;
+				}
+			if (soap_flag_sinkid && (soap->error == SOAP_TAG_MISMATCH || soap->error == SOAP_NO_TAG))
+				if (soap_in_string(soap, "sinkid", &a->sinkid, "xsd:string"))
+				{	soap_flag_sinkid--;
+					continue;
+				}
+			if (soap->error == SOAP_TAG_MISMATCH)
+				soap->error = soap_ignore_element(soap);
+			if (soap->error == SOAP_NO_TAG)
+				break;
+			if (soap->error)
+				return NULL;
+		}
+		if (soap_element_end_in(soap, tag))
+			return NULL;
+	}
+	else
+	{	a = (struct mcu__delSink *)soap_id_forward(soap, soap->href, (void*)a, 0, SOAP_TYPE_mcu__delSink, 0, sizeof(struct mcu__delSink), 0, NULL);
+		if (soap->body && soap_element_end_in(soap, tag))
+			return NULL;
+	}
+	return a;
+}
+
+SOAP_FMAC3 int SOAP_FMAC4 soap_put_mcu__delSink(struct soap *soap, const struct mcu__delSink *a, const char *tag, const char *type)
+{
+	register int id = soap_embed(soap, (void*)a, NULL, 0, tag, SOAP_TYPE_mcu__delSink);
+	if (soap_out_mcu__delSink(soap, tag?tag:"mcu:delSink", id, a, type))
+		return soap->error;
+	return soap_putindependent(soap);
+}
+
+SOAP_FMAC3 struct mcu__delSink * SOAP_FMAC4 soap_get_mcu__delSink(struct soap *soap, struct mcu__delSink *p, const char *tag, const char *type)
+{
+	if ((p = soap_in_mcu__delSink(soap, tag, p, type)))
+		if (soap_getindependent(soap))
+			return NULL;
+	return p;
+}
+
+SOAP_FMAC1 struct mcu__delSink * SOAP_FMAC2 soap_instantiate_mcu__delSink(struct soap *soap, int n, const char *type, const char *arrayType, size_t *size)
+{
+	(void)type; (void)arrayType; /* appease -Wall -Werror */
+	DBGLOG(TEST, SOAP_MESSAGE(fdebug, "soap_instantiate_mcu__delSink(%d, %s, %s)\n", n, type?type:"", arrayType?arrayType:""));
+	struct soap_clist *cp = soap_link(soap, NULL, SOAP_TYPE_mcu__delSink, n, soap_fdelete);
+	if (!cp)
+		return NULL;
+	if (n < 0)
+	{	cp->ptr = (void*)SOAP_NEW(struct mcu__delSink);
+		if (size)
+			*size = sizeof(struct mcu__delSink);
+	}
+	else
+	{	cp->ptr = (void*)SOAP_NEW_ARRAY(struct mcu__delSink, n);
+		if (size)
+			*size = n * sizeof(struct mcu__delSink);
+	}
+	DBGLOG(TEST, SOAP_MESSAGE(fdebug, "Instantiated location=%p\n", cp->ptr));
+	if (!cp->ptr)
+		soap->error = SOAP_EOM;
+	return (struct mcu__delSink*)cp->ptr;
+}
+
+SOAP_FMAC3 void SOAP_FMAC4 soap_copy_mcu__delSink(struct soap *soap, int st, int tt, void *p, size_t len, const void *q, size_t n)
+{
+	(void)soap; (void)tt; (void)st; (void)len; (void)n; /* appease -Wall -Werror */
+	DBGLOG(TEST, SOAP_MESSAGE(fdebug, "Copying struct mcu__delSink %p -> %p\n", q, p));
+	*(struct mcu__delSink*)p = *(struct mcu__delSink*)q;
+}
+
+SOAP_FMAC3 void SOAP_FMAC4 soap_default_mcu__addSink(struct soap *soap, struct mcu__addSink *a)
+{
+	(void)soap; (void)a; /* appease -Wall -Werror */
+	soap_default_string(soap, &a->memberid);
+}
+
+SOAP_FMAC3 void SOAP_FMAC4 soap_serialize_mcu__addSink(struct soap *soap, const struct mcu__addSink *a)
+{
+#ifndef WITH_NOIDREF
+	(void)soap; (void)a; /* appease -Wall -Werror */
+	soap_serialize_string(soap, &a->memberid);
+#endif
+}
+
+SOAP_FMAC3 int SOAP_FMAC4 soap_out_mcu__addSink(struct soap *soap, const char *tag, int id, const struct mcu__addSink *a, const char *type)
+{
+	(void)soap; (void)tag; (void)id; (void)type;
+	if (soap_element_begin_out(soap, tag, soap_embedded_id(soap, id, a, SOAP_TYPE_mcu__addSink), type))
+		return soap->error;
+	if (soap_out_string(soap, "memberid", -1, &a->memberid, ""))
+		return soap->error;
+	return soap_element_end_out(soap, tag);
+}
+
+SOAP_FMAC3 struct mcu__addSink * SOAP_FMAC4 soap_in_mcu__addSink(struct soap *soap, const char *tag, struct mcu__addSink *a, const char *type)
+{
+	size_t soap_flag_memberid = 1;
+	if (soap_element_begin_in(soap, tag, 0, type))
+		return NULL;
+	a = (struct mcu__addSink *)soap_id_enter(soap, soap->id, a, SOAP_TYPE_mcu__addSink, sizeof(struct mcu__addSink), 0, NULL, NULL, NULL);
+	if (!a)
+		return NULL;
+	soap_default_mcu__addSink(soap, a);
+	if (soap->body && !*soap->href)
+	{
+		for (;;)
+		{	soap->error = SOAP_TAG_MISMATCH;
+			if (soap_flag_memberid && (soap->error == SOAP_TAG_MISMATCH || soap->error == SOAP_NO_TAG))
+				if (soap_in_string(soap, "memberid", &a->memberid, "xsd:string"))
+				{	soap_flag_memberid--;
+					continue;
+				}
+			if (soap->error == SOAP_TAG_MISMATCH)
+				soap->error = soap_ignore_element(soap);
+			if (soap->error == SOAP_NO_TAG)
+				break;
+			if (soap->error)
+				return NULL;
+		}
+		if (soap_element_end_in(soap, tag))
+			return NULL;
+	}
+	else
+	{	a = (struct mcu__addSink *)soap_id_forward(soap, soap->href, (void*)a, 0, SOAP_TYPE_mcu__addSink, 0, sizeof(struct mcu__addSink), 0, NULL);
+		if (soap->body && soap_element_end_in(soap, tag))
+			return NULL;
+	}
+	return a;
+}
+
+SOAP_FMAC3 int SOAP_FMAC4 soap_put_mcu__addSink(struct soap *soap, const struct mcu__addSink *a, const char *tag, const char *type)
+{
+	register int id = soap_embed(soap, (void*)a, NULL, 0, tag, SOAP_TYPE_mcu__addSink);
+	if (soap_out_mcu__addSink(soap, tag?tag:"mcu:addSink", id, a, type))
+		return soap->error;
+	return soap_putindependent(soap);
+}
+
+SOAP_FMAC3 struct mcu__addSink * SOAP_FMAC4 soap_get_mcu__addSink(struct soap *soap, struct mcu__addSink *p, const char *tag, const char *type)
+{
+	if ((p = soap_in_mcu__addSink(soap, tag, p, type)))
+		if (soap_getindependent(soap))
+			return NULL;
+	return p;
+}
+
+SOAP_FMAC1 struct mcu__addSink * SOAP_FMAC2 soap_instantiate_mcu__addSink(struct soap *soap, int n, const char *type, const char *arrayType, size_t *size)
+{
+	(void)type; (void)arrayType; /* appease -Wall -Werror */
+	DBGLOG(TEST, SOAP_MESSAGE(fdebug, "soap_instantiate_mcu__addSink(%d, %s, %s)\n", n, type?type:"", arrayType?arrayType:""));
+	struct soap_clist *cp = soap_link(soap, NULL, SOAP_TYPE_mcu__addSink, n, soap_fdelete);
+	if (!cp)
+		return NULL;
+	if (n < 0)
+	{	cp->ptr = (void*)SOAP_NEW(struct mcu__addSink);
+		if (size)
+			*size = sizeof(struct mcu__addSink);
+	}
+	else
+	{	cp->ptr = (void*)SOAP_NEW_ARRAY(struct mcu__addSink, n);
+		if (size)
+			*size = n * sizeof(struct mcu__addSink);
+	}
+	DBGLOG(TEST, SOAP_MESSAGE(fdebug, "Instantiated location=%p\n", cp->ptr));
+	if (!cp->ptr)
+		soap->error = SOAP_EOM;
+	return (struct mcu__addSink*)cp->ptr;
+}
+
+SOAP_FMAC3 void SOAP_FMAC4 soap_copy_mcu__addSink(struct soap *soap, int st, int tt, void *p, size_t len, const void *q, size_t n)
+{
+	(void)soap; (void)tt; (void)st; (void)len; (void)n; /* appease -Wall -Werror */
+	DBGLOG(TEST, SOAP_MESSAGE(fdebug, "Copying struct mcu__addSink %p -> %p\n", q, p));
+	*(struct mcu__addSink*)p = *(struct mcu__addSink*)q;
+}
+
+SOAP_FMAC3 void SOAP_FMAC4 soap_serialize_mcu__VideoSinkResponse(struct soap *soap, const struct mcu__VideoSink *a)
+{
+#ifndef WITH_NOIDREF
+	(void)soap; (void)a; /* appease -Wall -Werror */
+	soap_serialize_mcu__MediaEndpoint(soap, &a->endpoint);
+#endif
+}
+
+SOAP_FMAC3 int SOAP_FMAC4 soap_out_mcu__VideoSinkResponse(struct soap *soap, const char *tag, int id, const struct mcu__VideoSink *a, const char *type)
+{
+	(void)soap; (void)tag; (void)id; (void)type;
+	if (soap_element_begin_out(soap, tag, soap_embedded_id(soap, id, a, SOAP_TYPE_mcu__VideoSinkResponse), type))
+		return soap->error;
+	if (soap_out_int(soap, "id", -1, &a->id, ""))
+		return soap->error;
+	if (soap_out_int(soap, "sourceid", -1, &a->sourceid, ""))
+		return soap->error;
+	if (soap_out_mcu__MediaEndpoint(soap, "endpoint", -1, &a->endpoint, ""))
+		return soap->error;
+	return soap_element_end_out(soap, tag);
+}
+
+SOAP_FMAC3 struct mcu__VideoSink * SOAP_FMAC4 soap_in_mcu__VideoSinkResponse(struct soap *soap, const char *tag, struct mcu__VideoSink *a, const char *type)
+{
+	size_t soap_flag_id = 1;
+	size_t soap_flag_sourceid = 1;
+	size_t soap_flag_endpoint = 1;
+	if (soap_element_begin_in(soap, tag, 0, type))
+		return NULL;
+	a = (struct mcu__VideoSink *)soap_id_enter(soap, soap->id, a, SOAP_TYPE_mcu__VideoSinkResponse, sizeof(struct mcu__VideoSink), 0, NULL, NULL, NULL);
+	if (!a)
+		return NULL;
+	soap_default_mcu__VideoSinkResponse(soap, a);
+	if (soap->body && !*soap->href)
+	{
+		for (;;)
+		{	soap->error = SOAP_TAG_MISMATCH;
+			if (soap_flag_id && soap->error == SOAP_TAG_MISMATCH)
+				if (soap_in_int(soap, "id", &a->id, "xsd:int"))
+				{	soap_flag_id--;
+					continue;
+				}
+			if (soap_flag_sourceid && soap->error == SOAP_TAG_MISMATCH)
+				if (soap_in_int(soap, "sourceid", &a->sourceid, "xsd:int"))
+				{	soap_flag_sourceid--;
+					continue;
+				}
+			if (soap_flag_endpoint && soap->error == SOAP_TAG_MISMATCH)
+				if (soap_in_mcu__MediaEndpoint(soap, "endpoint", &a->endpoint, "mcu:MediaEndpoint"))
+				{	soap_flag_endpoint--;
+					continue;
+				}
+			if (soap->error == SOAP_TAG_MISMATCH)
+				soap->error = soap_ignore_element(soap);
+			if (soap->error == SOAP_NO_TAG)
+				break;
+			if (soap->error)
+				return NULL;
+		}
+		if (soap_element_end_in(soap, tag))
+			return NULL;
+	}
+	else
+	{	a = (struct mcu__VideoSink *)soap_id_forward(soap, soap->href, (void*)a, 0, SOAP_TYPE_mcu__VideoSinkResponse, 0, sizeof(struct mcu__VideoSink), 0, NULL);
+		if (soap->body && soap_element_end_in(soap, tag))
+			return NULL;
+	}
+	if ((soap->mode & SOAP_XML_STRICT) && (soap_flag_id > 0 || soap_flag_sourceid > 0 || soap_flag_endpoint > 0))
+	{	soap->error = SOAP_OCCURS;
+		return NULL;
+	}
+	return a;
+}
+
+SOAP_FMAC3 int SOAP_FMAC4 soap_put_mcu__VideoSinkResponse(struct soap *soap, const struct mcu__VideoSink *a, const char *tag, const char *type)
+{
+	register int id = soap_embed(soap, (void*)a, NULL, 0, tag, SOAP_TYPE_mcu__VideoSinkResponse);
+	if (soap_out_mcu__VideoSinkResponse(soap, tag?tag:"mcu:VideoSinkResponse", id, a, type))
+		return soap->error;
+	return soap_putindependent(soap);
+}
+
+SOAP_FMAC3 struct mcu__VideoSink * SOAP_FMAC4 soap_get_mcu__VideoSinkResponse(struct soap *soap, struct mcu__VideoSink *p, const char *tag, const char *type)
+{
+	if ((p = soap_in_mcu__VideoSinkResponse(soap, tag, p, type)))
+		if (soap_getindependent(soap))
+			return NULL;
+	return p;
+}
+
+SOAP_FMAC3 void SOAP_FMAC4 soap_default_mcu__VideoSink(struct soap *soap, struct mcu__VideoSink *a)
+{
+	(void)soap; (void)a; /* appease -Wall -Werror */
+	soap_default_int(soap, &a->id);
+	soap_default_int(soap, &a->sourceid);
+	soap_default_mcu__MediaEndpoint(soap, &a->endpoint);
+}
+
+SOAP_FMAC3 void SOAP_FMAC4 soap_serialize_mcu__VideoSink(struct soap *soap, const struct mcu__VideoSink *a)
+{
+#ifndef WITH_NOIDREF
+	(void)soap; (void)a; /* appease -Wall -Werror */
+	soap_serialize_mcu__MediaEndpoint(soap, &a->endpoint);
+#endif
+}
+
+SOAP_FMAC3 int SOAP_FMAC4 soap_out_mcu__VideoSink(struct soap *soap, const char *tag, int id, const struct mcu__VideoSink *a, const char *type)
+{
+	(void)soap; (void)tag; (void)id; (void)type;
+	if (soap_element_begin_out(soap, tag, soap_embedded_id(soap, id, a, SOAP_TYPE_mcu__VideoSink), type))
+		return soap->error;
+	if (soap_out_int(soap, "id", -1, &a->id, ""))
+		return soap->error;
+	if (soap_out_int(soap, "sourceid", -1, &a->sourceid, ""))
+		return soap->error;
+	if (soap_out_mcu__MediaEndpoint(soap, "endpoint", -1, &a->endpoint, ""))
+		return soap->error;
+	return soap_element_end_out(soap, tag);
+}
+
+SOAP_FMAC3 struct mcu__VideoSink * SOAP_FMAC4 soap_in_mcu__VideoSink(struct soap *soap, const char *tag, struct mcu__VideoSink *a, const char *type)
+{
+	size_t soap_flag_id = 1;
+	size_t soap_flag_sourceid = 1;
+	size_t soap_flag_endpoint = 1;
+	if (soap_element_begin_in(soap, tag, 0, type))
+		return NULL;
+	a = (struct mcu__VideoSink *)soap_id_enter(soap, soap->id, a, SOAP_TYPE_mcu__VideoSink, sizeof(struct mcu__VideoSink), 0, NULL, NULL, NULL);
+	if (!a)
+		return NULL;
+	soap_default_mcu__VideoSink(soap, a);
+	if (soap->body && !*soap->href)
+	{
+		for (;;)
+		{	soap->error = SOAP_TAG_MISMATCH;
+			if (soap_flag_id && soap->error == SOAP_TAG_MISMATCH)
+				if (soap_in_int(soap, "id", &a->id, "xsd:int"))
+				{	soap_flag_id--;
+					continue;
+				}
+			if (soap_flag_sourceid && soap->error == SOAP_TAG_MISMATCH)
+				if (soap_in_int(soap, "sourceid", &a->sourceid, "xsd:int"))
+				{	soap_flag_sourceid--;
+					continue;
+				}
+			if (soap_flag_endpoint && soap->error == SOAP_TAG_MISMATCH)
+				if (soap_in_mcu__MediaEndpoint(soap, "endpoint", &a->endpoint, "mcu:MediaEndpoint"))
+				{	soap_flag_endpoint--;
+					continue;
+				}
+			if (soap->error == SOAP_TAG_MISMATCH)
+				soap->error = soap_ignore_element(soap);
+			if (soap->error == SOAP_NO_TAG)
+				break;
+			if (soap->error)
+				return NULL;
+		}
+		if (soap_element_end_in(soap, tag))
+			return NULL;
+	}
+	else
+	{	a = (struct mcu__VideoSink *)soap_id_forward(soap, soap->href, (void*)a, 0, SOAP_TYPE_mcu__VideoSink, 0, sizeof(struct mcu__VideoSink), 0, NULL);
+		if (soap->body && soap_element_end_in(soap, tag))
+			return NULL;
+	}
+	if ((soap->mode & SOAP_XML_STRICT) && (soap_flag_id > 0 || soap_flag_sourceid > 0 || soap_flag_endpoint > 0))
+	{	soap->error = SOAP_OCCURS;
+		return NULL;
+	}
+	return a;
+}
+
+SOAP_FMAC3 int SOAP_FMAC4 soap_put_mcu__VideoSink(struct soap *soap, const struct mcu__VideoSink *a, const char *tag, const char *type)
+{
+	register int id = soap_embed(soap, (void*)a, NULL, 0, tag, SOAP_TYPE_mcu__VideoSink);
+	if (soap_out_mcu__VideoSink(soap, tag?tag:"mcu:VideoSink", id, a, type))
+		return soap->error;
+	return soap_putindependent(soap);
+}
+
+SOAP_FMAC3 struct mcu__VideoSink * SOAP_FMAC4 soap_get_mcu__VideoSink(struct soap *soap, struct mcu__VideoSink *p, const char *tag, const char *type)
+{
+	if ((p = soap_in_mcu__VideoSink(soap, tag, p, type)))
+		if (soap_getindependent(soap))
+			return NULL;
+	return p;
+}
+
+SOAP_FMAC1 struct mcu__VideoSink * SOAP_FMAC2 soap_instantiate_mcu__VideoSink(struct soap *soap, int n, const char *type, const char *arrayType, size_t *size)
+{
+	(void)type; (void)arrayType; /* appease -Wall -Werror */
+	DBGLOG(TEST, SOAP_MESSAGE(fdebug, "soap_instantiate_mcu__VideoSink(%d, %s, %s)\n", n, type?type:"", arrayType?arrayType:""));
+	struct soap_clist *cp = soap_link(soap, NULL, SOAP_TYPE_mcu__VideoSink, n, soap_fdelete);
+	if (!cp)
+		return NULL;
+	if (n < 0)
+	{	cp->ptr = (void*)SOAP_NEW(struct mcu__VideoSink);
+		if (size)
+			*size = sizeof(struct mcu__VideoSink);
+	}
+	else
+	{	cp->ptr = (void*)SOAP_NEW_ARRAY(struct mcu__VideoSink, n);
+		if (size)
+			*size = n * sizeof(struct mcu__VideoSink);
+	}
+	DBGLOG(TEST, SOAP_MESSAGE(fdebug, "Instantiated location=%p\n", cp->ptr));
+	if (!cp->ptr)
+		soap->error = SOAP_EOM;
+	return (struct mcu__VideoSink*)cp->ptr;
+}
+
+SOAP_FMAC3 void SOAP_FMAC4 soap_copy_mcu__VideoSink(struct soap *soap, int st, int tt, void *p, size_t len, const void *q, size_t n)
+{
+	(void)soap; (void)tt; (void)st; (void)len; (void)n; /* appease -Wall -Werror */
+	DBGLOG(TEST, SOAP_MESSAGE(fdebug, "Copying struct mcu__VideoSink %p -> %p\n", q, p));
+	*(struct mcu__VideoSink*)p = *(struct mcu__VideoSink*)q;
+}
+
+SOAP_FMAC3 void SOAP_FMAC4 soap_default_mcu__delSource(struct soap *soap, struct mcu__delSource *a)
+{
+	(void)soap; (void)a; /* appease -Wall -Werror */
+	soap_default_string(soap, &a->memberid);
+	soap_default_string(soap, &a->sourceid);
+}
+
+SOAP_FMAC3 void SOAP_FMAC4 soap_serialize_mcu__delSource(struct soap *soap, const struct mcu__delSource *a)
+{
+#ifndef WITH_NOIDREF
+	(void)soap; (void)a; /* appease -Wall -Werror */
+	soap_serialize_string(soap, &a->memberid);
+	soap_serialize_string(soap, &a->sourceid);
+#endif
+}
+
+SOAP_FMAC3 int SOAP_FMAC4 soap_out_mcu__delSource(struct soap *soap, const char *tag, int id, const struct mcu__delSource *a, const char *type)
+{
+	(void)soap; (void)tag; (void)id; (void)type;
+	if (soap_element_begin_out(soap, tag, soap_embedded_id(soap, id, a, SOAP_TYPE_mcu__delSource), type))
+		return soap->error;
+	if (soap_out_string(soap, "memberid", -1, &a->memberid, ""))
+		return soap->error;
+	if (soap_out_string(soap, "sourceid", -1, &a->sourceid, ""))
+		return soap->error;
+	return soap_element_end_out(soap, tag);
+}
+
+SOAP_FMAC3 struct mcu__delSource * SOAP_FMAC4 soap_in_mcu__delSource(struct soap *soap, const char *tag, struct mcu__delSource *a, const char *type)
+{
+	size_t soap_flag_memberid = 1;
+	size_t soap_flag_sourceid = 1;
+	if (soap_element_begin_in(soap, tag, 0, type))
+		return NULL;
+	a = (struct mcu__delSource *)soap_id_enter(soap, soap->id, a, SOAP_TYPE_mcu__delSource, sizeof(struct mcu__delSource), 0, NULL, NULL, NULL);
+	if (!a)
+		return NULL;
+	soap_default_mcu__delSource(soap, a);
+	if (soap->body && !*soap->href)
+	{
+		for (;;)
+		{	soap->error = SOAP_TAG_MISMATCH;
+			if (soap_flag_memberid && (soap->error == SOAP_TAG_MISMATCH || soap->error == SOAP_NO_TAG))
+				if (soap_in_string(soap, "memberid", &a->memberid, "xsd:string"))
+				{	soap_flag_memberid--;
+					continue;
+				}
+			if (soap_flag_sourceid && (soap->error == SOAP_TAG_MISMATCH || soap->error == SOAP_NO_TAG))
+				if (soap_in_string(soap, "sourceid", &a->sourceid, "xsd:string"))
+				{	soap_flag_sourceid--;
+					continue;
+				}
+			if (soap->error == SOAP_TAG_MISMATCH)
+				soap->error = soap_ignore_element(soap);
+			if (soap->error == SOAP_NO_TAG)
+				break;
+			if (soap->error)
+				return NULL;
+		}
+		if (soap_element_end_in(soap, tag))
+			return NULL;
+	}
+	else
+	{	a = (struct mcu__delSource *)soap_id_forward(soap, soap->href, (void*)a, 0, SOAP_TYPE_mcu__delSource, 0, sizeof(struct mcu__delSource), 0, NULL);
+		if (soap->body && soap_element_end_in(soap, tag))
+			return NULL;
+	}
+	return a;
+}
+
+SOAP_FMAC3 int SOAP_FMAC4 soap_put_mcu__delSource(struct soap *soap, const struct mcu__delSource *a, const char *tag, const char *type)
+{
+	register int id = soap_embed(soap, (void*)a, NULL, 0, tag, SOAP_TYPE_mcu__delSource);
+	if (soap_out_mcu__delSource(soap, tag?tag:"mcu:delSource", id, a, type))
+		return soap->error;
+	return soap_putindependent(soap);
+}
+
+SOAP_FMAC3 struct mcu__delSource * SOAP_FMAC4 soap_get_mcu__delSource(struct soap *soap, struct mcu__delSource *p, const char *tag, const char *type)
+{
+	if ((p = soap_in_mcu__delSource(soap, tag, p, type)))
+		if (soap_getindependent(soap))
+			return NULL;
+	return p;
+}
+
+SOAP_FMAC1 struct mcu__delSource * SOAP_FMAC2 soap_instantiate_mcu__delSource(struct soap *soap, int n, const char *type, const char *arrayType, size_t *size)
+{
+	(void)type; (void)arrayType; /* appease -Wall -Werror */
+	DBGLOG(TEST, SOAP_MESSAGE(fdebug, "soap_instantiate_mcu__delSource(%d, %s, %s)\n", n, type?type:"", arrayType?arrayType:""));
+	struct soap_clist *cp = soap_link(soap, NULL, SOAP_TYPE_mcu__delSource, n, soap_fdelete);
+	if (!cp)
+		return NULL;
+	if (n < 0)
+	{	cp->ptr = (void*)SOAP_NEW(struct mcu__delSource);
+		if (size)
+			*size = sizeof(struct mcu__delSource);
+	}
+	else
+	{	cp->ptr = (void*)SOAP_NEW_ARRAY(struct mcu__delSource, n);
+		if (size)
+			*size = n * sizeof(struct mcu__delSource);
+	}
+	DBGLOG(TEST, SOAP_MESSAGE(fdebug, "Instantiated location=%p\n", cp->ptr));
+	if (!cp->ptr)
+		soap->error = SOAP_EOM;
+	return (struct mcu__delSource*)cp->ptr;
+}
+
+SOAP_FMAC3 void SOAP_FMAC4 soap_copy_mcu__delSource(struct soap *soap, int st, int tt, void *p, size_t len, const void *q, size_t n)
+{
+	(void)soap; (void)tt; (void)st; (void)len; (void)n; /* appease -Wall -Werror */
+	DBGLOG(TEST, SOAP_MESSAGE(fdebug, "Copying struct mcu__delSource %p -> %p\n", q, p));
+	*(struct mcu__delSource*)p = *(struct mcu__delSource*)q;
+}
+
+SOAP_FMAC3 void SOAP_FMAC4 soap_default_mcu__addSource(struct soap *soap, struct mcu__addSource *a)
+{
+	(void)soap; (void)a; /* appease -Wall -Werror */
+	soap_default_string(soap, &a->memberid);
+}
+
+SOAP_FMAC3 void SOAP_FMAC4 soap_serialize_mcu__addSource(struct soap *soap, const struct mcu__addSource *a)
+{
+#ifndef WITH_NOIDREF
+	(void)soap; (void)a; /* appease -Wall -Werror */
+	soap_serialize_string(soap, &a->memberid);
+#endif
+}
+
+SOAP_FMAC3 int SOAP_FMAC4 soap_out_mcu__addSource(struct soap *soap, const char *tag, int id, const struct mcu__addSource *a, const char *type)
+{
+	(void)soap; (void)tag; (void)id; (void)type;
+	if (soap_element_begin_out(soap, tag, soap_embedded_id(soap, id, a, SOAP_TYPE_mcu__addSource), type))
+		return soap->error;
+	if (soap_out_string(soap, "memberid", -1, &a->memberid, ""))
+		return soap->error;
+	return soap_element_end_out(soap, tag);
+}
+
+SOAP_FMAC3 struct mcu__addSource * SOAP_FMAC4 soap_in_mcu__addSource(struct soap *soap, const char *tag, struct mcu__addSource *a, const char *type)
+{
+	size_t soap_flag_memberid = 1;
+	if (soap_element_begin_in(soap, tag, 0, type))
+		return NULL;
+	a = (struct mcu__addSource *)soap_id_enter(soap, soap->id, a, SOAP_TYPE_mcu__addSource, sizeof(struct mcu__addSource), 0, NULL, NULL, NULL);
+	if (!a)
+		return NULL;
+	soap_default_mcu__addSource(soap, a);
+	if (soap->body && !*soap->href)
+	{
+		for (;;)
+		{	soap->error = SOAP_TAG_MISMATCH;
+			if (soap_flag_memberid && (soap->error == SOAP_TAG_MISMATCH || soap->error == SOAP_NO_TAG))
+				if (soap_in_string(soap, "memberid", &a->memberid, "xsd:string"))
+				{	soap_flag_memberid--;
+					continue;
+				}
+			if (soap->error == SOAP_TAG_MISMATCH)
+				soap->error = soap_ignore_element(soap);
+			if (soap->error == SOAP_NO_TAG)
+				break;
+			if (soap->error)
+				return NULL;
+		}
+		if (soap_element_end_in(soap, tag))
+			return NULL;
+	}
+	else
+	{	a = (struct mcu__addSource *)soap_id_forward(soap, soap->href, (void*)a, 0, SOAP_TYPE_mcu__addSource, 0, sizeof(struct mcu__addSource), 0, NULL);
+		if (soap->body && soap_element_end_in(soap, tag))
+			return NULL;
+	}
+	return a;
+}
+
+SOAP_FMAC3 int SOAP_FMAC4 soap_put_mcu__addSource(struct soap *soap, const struct mcu__addSource *a, const char *tag, const char *type)
+{
+	register int id = soap_embed(soap, (void*)a, NULL, 0, tag, SOAP_TYPE_mcu__addSource);
+	if (soap_out_mcu__addSource(soap, tag?tag:"mcu:addSource", id, a, type))
+		return soap->error;
+	return soap_putindependent(soap);
+}
+
+SOAP_FMAC3 struct mcu__addSource * SOAP_FMAC4 soap_get_mcu__addSource(struct soap *soap, struct mcu__addSource *p, const char *tag, const char *type)
+{
+	if ((p = soap_in_mcu__addSource(soap, tag, p, type)))
+		if (soap_getindependent(soap))
+			return NULL;
+	return p;
+}
+
+SOAP_FMAC1 struct mcu__addSource * SOAP_FMAC2 soap_instantiate_mcu__addSource(struct soap *soap, int n, const char *type, const char *arrayType, size_t *size)
+{
+	(void)type; (void)arrayType; /* appease -Wall -Werror */
+	DBGLOG(TEST, SOAP_MESSAGE(fdebug, "soap_instantiate_mcu__addSource(%d, %s, %s)\n", n, type?type:"", arrayType?arrayType:""));
+	struct soap_clist *cp = soap_link(soap, NULL, SOAP_TYPE_mcu__addSource, n, soap_fdelete);
+	if (!cp)
+		return NULL;
+	if (n < 0)
+	{	cp->ptr = (void*)SOAP_NEW(struct mcu__addSource);
+		if (size)
+			*size = sizeof(struct mcu__addSource);
+	}
+	else
+	{	cp->ptr = (void*)SOAP_NEW_ARRAY(struct mcu__addSource, n);
+		if (size)
+			*size = n * sizeof(struct mcu__addSource);
+	}
+	DBGLOG(TEST, SOAP_MESSAGE(fdebug, "Instantiated location=%p\n", cp->ptr));
+	if (!cp->ptr)
+		soap->error = SOAP_EOM;
+	return (struct mcu__addSource*)cp->ptr;
+}
+
+SOAP_FMAC3 void SOAP_FMAC4 soap_copy_mcu__addSource(struct soap *soap, int st, int tt, void *p, size_t len, const void *q, size_t n)
+{
+	(void)soap; (void)tt; (void)st; (void)len; (void)n; /* appease -Wall -Werror */
+	DBGLOG(TEST, SOAP_MESSAGE(fdebug, "Copying struct mcu__addSource %p -> %p\n", q, p));
+	*(struct mcu__addSource*)p = *(struct mcu__addSource*)q;
+}
+
+SOAP_FMAC3 void SOAP_FMAC4 soap_serialize_mcu__VideoSourceResponse(struct soap *soap, const struct mcu__VideoSource *a)
+{
+#ifndef WITH_NOIDREF
+	(void)soap; (void)a; /* appease -Wall -Werror */
+	soap_serialize_mcu__MediaEndpoint(soap, &a->endpoint);
+#endif
+}
+
+SOAP_FMAC3 int SOAP_FMAC4 soap_out_mcu__VideoSourceResponse(struct soap *soap, const char *tag, int id, const struct mcu__VideoSource *a, const char *type)
+{
+	(void)soap; (void)tag; (void)id; (void)type;
+	if (soap_element_begin_out(soap, tag, soap_embedded_id(soap, id, a, SOAP_TYPE_mcu__VideoSourceResponse), type))
+		return soap->error;
+	if (soap_out_int(soap, "id", -1, &a->id, ""))
+		return soap->error;
+	if (soap_out_int(soap, "codec", -1, &a->codec, ""))
+		return soap->error;
+	if (soap_out_mcu__MediaEndpoint(soap, "endpoint", -1, &a->endpoint, ""))
+		return soap->error;
+	return soap_element_end_out(soap, tag);
+}
+
+SOAP_FMAC3 struct mcu__VideoSource * SOAP_FMAC4 soap_in_mcu__VideoSourceResponse(struct soap *soap, const char *tag, struct mcu__VideoSource *a, const char *type)
+{
+	size_t soap_flag_id = 1;
+	size_t soap_flag_codec = 1;
+	size_t soap_flag_endpoint = 1;
+	if (soap_element_begin_in(soap, tag, 0, type))
+		return NULL;
+	a = (struct mcu__VideoSource *)soap_id_enter(soap, soap->id, a, SOAP_TYPE_mcu__VideoSourceResponse, sizeof(struct mcu__VideoSource), 0, NULL, NULL, NULL);
+	if (!a)
+		return NULL;
+	soap_default_mcu__VideoSourceResponse(soap, a);
+	if (soap->body && !*soap->href)
+	{
+		for (;;)
+		{	soap->error = SOAP_TAG_MISMATCH;
+			if (soap_flag_id && soap->error == SOAP_TAG_MISMATCH)
+				if (soap_in_int(soap, "id", &a->id, "xsd:int"))
+				{	soap_flag_id--;
+					continue;
+				}
+			if (soap_flag_codec && soap->error == SOAP_TAG_MISMATCH)
+				if (soap_in_int(soap, "codec", &a->codec, "xsd:int"))
+				{	soap_flag_codec--;
+					continue;
+				}
+			if (soap_flag_endpoint && soap->error == SOAP_TAG_MISMATCH)
+				if (soap_in_mcu__MediaEndpoint(soap, "endpoint", &a->endpoint, "mcu:MediaEndpoint"))
+				{	soap_flag_endpoint--;
+					continue;
+				}
+			if (soap->error == SOAP_TAG_MISMATCH)
+				soap->error = soap_ignore_element(soap);
+			if (soap->error == SOAP_NO_TAG)
+				break;
+			if (soap->error)
+				return NULL;
+		}
+		if (soap_element_end_in(soap, tag))
+			return NULL;
+	}
+	else
+	{	a = (struct mcu__VideoSource *)soap_id_forward(soap, soap->href, (void*)a, 0, SOAP_TYPE_mcu__VideoSourceResponse, 0, sizeof(struct mcu__VideoSource), 0, NULL);
+		if (soap->body && soap_element_end_in(soap, tag))
+			return NULL;
+	}
+	if ((soap->mode & SOAP_XML_STRICT) && (soap_flag_id > 0 || soap_flag_codec > 0 || soap_flag_endpoint > 0))
+	{	soap->error = SOAP_OCCURS;
+		return NULL;
+	}
+	return a;
+}
+
+SOAP_FMAC3 int SOAP_FMAC4 soap_put_mcu__VideoSourceResponse(struct soap *soap, const struct mcu__VideoSource *a, const char *tag, const char *type)
+{
+	register int id = soap_embed(soap, (void*)a, NULL, 0, tag, SOAP_TYPE_mcu__VideoSourceResponse);
+	if (soap_out_mcu__VideoSourceResponse(soap, tag?tag:"mcu:VideoSourceResponse", id, a, type))
+		return soap->error;
+	return soap_putindependent(soap);
+}
+
+SOAP_FMAC3 struct mcu__VideoSource * SOAP_FMAC4 soap_get_mcu__VideoSourceResponse(struct soap *soap, struct mcu__VideoSource *p, const char *tag, const char *type)
+{
+	if ((p = soap_in_mcu__VideoSourceResponse(soap, tag, p, type)))
+		if (soap_getindependent(soap))
+			return NULL;
+	return p;
+}
+
+SOAP_FMAC3 void SOAP_FMAC4 soap_default_mcu__VideoSource(struct soap *soap, struct mcu__VideoSource *a)
+{
+	(void)soap; (void)a; /* appease -Wall -Werror */
+	soap_default_int(soap, &a->id);
+	soap_default_int(soap, &a->codec);
+	soap_default_mcu__MediaEndpoint(soap, &a->endpoint);
+}
+
+SOAP_FMAC3 void SOAP_FMAC4 soap_serialize_mcu__VideoSource(struct soap *soap, const struct mcu__VideoSource *a)
+{
+#ifndef WITH_NOIDREF
+	(void)soap; (void)a; /* appease -Wall -Werror */
+	soap_serialize_mcu__MediaEndpoint(soap, &a->endpoint);
+#endif
+}
+
+SOAP_FMAC3 int SOAP_FMAC4 soap_out_mcu__VideoSource(struct soap *soap, const char *tag, int id, const struct mcu__VideoSource *a, const char *type)
+{
+	(void)soap; (void)tag; (void)id; (void)type;
+	if (soap_element_begin_out(soap, tag, soap_embedded_id(soap, id, a, SOAP_TYPE_mcu__VideoSource), type))
+		return soap->error;
+	if (soap_out_int(soap, "id", -1, &a->id, ""))
+		return soap->error;
+	if (soap_out_int(soap, "codec", -1, &a->codec, ""))
+		return soap->error;
+	if (soap_out_mcu__MediaEndpoint(soap, "endpoint", -1, &a->endpoint, ""))
+		return soap->error;
+	return soap_element_end_out(soap, tag);
+}
+
+SOAP_FMAC3 struct mcu__VideoSource * SOAP_FMAC4 soap_in_mcu__VideoSource(struct soap *soap, const char *tag, struct mcu__VideoSource *a, const char *type)
+{
+	size_t soap_flag_id = 1;
+	size_t soap_flag_codec = 1;
+	size_t soap_flag_endpoint = 1;
+	if (soap_element_begin_in(soap, tag, 0, type))
+		return NULL;
+	a = (struct mcu__VideoSource *)soap_id_enter(soap, soap->id, a, SOAP_TYPE_mcu__VideoSource, sizeof(struct mcu__VideoSource), 0, NULL, NULL, NULL);
+	if (!a)
+		return NULL;
+	soap_default_mcu__VideoSource(soap, a);
+	if (soap->body && !*soap->href)
+	{
+		for (;;)
+		{	soap->error = SOAP_TAG_MISMATCH;
+			if (soap_flag_id && soap->error == SOAP_TAG_MISMATCH)
+				if (soap_in_int(soap, "id", &a->id, "xsd:int"))
+				{	soap_flag_id--;
+					continue;
+				}
+			if (soap_flag_codec && soap->error == SOAP_TAG_MISMATCH)
+				if (soap_in_int(soap, "codec", &a->codec, "xsd:int"))
+				{	soap_flag_codec--;
+					continue;
+				}
+			if (soap_flag_endpoint && soap->error == SOAP_TAG_MISMATCH)
+				if (soap_in_mcu__MediaEndpoint(soap, "endpoint", &a->endpoint, "mcu:MediaEndpoint"))
+				{	soap_flag_endpoint--;
+					continue;
+				}
+			if (soap->error == SOAP_TAG_MISMATCH)
+				soap->error = soap_ignore_element(soap);
+			if (soap->error == SOAP_NO_TAG)
+				break;
+			if (soap->error)
+				return NULL;
+		}
+		if (soap_element_end_in(soap, tag))
+			return NULL;
+	}
+	else
+	{	a = (struct mcu__VideoSource *)soap_id_forward(soap, soap->href, (void*)a, 0, SOAP_TYPE_mcu__VideoSource, 0, sizeof(struct mcu__VideoSource), 0, NULL);
+		if (soap->body && soap_element_end_in(soap, tag))
+			return NULL;
+	}
+	if ((soap->mode & SOAP_XML_STRICT) && (soap_flag_id > 0 || soap_flag_codec > 0 || soap_flag_endpoint > 0))
+	{	soap->error = SOAP_OCCURS;
+		return NULL;
+	}
+	return a;
+}
+
+SOAP_FMAC3 int SOAP_FMAC4 soap_put_mcu__VideoSource(struct soap *soap, const struct mcu__VideoSource *a, const char *tag, const char *type)
+{
+	register int id = soap_embed(soap, (void*)a, NULL, 0, tag, SOAP_TYPE_mcu__VideoSource);
+	if (soap_out_mcu__VideoSource(soap, tag?tag:"mcu:VideoSource", id, a, type))
+		return soap->error;
+	return soap_putindependent(soap);
+}
+
+SOAP_FMAC3 struct mcu__VideoSource * SOAP_FMAC4 soap_get_mcu__VideoSource(struct soap *soap, struct mcu__VideoSource *p, const char *tag, const char *type)
+{
+	if ((p = soap_in_mcu__VideoSource(soap, tag, p, type)))
+		if (soap_getindependent(soap))
+			return NULL;
+	return p;
+}
+
+SOAP_FMAC1 struct mcu__VideoSource * SOAP_FMAC2 soap_instantiate_mcu__VideoSource(struct soap *soap, int n, const char *type, const char *arrayType, size_t *size)
+{
+	(void)type; (void)arrayType; /* appease -Wall -Werror */
+	DBGLOG(TEST, SOAP_MESSAGE(fdebug, "soap_instantiate_mcu__VideoSource(%d, %s, %s)\n", n, type?type:"", arrayType?arrayType:""));
+	struct soap_clist *cp = soap_link(soap, NULL, SOAP_TYPE_mcu__VideoSource, n, soap_fdelete);
+	if (!cp)
+		return NULL;
+	if (n < 0)
+	{	cp->ptr = (void*)SOAP_NEW(struct mcu__VideoSource);
+		if (size)
+			*size = sizeof(struct mcu__VideoSource);
+	}
+	else
+	{	cp->ptr = (void*)SOAP_NEW_ARRAY(struct mcu__VideoSource, n);
+		if (size)
+			*size = n * sizeof(struct mcu__VideoSource);
+	}
+	DBGLOG(TEST, SOAP_MESSAGE(fdebug, "Instantiated location=%p\n", cp->ptr));
+	if (!cp->ptr)
+		soap->error = SOAP_EOM;
+	return (struct mcu__VideoSource*)cp->ptr;
+}
+
+SOAP_FMAC3 void SOAP_FMAC4 soap_copy_mcu__VideoSource(struct soap *soap, int st, int tt, void *p, size_t len, const void *q, size_t n)
+{
+	(void)soap; (void)tt; (void)st; (void)len; (void)n; /* appease -Wall -Werror */
+	DBGLOG(TEST, SOAP_MESSAGE(fdebug, "Copying struct mcu__VideoSource %p -> %p\n", q, p));
+	*(struct mcu__VideoSource*)p = *(struct mcu__VideoSource*)q;
+}
+
+SOAP_FMAC3 void SOAP_FMAC4 soap_default_mcu__MediaEndpoint(struct soap *soap, struct mcu__MediaEndpoint *a)
+{
+	(void)soap; (void)a; /* appease -Wall -Werror */
+	soap_default_string(soap, &a->peerip);
+	soap_default_int(soap, &a->peerrtp);
+	soap_default_int(soap, &a->peerrtcp);
+	soap_default_string(soap, &a->ip);
+	soap_default_int(soap, &a->rtp);
+	soap_default_int(soap, &a->rtcp);
+}
+
+SOAP_FMAC3 void SOAP_FMAC4 soap_serialize_mcu__MediaEndpoint(struct soap *soap, const struct mcu__MediaEndpoint *a)
+{
+#ifndef WITH_NOIDREF
+	(void)soap; (void)a; /* appease -Wall -Werror */
+	soap_serialize_string(soap, &a->peerip);
+	soap_serialize_string(soap, &a->ip);
+#endif
+}
+
+SOAP_FMAC3 int SOAP_FMAC4 soap_out_mcu__MediaEndpoint(struct soap *soap, const char *tag, int id, const struct mcu__MediaEndpoint *a, const char *type)
+{
+	(void)soap; (void)tag; (void)id; (void)type;
+	if (soap_element_begin_out(soap, tag, soap_embedded_id(soap, id, a, SOAP_TYPE_mcu__MediaEndpoint), type))
+		return soap->error;
+	if (soap_out_string(soap, "peerip", -1, &a->peerip, ""))
+		return soap->error;
+	if (soap_out_int(soap, "peerrtp", -1, &a->peerrtp, ""))
+		return soap->error;
+	if (soap_out_int(soap, "peerrtcp", -1, &a->peerrtcp, ""))
+		return soap->error;
+	if (soap_out_string(soap, "ip", -1, &a->ip, ""))
+		return soap->error;
+	if (soap_out_int(soap, "rtp", -1, &a->rtp, ""))
+		return soap->error;
+	if (soap_out_int(soap, "rtcp", -1, &a->rtcp, ""))
+		return soap->error;
+	return soap_element_end_out(soap, tag);
+}
+
+SOAP_FMAC3 struct mcu__MediaEndpoint * SOAP_FMAC4 soap_in_mcu__MediaEndpoint(struct soap *soap, const char *tag, struct mcu__MediaEndpoint *a, const char *type)
+{
+	size_t soap_flag_peerip = 1;
+	size_t soap_flag_peerrtp = 1;
+	size_t soap_flag_peerrtcp = 1;
+	size_t soap_flag_ip = 1;
+	size_t soap_flag_rtp = 1;
+	size_t soap_flag_rtcp = 1;
+	if (soap_element_begin_in(soap, tag, 0, type))
+		return NULL;
+	a = (struct mcu__MediaEndpoint *)soap_id_enter(soap, soap->id, a, SOAP_TYPE_mcu__MediaEndpoint, sizeof(struct mcu__MediaEndpoint), 0, NULL, NULL, NULL);
+	if (!a)
+		return NULL;
+	soap_default_mcu__MediaEndpoint(soap, a);
+	if (soap->body && !*soap->href)
+	{
+		for (;;)
+		{	soap->error = SOAP_TAG_MISMATCH;
+			if (soap_flag_peerip && (soap->error == SOAP_TAG_MISMATCH || soap->error == SOAP_NO_TAG))
+				if (soap_in_string(soap, "peerip", &a->peerip, "xsd:string"))
+				{	soap_flag_peerip--;
+					continue;
+				}
+			if (soap_flag_peerrtp && soap->error == SOAP_TAG_MISMATCH)
+				if (soap_in_int(soap, "peerrtp", &a->peerrtp, "xsd:int"))
+				{	soap_flag_peerrtp--;
+					continue;
+				}
+			if (soap_flag_peerrtcp && soap->error == SOAP_TAG_MISMATCH)
+				if (soap_in_int(soap, "peerrtcp", &a->peerrtcp, "xsd:int"))
+				{	soap_flag_peerrtcp--;
+					continue;
+				}
+			if (soap_flag_ip && (soap->error == SOAP_TAG_MISMATCH || soap->error == SOAP_NO_TAG))
+				if (soap_in_string(soap, "ip", &a->ip, "xsd:string"))
+				{	soap_flag_ip--;
+					continue;
+				}
+			if (soap_flag_rtp && soap->error == SOAP_TAG_MISMATCH)
+				if (soap_in_int(soap, "rtp", &a->rtp, "xsd:int"))
+				{	soap_flag_rtp--;
+					continue;
+				}
+			if (soap_flag_rtcp && soap->error == SOAP_TAG_MISMATCH)
+				if (soap_in_int(soap, "rtcp", &a->rtcp, "xsd:int"))
+				{	soap_flag_rtcp--;
+					continue;
+				}
+			if (soap->error == SOAP_TAG_MISMATCH)
+				soap->error = soap_ignore_element(soap);
+			if (soap->error == SOAP_NO_TAG)
+				break;
+			if (soap->error)
+				return NULL;
+		}
+		if (soap_element_end_in(soap, tag))
+			return NULL;
+	}
+	else
+	{	a = (struct mcu__MediaEndpoint *)soap_id_forward(soap, soap->href, (void*)a, 0, SOAP_TYPE_mcu__MediaEndpoint, 0, sizeof(struct mcu__MediaEndpoint), 0, NULL);
+		if (soap->body && soap_element_end_in(soap, tag))
+			return NULL;
+	}
+	if ((soap->mode & SOAP_XML_STRICT) && (soap_flag_peerrtp > 0 || soap_flag_peerrtcp > 0 || soap_flag_rtp > 0 || soap_flag_rtcp > 0))
+	{	soap->error = SOAP_OCCURS;
+		return NULL;
+	}
+	return a;
+}
+
+SOAP_FMAC3 int SOAP_FMAC4 soap_put_mcu__MediaEndpoint(struct soap *soap, const struct mcu__MediaEndpoint *a, const char *tag, const char *type)
+{
+	register int id = soap_embed(soap, (void*)a, NULL, 0, tag, SOAP_TYPE_mcu__MediaEndpoint);
+	if (soap_out_mcu__MediaEndpoint(soap, tag?tag:"mcu:MediaEndpoint", id, a, type))
+		return soap->error;
+	return soap_putindependent(soap);
+}
+
+SOAP_FMAC3 struct mcu__MediaEndpoint * SOAP_FMAC4 soap_get_mcu__MediaEndpoint(struct soap *soap, struct mcu__MediaEndpoint *p, const char *tag, const char *type)
+{
+	if ((p = soap_in_mcu__MediaEndpoint(soap, tag, p, type)))
+		if (soap_getindependent(soap))
+			return NULL;
+	return p;
+}
+
+SOAP_FMAC1 struct mcu__MediaEndpoint * SOAP_FMAC2 soap_instantiate_mcu__MediaEndpoint(struct soap *soap, int n, const char *type, const char *arrayType, size_t *size)
+{
+	(void)type; (void)arrayType; /* appease -Wall -Werror */
+	DBGLOG(TEST, SOAP_MESSAGE(fdebug, "soap_instantiate_mcu__MediaEndpoint(%d, %s, %s)\n", n, type?type:"", arrayType?arrayType:""));
+	struct soap_clist *cp = soap_link(soap, NULL, SOAP_TYPE_mcu__MediaEndpoint, n, soap_fdelete);
+	if (!cp)
+		return NULL;
+	if (n < 0)
+	{	cp->ptr = (void*)SOAP_NEW(struct mcu__MediaEndpoint);
+		if (size)
+			*size = sizeof(struct mcu__MediaEndpoint);
+	}
+	else
+	{	cp->ptr = (void*)SOAP_NEW_ARRAY(struct mcu__MediaEndpoint, n);
+		if (size)
+			*size = n * sizeof(struct mcu__MediaEndpoint);
+	}
+	DBGLOG(TEST, SOAP_MESSAGE(fdebug, "Instantiated location=%p\n", cp->ptr));
+	if (!cp->ptr)
+		soap->error = SOAP_EOM;
+	return (struct mcu__MediaEndpoint*)cp->ptr;
+}
+
+SOAP_FMAC3 void SOAP_FMAC4 soap_copy_mcu__MediaEndpoint(struct soap *soap, int st, int tt, void *p, size_t len, const void *q, size_t n)
+{
+	(void)soap; (void)tt; (void)st; (void)len; (void)n; /* appease -Wall -Werror */
+	DBGLOG(TEST, SOAP_MESSAGE(fdebug, "Copying struct mcu__MediaEndpoint %p -> %p\n", q, p));
+	*(struct mcu__MediaEndpoint*)p = *(struct mcu__MediaEndpoint*)q;
+}
 
 SOAP_FMAC3 void SOAP_FMAC4 soap_default_mcu__getStatus(struct soap *soap, struct mcu__getStatus *a)
 {

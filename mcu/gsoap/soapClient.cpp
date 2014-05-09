@@ -14,7 +14,7 @@ compiling, linking, and/or using OpenSSL is allowed.
 #endif
 #include "soapH.h"
 
-SOAP_SOURCE_STAMP("@(#) soapClient.cpp ver 2.8.17r 2014-05-09 11:22:40 GMT")
+SOAP_SOURCE_STAMP("@(#) soapClient.cpp ver 2.8.17r 2014-05-09 11:52:56 GMT")
 
 
 SOAP_FMAC5 int SOAP_FMAC6 soap_call_mcu__getVersion(struct soap *soap, const char *soap_endpoint, const char *soap_action, void *_param_1, struct mcu__Version &ver)
@@ -105,6 +105,206 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_call_mcu__getStatus(struct soap *soap, const char
 	if (soap->error)
 		return soap_recv_fault(soap, 0);
 	if (soap_body_end_in(soap)
+	 || soap_envelope_end_in(soap)
+	 || soap_end_recv(soap))
+		return soap_closesock(soap);
+	return soap_closesock(soap);
+}
+
+SOAP_FMAC5 int SOAP_FMAC6 soap_call_mcu__addSource(struct soap *soap, const char *soap_endpoint, const char *soap_action, char *memberid, struct mcu__VideoSource &res)
+{	struct mcu__addSource soap_tmp_mcu__addSource;
+	soap_begin(soap);
+	soap->encodingStyle = NULL;
+	soap_tmp_mcu__addSource.memberid = memberid;
+	soap_serializeheader(soap);
+	soap_serialize_mcu__addSource(soap, &soap_tmp_mcu__addSource);
+	if (soap_begin_count(soap))
+		return soap->error;
+	if (soap->mode & SOAP_IO_LENGTH)
+	{	if (soap_envelope_begin_out(soap)
+		 || soap_putheader(soap)
+		 || soap_body_begin_out(soap)
+		 || soap_put_mcu__addSource(soap, &soap_tmp_mcu__addSource, "mcu:addSource", NULL)
+		 || soap_body_end_out(soap)
+		 || soap_envelope_end_out(soap))
+			 return soap->error;
+	}
+	if (soap_end_count(soap))
+		return soap->error;
+	if (soap_connect(soap, soap_url(soap, soap_endpoint, NULL), soap_action)
+	 || soap_envelope_begin_out(soap)
+	 || soap_putheader(soap)
+	 || soap_body_begin_out(soap)
+	 || soap_put_mcu__addSource(soap, &soap_tmp_mcu__addSource, "mcu:addSource", NULL)
+	 || soap_body_end_out(soap)
+	 || soap_envelope_end_out(soap)
+	 || soap_end_send(soap))
+		return soap_closesock(soap);
+	if (!&res)
+		return soap_closesock(soap);
+	soap_default_mcu__VideoSourceResponse(soap, &res);
+	if (soap_begin_recv(soap)
+	 || soap_envelope_begin_in(soap)
+	 || soap_recv_header(soap)
+	 || soap_body_begin_in(soap))
+		return soap_closesock(soap);
+	soap_get_mcu__VideoSourceResponse(soap, &res, "mcu:VideoSourceResponse", "");
+	if (soap->error)
+		return soap_recv_fault(soap, 0);
+	if (soap_body_end_in(soap)
+	 || soap_envelope_end_in(soap)
+	 || soap_end_recv(soap))
+		return soap_closesock(soap);
+	return soap_closesock(soap);
+}
+
+SOAP_FMAC5 int SOAP_FMAC6 soap_send_mcu__delSource(struct soap *soap, const char *soap_endpoint, const char *soap_action, char *memberid, char *sourceid)
+{	struct mcu__delSource soap_tmp_mcu__delSource;
+	soap_begin(soap);
+	soap->encodingStyle = NULL;
+	soap_tmp_mcu__delSource.memberid = memberid;
+	soap_tmp_mcu__delSource.sourceid = sourceid;
+	soap_serializeheader(soap);
+	soap_serialize_mcu__delSource(soap, &soap_tmp_mcu__delSource);
+	if (soap_begin_count(soap))
+		return soap->error;
+	if (soap->mode & SOAP_IO_LENGTH)
+	{	if (soap_envelope_begin_out(soap)
+		 || soap_putheader(soap)
+		 || soap_body_begin_out(soap)
+		 || soap_put_mcu__delSource(soap, &soap_tmp_mcu__delSource, "mcu:delSource", NULL)
+		 || soap_body_end_out(soap)
+		 || soap_envelope_end_out(soap))
+			 return soap->error;
+	}
+	if (soap_end_count(soap))
+		return soap->error;
+	if (soap_connect(soap, soap_url(soap, soap_endpoint, NULL), soap_action)
+	 || soap_envelope_begin_out(soap)
+	 || soap_putheader(soap)
+	 || soap_body_begin_out(soap)
+	 || soap_put_mcu__delSource(soap, &soap_tmp_mcu__delSource, "mcu:delSource", NULL)
+	 || soap_body_end_out(soap)
+	 || soap_envelope_end_out(soap)
+	 || soap_end_send(soap))
+		return soap_closesock(soap);
+	return SOAP_OK;
+}
+
+SOAP_FMAC5 int SOAP_FMAC6 soap_recv_mcu__delSource(struct soap *soap, struct mcu__delSource *_param_3)
+{
+	soap_default_mcu__delSource(soap, _param_3);
+	soap_begin(soap);
+	if (soap_begin_recv(soap)
+	 || soap_envelope_begin_in(soap)
+	 || soap_recv_header(soap)
+	 || soap_body_begin_in(soap))
+		return soap_closesock(soap);
+	soap_get_mcu__delSource(soap, _param_3, "mcu:delSource", NULL);
+	if (soap->error == SOAP_TAG_MISMATCH && soap->level == 2)
+		soap->error = SOAP_OK;
+	if (soap->error
+	 || soap_body_end_in(soap)
+	 || soap_envelope_end_in(soap)
+	 || soap_end_recv(soap))
+		return soap_closesock(soap);
+	return soap_closesock(soap);
+}
+
+SOAP_FMAC5 int SOAP_FMAC6 soap_call_mcu__addSink(struct soap *soap, const char *soap_endpoint, const char *soap_action, char *memberid, struct mcu__VideoSink &res)
+{	struct mcu__addSink soap_tmp_mcu__addSink;
+	soap_begin(soap);
+	soap->encodingStyle = NULL;
+	soap_tmp_mcu__addSink.memberid = memberid;
+	soap_serializeheader(soap);
+	soap_serialize_mcu__addSink(soap, &soap_tmp_mcu__addSink);
+	if (soap_begin_count(soap))
+		return soap->error;
+	if (soap->mode & SOAP_IO_LENGTH)
+	{	if (soap_envelope_begin_out(soap)
+		 || soap_putheader(soap)
+		 || soap_body_begin_out(soap)
+		 || soap_put_mcu__addSink(soap, &soap_tmp_mcu__addSink, "mcu:addSink", NULL)
+		 || soap_body_end_out(soap)
+		 || soap_envelope_end_out(soap))
+			 return soap->error;
+	}
+	if (soap_end_count(soap))
+		return soap->error;
+	if (soap_connect(soap, soap_url(soap, soap_endpoint, NULL), soap_action)
+	 || soap_envelope_begin_out(soap)
+	 || soap_putheader(soap)
+	 || soap_body_begin_out(soap)
+	 || soap_put_mcu__addSink(soap, &soap_tmp_mcu__addSink, "mcu:addSink", NULL)
+	 || soap_body_end_out(soap)
+	 || soap_envelope_end_out(soap)
+	 || soap_end_send(soap))
+		return soap_closesock(soap);
+	if (!&res)
+		return soap_closesock(soap);
+	soap_default_mcu__VideoSinkResponse(soap, &res);
+	if (soap_begin_recv(soap)
+	 || soap_envelope_begin_in(soap)
+	 || soap_recv_header(soap)
+	 || soap_body_begin_in(soap))
+		return soap_closesock(soap);
+	soap_get_mcu__VideoSinkResponse(soap, &res, "mcu:VideoSinkResponse", "");
+	if (soap->error)
+		return soap_recv_fault(soap, 0);
+	if (soap_body_end_in(soap)
+	 || soap_envelope_end_in(soap)
+	 || soap_end_recv(soap))
+		return soap_closesock(soap);
+	return soap_closesock(soap);
+}
+
+SOAP_FMAC5 int SOAP_FMAC6 soap_send_mcu__delSink(struct soap *soap, const char *soap_endpoint, const char *soap_action, char *memberid, char *sinkid)
+{	struct mcu__delSink soap_tmp_mcu__delSink;
+	soap_begin(soap);
+	soap->encodingStyle = NULL;
+	soap_tmp_mcu__delSink.memberid = memberid;
+	soap_tmp_mcu__delSink.sinkid = sinkid;
+	soap_serializeheader(soap);
+	soap_serialize_mcu__delSink(soap, &soap_tmp_mcu__delSink);
+	if (soap_begin_count(soap))
+		return soap->error;
+	if (soap->mode & SOAP_IO_LENGTH)
+	{	if (soap_envelope_begin_out(soap)
+		 || soap_putheader(soap)
+		 || soap_body_begin_out(soap)
+		 || soap_put_mcu__delSink(soap, &soap_tmp_mcu__delSink, "mcu:delSink", NULL)
+		 || soap_body_end_out(soap)
+		 || soap_envelope_end_out(soap))
+			 return soap->error;
+	}
+	if (soap_end_count(soap))
+		return soap->error;
+	if (soap_connect(soap, soap_url(soap, soap_endpoint, NULL), soap_action)
+	 || soap_envelope_begin_out(soap)
+	 || soap_putheader(soap)
+	 || soap_body_begin_out(soap)
+	 || soap_put_mcu__delSink(soap, &soap_tmp_mcu__delSink, "mcu:delSink", NULL)
+	 || soap_body_end_out(soap)
+	 || soap_envelope_end_out(soap)
+	 || soap_end_send(soap))
+		return soap_closesock(soap);
+	return SOAP_OK;
+}
+
+SOAP_FMAC5 int SOAP_FMAC6 soap_recv_mcu__delSink(struct soap *soap, struct mcu__delSink *_param_4)
+{
+	soap_default_mcu__delSink(soap, _param_4);
+	soap_begin(soap);
+	if (soap_begin_recv(soap)
+	 || soap_envelope_begin_in(soap)
+	 || soap_recv_header(soap)
+	 || soap_body_begin_in(soap))
+		return soap_closesock(soap);
+	soap_get_mcu__delSink(soap, _param_4, "mcu:delSink", NULL);
+	if (soap->error == SOAP_TAG_MISMATCH && soap->level == 2)
+		soap->error = SOAP_OK;
+	if (soap->error
+	 || soap_body_end_in(soap)
 	 || soap_envelope_end_in(soap)
 	 || soap_end_recv(soap))
 		return soap_closesock(soap);

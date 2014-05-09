@@ -23,6 +23,20 @@
     </restriction>
    </complexContent>
   </complexType>
+  <complexType name="VideoSourceResponse"><!-- mcu__VideoSourceResponse -->
+
+   <complexContent>
+    <restriction base="mcu:VideoSource">
+    </restriction>
+   </complexContent>
+  </complexType>
+  <complexType name="VideoSinkResponse"><!-- mcu__VideoSinkResponse -->
+
+   <complexContent>
+    <restriction base="mcu:VideoSink">
+    </restriction>
+   </complexContent>
+  </complexType>
   <complexType name="Version"><!-- mcu__Version -->
 
    <sequence>
@@ -46,6 +60,33 @@
      <element name="mem" type="xsd:double" minOccurs="1" maxOccurs="1"/><!-- mcu__Status::mem -->
      <element name="up-lost-ratio" type="xsd:double" minOccurs="1" maxOccurs="1"/><!-- mcu__Status::up_lost_ratio -->
      <element name="down-lost-ratio" type="xsd:double" minOccurs="1" maxOccurs="1"/><!-- mcu__Status::down_lost_ratio -->
+   </sequence>
+  </complexType>
+  <complexType name="MediaEndpoint"><!-- mcu__MediaEndpoint -->
+
+   <sequence>
+     <element name="peerip" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/><!-- mcu__MediaEndpoint::peerip -->
+     <element name="peerrtp" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- mcu__MediaEndpoint::peerrtp -->
+     <element name="peerrtcp" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- mcu__MediaEndpoint::peerrtcp -->
+     <element name="ip" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/><!-- mcu__MediaEndpoint::ip -->
+     <element name="rtp" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- mcu__MediaEndpoint::rtp -->
+     <element name="rtcp" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- mcu__MediaEndpoint::rtcp -->
+   </sequence>
+  </complexType>
+  <complexType name="VideoSource"><!-- mcu__VideoSource -->
+
+   <sequence>
+     <element name="id" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- mcu__VideoSource::id -->
+     <element name="codec" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- mcu__VideoSource::codec -->
+     <element name="endpoint" type="mcu:MediaEndpoint" minOccurs="1" maxOccurs="1"/><!-- mcu__VideoSource::endpoint -->
+   </sequence>
+  </complexType>
+  <complexType name="VideoSink"><!-- mcu__VideoSink -->
+
+   <sequence>
+     <element name="id" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- mcu__VideoSink::id -->
+     <element name="sourceid" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- mcu__VideoSink::sourceid -->
+     <element name="endpoint" type="mcu:MediaEndpoint" minOccurs="1" maxOccurs="1"/><!-- mcu__VideoSink::endpoint -->
    </sequence>
   </complexType>
   <!-- operation request element -->
@@ -88,6 +129,60 @@
      <element name="mem" type="xsd:double" minOccurs="1" maxOccurs="1"/><!-- mcu__Status::mem -->
      <element name="up-lost-ratio" type="xsd:double" minOccurs="1" maxOccurs="1"/><!-- mcu__Status::up_lost_ratio -->
      <element name="down-lost-ratio" type="xsd:double" minOccurs="1" maxOccurs="1"/><!-- mcu__Status::down_lost_ratio -->
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation request element -->
+  <element name="addSource">
+   <complexType>
+    <sequence>
+     <element name="memberid" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/><!-- mcu__addSource::memberid -->
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation response element -->
+  <element name="VideoSource">
+   <complexType>
+    <sequence>
+     <element name="id" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- mcu__VideoSource::id -->
+     <element name="codec" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- mcu__VideoSource::codec -->
+     <element name="endpoint" type="mcu:MediaEndpoint" minOccurs="1" maxOccurs="1"/><!-- mcu__VideoSource::endpoint -->
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation request element -->
+  <element name="delSource">
+   <complexType>
+    <sequence>
+     <element name="memberid" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/><!-- mcu__delSource::memberid -->
+     <element name="sourceid" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/><!-- mcu__delSource::sourceid -->
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation request element -->
+  <element name="addSink">
+   <complexType>
+    <sequence>
+     <element name="memberid" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/><!-- mcu__addSink::memberid -->
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation response element -->
+  <element name="VideoSink">
+   <complexType>
+    <sequence>
+     <element name="id" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- mcu__VideoSink::id -->
+     <element name="sourceid" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- mcu__VideoSink::sourceid -->
+     <element name="endpoint" type="mcu:MediaEndpoint" minOccurs="1" maxOccurs="1"/><!-- mcu__VideoSink::endpoint -->
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation request element -->
+  <element name="delSink">
+   <complexType>
+    <sequence>
+     <element name="memberid" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/><!-- mcu__delSink::memberid -->
+     <element name="sinkid" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/><!-- mcu__delSink::sinkid -->
     </sequence>
    </complexType>
   </element>

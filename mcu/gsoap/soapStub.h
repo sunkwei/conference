@@ -102,15 +102,111 @@ public:
 };
 #endif
 
+#ifndef SOAP_TYPE_mcu__MediaEndpoint
+#define SOAP_TYPE_mcu__MediaEndpoint (20)
+/* mcu:MediaEndpoint */
+struct mcu__MediaEndpoint
+{
+public:
+	char *peerip;	/* optional element of type xsd:string */
+	int peerrtp;	/* required element of type xsd:int */
+	int peerrtcp;	/* required element of type xsd:int */
+	char *ip;	/* optional element of type xsd:string */
+	int rtp;	/* required element of type xsd:int */
+	int rtcp;	/* required element of type xsd:int */
+public:
+	int soap_type() const { return 20; } /* = unique type id SOAP_TYPE_mcu__MediaEndpoint */
+};
+typedef struct mcu__MediaEndpoint mcu__MediaEndpoint;
+#endif
+
+#ifndef SOAP_TYPE_mcu__VideoSource
+#define SOAP_TYPE_mcu__VideoSource (21)
+/* mcu:VideoSource */
+struct mcu__VideoSource
+{
+public:
+	int id;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type xsd:int */
+	int codec;	/* required element of type xsd:int */
+	struct mcu__MediaEndpoint endpoint;	/* required element of type mcu:MediaEndpoint */
+public:
+	int soap_type() const { return 21; } /* = unique type id SOAP_TYPE_mcu__VideoSource */
+};
+#endif
+
+#ifndef SOAP_TYPE_mcu__addSource
+#define SOAP_TYPE_mcu__addSource (25)
+/* mcu:addSource */
+struct mcu__addSource
+{
+public:
+	char *memberid;	/* optional element of type xsd:string */
+public:
+	int soap_type() const { return 25; } /* = unique type id SOAP_TYPE_mcu__addSource */
+};
+#endif
+
+#ifndef SOAP_TYPE_mcu__delSource
+#define SOAP_TYPE_mcu__delSource (27)
+/* mcu:delSource */
+struct mcu__delSource
+{
+public:
+	char *memberid;	/* optional element of type xsd:string */
+	char *sourceid;	/* optional element of type xsd:string */
+public:
+	int soap_type() const { return 27; } /* = unique type id SOAP_TYPE_mcu__delSource */
+};
+#endif
+
+#ifndef SOAP_TYPE_mcu__VideoSink
+#define SOAP_TYPE_mcu__VideoSink (28)
+/* mcu:VideoSink */
+struct mcu__VideoSink
+{
+public:
+	int id;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type xsd:int */
+	int sourceid;	/* required element of type xsd:int */
+	struct mcu__MediaEndpoint endpoint;	/* required element of type mcu:MediaEndpoint */
+public:
+	int soap_type() const { return 28; } /* = unique type id SOAP_TYPE_mcu__VideoSink */
+};
+#endif
+
+#ifndef SOAP_TYPE_mcu__addSink
+#define SOAP_TYPE_mcu__addSink (32)
+/* mcu:addSink */
+struct mcu__addSink
+{
+public:
+	char *memberid;	/* optional element of type xsd:string */
+public:
+	int soap_type() const { return 32; } /* = unique type id SOAP_TYPE_mcu__addSink */
+};
+#endif
+
+#ifndef SOAP_TYPE_mcu__delSink
+#define SOAP_TYPE_mcu__delSink (34)
+/* mcu:delSink */
+struct mcu__delSink
+{
+public:
+	char *memberid;	/* optional element of type xsd:string */
+	char *sinkid;	/* optional element of type xsd:string */
+public:
+	int soap_type() const { return 34; } /* = unique type id SOAP_TYPE_mcu__delSink */
+};
+#endif
+
 #ifndef WITH_NOGLOBAL
 
 #ifndef SOAP_TYPE_SOAP_ENV__Header
-#define SOAP_TYPE_SOAP_ENV__Header (20)
+#define SOAP_TYPE_SOAP_ENV__Header (35)
 /* SOAP Header: */
 struct SOAP_ENV__Header
 {
 public:
-	int soap_type() const { return 20; } /* = unique type id SOAP_TYPE_SOAP_ENV__Header */
+	int soap_type() const { return 35; } /* = unique type id SOAP_TYPE_SOAP_ENV__Header */
 #ifdef WITH_NOEMPTYSTRUCT
 private:
 	char dummy;	/* dummy member to enable compilation */
@@ -123,7 +219,7 @@ private:
 #ifndef WITH_NOGLOBAL
 
 #ifndef SOAP_TYPE_SOAP_ENV__Code
-#define SOAP_TYPE_SOAP_ENV__Code (21)
+#define SOAP_TYPE_SOAP_ENV__Code (36)
 /* SOAP Fault Code: */
 struct SOAP_ENV__Code
 {
@@ -131,7 +227,7 @@ public:
 	char *SOAP_ENV__Value;	/* optional element of type xsd:QName */
 	struct SOAP_ENV__Code *SOAP_ENV__Subcode;	/* optional element of type SOAP-ENV:Code */
 public:
-	int soap_type() const { return 21; } /* = unique type id SOAP_TYPE_SOAP_ENV__Code */
+	int soap_type() const { return 36; } /* = unique type id SOAP_TYPE_SOAP_ENV__Code */
 };
 #endif
 
@@ -140,7 +236,7 @@ public:
 #ifndef WITH_NOGLOBAL
 
 #ifndef SOAP_TYPE_SOAP_ENV__Detail
-#define SOAP_TYPE_SOAP_ENV__Detail (23)
+#define SOAP_TYPE_SOAP_ENV__Detail (38)
 /* SOAP-ENV:Detail */
 struct SOAP_ENV__Detail
 {
@@ -149,7 +245,7 @@ public:
 	int __type;	/* any type of element <fault> (defined below) */
 	void *fault;	/* transient */
 public:
-	int soap_type() const { return 23; } /* = unique type id SOAP_TYPE_SOAP_ENV__Detail */
+	int soap_type() const { return 38; } /* = unique type id SOAP_TYPE_SOAP_ENV__Detail */
 };
 #endif
 
@@ -158,14 +254,14 @@ public:
 #ifndef WITH_NOGLOBAL
 
 #ifndef SOAP_TYPE_SOAP_ENV__Reason
-#define SOAP_TYPE_SOAP_ENV__Reason (24)
+#define SOAP_TYPE_SOAP_ENV__Reason (39)
 /* SOAP-ENV:Reason */
 struct SOAP_ENV__Reason
 {
 public:
 	char *SOAP_ENV__Text;	/* optional element of type xsd:string */
 public:
-	int soap_type() const { return 24; } /* = unique type id SOAP_TYPE_SOAP_ENV__Reason */
+	int soap_type() const { return 39; } /* = unique type id SOAP_TYPE_SOAP_ENV__Reason */
 };
 #endif
 
@@ -174,7 +270,7 @@ public:
 #ifndef WITH_NOGLOBAL
 
 #ifndef SOAP_TYPE_SOAP_ENV__Fault
-#define SOAP_TYPE_SOAP_ENV__Fault (25)
+#define SOAP_TYPE_SOAP_ENV__Fault (40)
 /* SOAP Fault: */
 struct SOAP_ENV__Fault
 {
@@ -189,7 +285,7 @@ public:
 	char *SOAP_ENV__Role;	/* optional element of type xsd:string */
 	struct SOAP_ENV__Detail *SOAP_ENV__Detail;	/* optional element of type SOAP-ENV:Detail */
 public:
-	int soap_type() const { return 25; } /* = unique type id SOAP_TYPE_SOAP_ENV__Fault */
+	int soap_type() const { return 40; } /* = unique type id SOAP_TYPE_SOAP_ENV__Fault */
 };
 #endif
 
@@ -221,6 +317,16 @@ typedef struct mcu__Version mcu__VersionResponse;
 typedef struct mcu__Status mcu__StatusResponse;
 #endif
 
+#ifndef SOAP_TYPE_mcu__VideoSourceResponse
+#define SOAP_TYPE_mcu__VideoSourceResponse (22)
+typedef struct mcu__VideoSource mcu__VideoSourceResponse;
+#endif
+
+#ifndef SOAP_TYPE_mcu__VideoSinkResponse
+#define SOAP_TYPE_mcu__VideoSinkResponse (29)
+typedef struct mcu__VideoSink mcu__VideoSinkResponse;
+#endif
+
 
 /******************************************************************************\
  *                                                                            *
@@ -240,6 +346,14 @@ SOAP_FMAC5 int SOAP_FMAC6 mcu__getVersion(struct soap*, void *_param_1, struct m
 
 SOAP_FMAC5 int SOAP_FMAC6 mcu__getStatus(struct soap*, void *_param_2, struct mcu__Status &res);
 
+SOAP_FMAC5 int SOAP_FMAC6 mcu__addSource(struct soap*, char *memberid, struct mcu__VideoSource &res);
+
+SOAP_FMAC5 int SOAP_FMAC6 mcu__delSource(struct soap*, char *memberid, char *sourceid);
+
+SOAP_FMAC5 int SOAP_FMAC6 mcu__addSink(struct soap*, char *memberid, struct mcu__VideoSink &res);
+
+SOAP_FMAC5 int SOAP_FMAC6 mcu__delSink(struct soap*, char *memberid, char *sinkid);
+
 /******************************************************************************\
  *                                                                            *
  * Server-Side Skeletons to Invoke Service Operations                         *
@@ -254,6 +368,14 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve_mcu__getVersion(struct soap*);
 
 SOAP_FMAC5 int SOAP_FMAC6 soap_serve_mcu__getStatus(struct soap*);
 
+SOAP_FMAC5 int SOAP_FMAC6 soap_serve_mcu__addSource(struct soap*);
+
+SOAP_FMAC5 int SOAP_FMAC6 soap_serve_mcu__delSource(struct soap*);
+
+SOAP_FMAC5 int SOAP_FMAC6 soap_serve_mcu__addSink(struct soap*);
+
+SOAP_FMAC5 int SOAP_FMAC6 soap_serve_mcu__delSink(struct soap*);
+
 /******************************************************************************\
  *                                                                            *
  * Client-Side Call Stubs                                                     *
@@ -264,6 +386,20 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve_mcu__getStatus(struct soap*);
 SOAP_FMAC5 int SOAP_FMAC6 soap_call_mcu__getVersion(struct soap *soap, const char *soap_endpoint, const char *soap_action, void *_param_1, struct mcu__Version &ver);
 
 SOAP_FMAC5 int SOAP_FMAC6 soap_call_mcu__getStatus(struct soap *soap, const char *soap_endpoint, const char *soap_action, void *_param_2, struct mcu__Status &res);
+
+SOAP_FMAC5 int SOAP_FMAC6 soap_call_mcu__addSource(struct soap *soap, const char *soap_endpoint, const char *soap_action, char *memberid, struct mcu__VideoSource &res);
+
+SOAP_FMAC5 int SOAP_FMAC6 soap_send_mcu__delSource(struct soap *soap, const char *soap_endpoint, const char *soap_action, char *memberid, char *sourceid);
+
+SOAP_FMAC5 int SOAP_FMAC6 soap_recv_mcu__delSource(struct soap *soap, struct mcu__delSource *_param_3);
+
+
+SOAP_FMAC5 int SOAP_FMAC6 soap_call_mcu__addSink(struct soap *soap, const char *soap_endpoint, const char *soap_action, char *memberid, struct mcu__VideoSink &res);
+
+SOAP_FMAC5 int SOAP_FMAC6 soap_send_mcu__delSink(struct soap *soap, const char *soap_endpoint, const char *soap_action, char *memberid, char *sinkid);
+
+SOAP_FMAC5 int SOAP_FMAC6 soap_recv_mcu__delSink(struct soap *soap, struct mcu__delSink *_param_4);
+
 
 #endif
 
