@@ -1,0 +1,5 @@
+基于 mediastreamer2 实现一个简单的视频会议模型
+采用 MCU 模式，所有媒体流经 MCU 转发，MCU 提供 WebService 接口, 基于 gsoap 实现
+信令/消息，使用 xmpp, 基于 libstroph 库
+
+
