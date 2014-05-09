@@ -9,10 +9,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "KVConfig.h"
+#include <sys/stat.h>
 
 KVConfig::KVConfig(const char *fname) : filename_(fname)
 {
-    load_from_file(fname);
+    reload();
 }
 
 KVConfig::~KVConfig()
@@ -43,7 +44,6 @@ static char *trim(char *str)
 void KVConfig::load_from_file(const char *filename)
 {
     ost::MutexLock al(cs_);
-    kvs_.clear();
     
     FILE *fp = fopen(filename, "r");
     if (fp) {
@@ -85,7 +85,15 @@ void KVConfig::save_to(const char *filename)
 
 void KVConfig::reload()
 {
+    {
+        ost::MutexLock al(cs_);
+        kvs_.clear();
+    }
+    
     load_from_file(filename_.c_str());
+    
+    std::string sess_fname = filename_ + ".session";
+    load_from_file(sess_fname.c_str());
 }
 
 void KVConfig::save_as(const char *filename)
@@ -95,7 +103,8 @@ void KVConfig::save_as(const char *filename)
 
 void KVConfig::save()
 {
-    save_to(filename_.c_str());
+    std::string sess_fname = filename_ + ".session";
+    save_to(sess_fname.c_str());
 }
 
 const char *KVConfig::get(const char *key, const char *def)

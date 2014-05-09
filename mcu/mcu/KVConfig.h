@@ -6,6 +6,7 @@
 //  Copyright (c) 2014年 sunkw. All rights reserved.
 //
 //  key value 存储配置...
+//  save() 时，保存为 filename.session，每次 load 时，总是首先 load(filename), 再 load(filename.session)
 
 #ifndef __mcu__KVConfig__
 #define __mcu__KVConfig__
