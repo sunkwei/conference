@@ -54,6 +54,34 @@
     </restriction>
    </complexContent>
   </complexType>
+  <complexType name="AudioStreamResponse"><!-- mcu__AudioStreamResponse -->
+
+   <complexContent>
+    <restriction base="mcu:AudioStream">
+    </restriction>
+   </complexContent>
+  </complexType>
+  <complexType name="MemberResponse"><!-- mcu__MemberResponse -->
+
+   <complexContent>
+    <restriction base="mcu:Member">
+    </restriction>
+   </complexContent>
+  </complexType>
+  <complexType name="ConferenceResponse"><!-- mcu__ConferenceResponse -->
+
+   <complexContent>
+    <restriction base="mcu:Conference">
+    </restriction>
+   </complexContent>
+  </complexType>
+  <complexType name="ConferenceArrayResponse"><!-- mcu__ConferenceArrayResponse -->
+
+   <complexContent>
+    <restriction base="mcu:ConferenceArray">
+    </restriction>
+   </complexContent>
+  </complexType>
   <complexType name="Version"><!-- mcu__Version -->
 
    <sequence>
@@ -93,17 +121,67 @@
   <complexType name="VideoSource"><!-- mcu__VideoSource -->
 
    <sequence>
-     <element name="id" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- mcu__VideoSource::id -->
+     <element name="sourceid" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- mcu__VideoSource::sourceid -->
      <element name="codec" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- mcu__VideoSource::codec -->
      <element name="endpoint" type="mcu:MediaEndpoint" minOccurs="1" maxOccurs="1"/><!-- mcu__VideoSource::endpoint -->
+   </sequence>
+  </complexType>
+  <complexType name="VideoSourceArray"><!-- mcu__VideoSourceArray -->
+
+   <sequence>
+    <element name="item" type="mcu:VideoSource" minOccurs="0" maxOccurs="unbounded" nillable="false"/>
    </sequence>
   </complexType>
   <complexType name="VideoSink"><!-- mcu__VideoSink -->
 
    <sequence>
-     <element name="id" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- mcu__VideoSink::id -->
+     <element name="sinkid" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- mcu__VideoSink::sinkid -->
      <element name="sourceid" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- mcu__VideoSink::sourceid -->
      <element name="endpoint" type="mcu:MediaEndpoint" minOccurs="1" maxOccurs="1"/><!-- mcu__VideoSink::endpoint -->
+   </sequence>
+  </complexType>
+  <complexType name="VideoSinkArray"><!-- mcu__VideoSinkArray -->
+
+   <sequence>
+    <element name="item" type="mcu:VideoSink" minOccurs="0" maxOccurs="unbounded" nillable="false"/>
+   </sequence>
+  </complexType>
+  <complexType name="AudioStream"><!-- mcu__AudioStream -->
+
+   <sequence>
+     <element name="streamid" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- mcu__AudioStream::streamid -->
+     <element name="endpoint" type="mcu:MediaEndpoint" minOccurs="1" maxOccurs="1"/><!-- mcu__AudioStream::endpoint -->
+   </sequence>
+  </complexType>
+  <complexType name="Member"><!-- mcu__Member -->
+
+   <sequence>
+     <element name="memberid" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- mcu__Member::memberid -->
+     <element name="name" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/><!-- mcu__Member::name -->
+     <element name="sources" type="mcu:VideoSourceArray" minOccurs="1" maxOccurs="1" nillable="true"/><!-- mcu__Member::sources -->
+     <element name="sinks" type="mcu:VideoSinkArray" minOccurs="1" maxOccurs="1" nillable="true"/><!-- mcu__Member::sinks -->
+     <element name="audio" type="mcu:AudioStream" minOccurs="1" maxOccurs="1"/><!-- mcu__Member::audio -->
+     <element name="enableaudio" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- mcu__Member::enableaudio -->
+   </sequence>
+  </complexType>
+  <complexType name="MemberArray"><!-- mcu__MemberArray -->
+
+   <sequence>
+    <element name="item" type="mcu:Member" minOccurs="0" maxOccurs="unbounded" nillable="false"/>
+   </sequence>
+  </complexType>
+  <complexType name="Conference"><!-- mcu__Conference -->
+
+   <sequence>
+     <element name="confid" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- mcu__Conference::confid -->
+     <element name="desc" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/><!-- mcu__Conference::desc -->
+     <element name="members" type="mcu:MemberArray" minOccurs="1" maxOccurs="1" nillable="true"/><!-- mcu__Conference::members -->
+   </sequence>
+  </complexType>
+  <complexType name="ConferenceArray"><!-- mcu__ConferenceArray -->
+
+   <sequence>
+    <element name="item" type="mcu:Conference" minOccurs="0" maxOccurs="unbounded" nillable="false"/>
    </sequence>
   </complexType>
   <!-- operation request element -->
@@ -150,10 +228,11 @@
    </complexType>
   </element>
   <!-- operation request element -->
-  <element name="addSource">
+  <element name="addVideoSource">
    <complexType>
     <sequence>
-     <element name="memberid" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/><!-- mcu__addSource::memberid -->
+     <element name="confid" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- mcu__addVideoSource::confid -->
+     <element name="memberid" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- mcu__addVideoSource::memberid -->
     </sequence>
    </complexType>
   </element>
@@ -161,26 +240,29 @@
   <element name="VideoSource">
    <complexType>
     <sequence>
-     <element name="id" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- mcu__VideoSource::id -->
+     <element name="sourceid" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- mcu__VideoSource::sourceid -->
      <element name="codec" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- mcu__VideoSource::codec -->
      <element name="endpoint" type="mcu:MediaEndpoint" minOccurs="1" maxOccurs="1"/><!-- mcu__VideoSource::endpoint -->
     </sequence>
    </complexType>
   </element>
   <!-- operation request element -->
-  <element name="delSource">
+  <element name="delVideoSource">
    <complexType>
     <sequence>
-     <element name="memberid" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/><!-- mcu__delSource::memberid -->
-     <element name="sourceid" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/><!-- mcu__delSource::sourceid -->
+     <element name="confid" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- mcu__delVideoSource::confid -->
+     <element name="memberid" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- mcu__delVideoSource::memberid -->
+     <element name="sourceid" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- mcu__delVideoSource::sourceid -->
     </sequence>
    </complexType>
   </element>
   <!-- operation request element -->
-  <element name="addSink">
+  <element name="addVideoSink">
    <complexType>
     <sequence>
-     <element name="memberid" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/><!-- mcu__addSink::memberid -->
+     <element name="confid" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- mcu__addVideoSink::confid -->
+     <element name="memberid" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- mcu__addVideoSink::memberid -->
+     <element name="sourceid" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- mcu__addVideoSink::sourceid -->
     </sequence>
    </complexType>
   </element>
@@ -188,18 +270,135 @@
   <element name="VideoSink">
    <complexType>
     <sequence>
-     <element name="id" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- mcu__VideoSink::id -->
+     <element name="sinkid" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- mcu__VideoSink::sinkid -->
      <element name="sourceid" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- mcu__VideoSink::sourceid -->
      <element name="endpoint" type="mcu:MediaEndpoint" minOccurs="1" maxOccurs="1"/><!-- mcu__VideoSink::endpoint -->
     </sequence>
    </complexType>
   </element>
   <!-- operation request element -->
-  <element name="delSink">
+  <element name="delVideoSink">
    <complexType>
     <sequence>
-     <element name="memberid" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/><!-- mcu__delSink::memberid -->
-     <element name="sinkid" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/><!-- mcu__delSink::sinkid -->
+     <element name="confid" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- mcu__delVideoSink::confid -->
+     <element name="memberid" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- mcu__delVideoSink::memberid -->
+     <element name="sinkid" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- mcu__delVideoSink::sinkid -->
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation request element -->
+  <element name="addAudioStream">
+   <complexType>
+    <sequence>
+     <element name="confid" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- mcu__addAudioStream::confid -->
+     <element name="memberid" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- mcu__addAudioStream::memberid -->
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation response element -->
+  <element name="AudioStream">
+   <complexType>
+    <sequence>
+     <element name="streamid" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- mcu__AudioStream::streamid -->
+     <element name="endpoint" type="mcu:MediaEndpoint" minOccurs="1" maxOccurs="1"/><!-- mcu__AudioStream::endpoint -->
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation request element -->
+  <element name="delAudioStream">
+   <complexType>
+    <sequence>
+     <element name="confid" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- mcu__delAudioStream::confid -->
+     <element name="memberid" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- mcu__delAudioStream::memberid -->
+     <element name="streamid" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- mcu__delAudioStream::streamid -->
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation request element -->
+  <element name="addMember">
+   <complexType>
+    <sequence>
+     <element name="confid" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- mcu__addMember::confid -->
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation response element -->
+  <element name="Member">
+   <complexType>
+    <sequence>
+     <element name="memberid" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- mcu__Member::memberid -->
+     <element name="name" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/><!-- mcu__Member::name -->
+     <element name="sources" type="mcu:VideoSourceArray" minOccurs="1" maxOccurs="1" nillable="true"/><!-- mcu__Member::sources -->
+     <element name="sinks" type="mcu:VideoSinkArray" minOccurs="1" maxOccurs="1" nillable="true"/><!-- mcu__Member::sinks -->
+     <element name="audio" type="mcu:AudioStream" minOccurs="1" maxOccurs="1"/><!-- mcu__Member::audio -->
+     <element name="enableaudio" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- mcu__Member::enableaudio -->
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation request element -->
+  <element name="delMember">
+   <complexType>
+    <sequence>
+     <element name="confid" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- mcu__delMember::confid -->
+     <element name="memberid" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- mcu__delMember::memberid -->
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation request element -->
+  <element name="enableSound">
+   <complexType>
+    <sequence>
+     <element name="confid" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- mcu__enableSound::confid -->
+     <element name="memberid" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- mcu__enableSound::memberid -->
+     <element name="enable" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- mcu__enableSound::enable -->
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation response element -->
+  <element name="enableSoundResponse">
+   <complexType>
+    <sequence>
+     <element name="res" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- mcu__enableSound::res -->
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation request element -->
+  <element name="addConference">
+   <complexType>
+    <sequence>
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation response element -->
+  <element name="Conference">
+   <complexType>
+    <sequence>
+     <element name="confid" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- mcu__Conference::confid -->
+     <element name="desc" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/><!-- mcu__Conference::desc -->
+     <element name="members" type="mcu:MemberArray" minOccurs="1" maxOccurs="1" nillable="true"/><!-- mcu__Conference::members -->
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation request element -->
+  <element name="delConference">
+   <complexType>
+    <sequence>
+     <element name="confid" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- mcu__delConference::confid -->
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation request element -->
+  <element name="listConferences">
+   <complexType>
+    <sequence>
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation response element -->
+  <element name="listConferencesResponse">
+   <complexType>
+    <sequence>
+     <element name="res" type="mcu:ConferenceArrayResponse" minOccurs="1" maxOccurs="1"/><!-- mcu__listConferences::res -->
     </sequence>
    </complexType>
   </element>
@@ -223,28 +422,80 @@
  <part name="Body" element="mcu:Status"/><!-- mcu__getStatus::res -->
 </message>
 
-<message name="addSource">
- <part name="Body" element="mcu:addSource"/><!-- mcu__addSource::mcu__addSource -->
+<message name="addVideoSource">
+ <part name="Body" element="mcu:addVideoSource"/><!-- mcu__addVideoSource::mcu__addVideoSource -->
 </message>
 
 <message name="VideoSource">
- <part name="Body" element="mcu:VideoSource"/><!-- mcu__addSource::res -->
+ <part name="Body" element="mcu:VideoSource"/><!-- mcu__addVideoSource::res -->
 </message>
 
-<message name="delSource">
- <part name="Body" element="mcu:delSource"/><!-- mcu__delSource::mcu__delSource -->
+<message name="delVideoSource">
+ <part name="Body" element="mcu:delVideoSource"/><!-- mcu__delVideoSource::mcu__delVideoSource -->
 </message>
 
-<message name="addSink">
- <part name="Body" element="mcu:addSink"/><!-- mcu__addSink::mcu__addSink -->
+<message name="addVideoSink">
+ <part name="Body" element="mcu:addVideoSink"/><!-- mcu__addVideoSink::mcu__addVideoSink -->
 </message>
 
 <message name="VideoSink">
- <part name="Body" element="mcu:VideoSink"/><!-- mcu__addSink::res -->
+ <part name="Body" element="mcu:VideoSink"/><!-- mcu__addVideoSink::res -->
 </message>
 
-<message name="delSink">
- <part name="Body" element="mcu:delSink"/><!-- mcu__delSink::mcu__delSink -->
+<message name="delVideoSink">
+ <part name="Body" element="mcu:delVideoSink"/><!-- mcu__delVideoSink::mcu__delVideoSink -->
+</message>
+
+<message name="addAudioStream">
+ <part name="Body" element="mcu:addAudioStream"/><!-- mcu__addAudioStream::mcu__addAudioStream -->
+</message>
+
+<message name="AudioStream">
+ <part name="Body" element="mcu:AudioStream"/><!-- mcu__addAudioStream::res -->
+</message>
+
+<message name="delAudioStream">
+ <part name="Body" element="mcu:delAudioStream"/><!-- mcu__delAudioStream::mcu__delAudioStream -->
+</message>
+
+<message name="addMember">
+ <part name="Body" element="mcu:addMember"/><!-- mcu__addMember::mcu__addMember -->
+</message>
+
+<message name="Member">
+ <part name="Body" element="mcu:Member"/><!-- mcu__addMember::res -->
+</message>
+
+<message name="delMember">
+ <part name="Body" element="mcu:delMember"/><!-- mcu__delMember::mcu__delMember -->
+</message>
+
+<message name="enableSoundRequest">
+ <part name="Body" element="mcu:enableSound"/><!-- mcu__enableSound::mcu__enableSound -->
+</message>
+
+<message name="enableSoundResponse">
+ <part name="Body" element="mcu:enableSoundResponse"/>
+</message>
+
+<message name="addConference">
+ <part name="Body" element="mcu:addConference"/><!-- mcu__addConference::mcu__addConference -->
+</message>
+
+<message name="Conference">
+ <part name="Body" element="mcu:Conference"/><!-- mcu__addConference::res -->
+</message>
+
+<message name="delConference">
+ <part name="Body" element="mcu:delConference"/><!-- mcu__delConference::mcu__delConference -->
+</message>
+
+<message name="listConferencesRequest">
+ <part name="Body" element="mcu:listConferences"/><!-- mcu__listConferences::mcu__listConferences -->
+</message>
+
+<message name="listConferencesResponse">
+ <part name="Body" element="mcu:listConferencesResponse"/>
 </message>
 
 <portType name="mcuPortType">
@@ -258,23 +509,60 @@
   <input message="tns:getStatus"/>
   <output message="tns:Status"/>
  </operation>
- <operation name="addSource">
-  <documentation>Service definition of function mcu__addSource</documentation>
-  <input message="tns:addSource"/>
+ <operation name="addVideoSource">
+  <documentation>Service definition of function mcu__addVideoSource</documentation>
+  <input message="tns:addVideoSource"/>
   <output message="tns:VideoSource"/>
  </operation>
- <operation name="delSource">
-  <documentation>Service definition of function mcu__delSource</documentation>
-  <input message="tns:delSource"/>
+ <operation name="delVideoSource">
+  <documentation>Service definition of function mcu__delVideoSource</documentation>
+  <input message="tns:delVideoSource"/>
  </operation>
- <operation name="addSink">
-  <documentation>Service definition of function mcu__addSink</documentation>
-  <input message="tns:addSink"/>
+ <operation name="addVideoSink">
+  <documentation>Service definition of function mcu__addVideoSink</documentation>
+  <input message="tns:addVideoSink"/>
   <output message="tns:VideoSink"/>
  </operation>
- <operation name="delSink">
-  <documentation>Service definition of function mcu__delSink</documentation>
-  <input message="tns:delSink"/>
+ <operation name="delVideoSink">
+  <documentation>Service definition of function mcu__delVideoSink</documentation>
+  <input message="tns:delVideoSink"/>
+ </operation>
+ <operation name="addAudioStream">
+  <documentation>Service definition of function mcu__addAudioStream</documentation>
+  <input message="tns:addAudioStream"/>
+  <output message="tns:AudioStream"/>
+ </operation>
+ <operation name="delAudioStream">
+  <documentation>Service definition of function mcu__delAudioStream</documentation>
+  <input message="tns:delAudioStream"/>
+ </operation>
+ <operation name="addMember">
+  <documentation>Service definition of function mcu__addMember</documentation>
+  <input message="tns:addMember"/>
+  <output message="tns:Member"/>
+ </operation>
+ <operation name="delMember">
+  <documentation>Service definition of function mcu__delMember</documentation>
+  <input message="tns:delMember"/>
+ </operation>
+ <operation name="enableSound">
+  <documentation>Service definition of function mcu__enableSound</documentation>
+  <input message="tns:enableSoundRequest"/>
+  <output message="tns:enableSoundResponse"/>
+ </operation>
+ <operation name="addConference">
+  <documentation>Service definition of function mcu__addConference</documentation>
+  <input message="tns:addConference"/>
+  <output message="tns:Conference"/>
+ </operation>
+ <operation name="delConference">
+  <documentation>Service definition of function mcu__delConference</documentation>
+  <input message="tns:delConference"/>
+ </operation>
+ <operation name="listConferences">
+  <documentation>Service definition of function mcu__listConferences</documentation>
+  <input message="tns:listConferencesRequest"/>
+  <output message="tns:listConferencesResponse"/>
  </operation>
 </portType>
 
@@ -298,7 +586,7 @@
      <SOAP:body parts="Body" use="literal"/>
   </output>
  </operation>
- <operation name="addSource">
+ <operation name="addVideoSource">
   <SOAP:operation soapAction=""/>
   <input>
      <SOAP:body parts="Body" use="literal"/>
@@ -307,7 +595,7 @@
      <SOAP:body parts="Body" use="literal"/>
   </output>
  </operation>
- <operation name="delSource">
+ <operation name="delVideoSource">
   <SOAP:operation soapAction=""/>
   <input>
      <SOAP:body parts="Body" use="literal"/>
@@ -316,7 +604,7 @@
      <SOAP:body parts="Body" use="literal"/>
   </output>
  </operation>
- <operation name="addSink">
+ <operation name="addVideoSink">
   <SOAP:operation soapAction=""/>
   <input>
      <SOAP:body parts="Body" use="literal"/>
@@ -325,7 +613,79 @@
      <SOAP:body parts="Body" use="literal"/>
   </output>
  </operation>
- <operation name="delSink">
+ <operation name="delVideoSink">
+  <SOAP:operation soapAction=""/>
+  <input>
+     <SOAP:body parts="Body" use="literal"/>
+  </input>
+  <output>
+     <SOAP:body parts="Body" use="literal"/>
+  </output>
+ </operation>
+ <operation name="addAudioStream">
+  <SOAP:operation soapAction=""/>
+  <input>
+     <SOAP:body parts="Body" use="literal"/>
+  </input>
+  <output>
+     <SOAP:body parts="Body" use="literal"/>
+  </output>
+ </operation>
+ <operation name="delAudioStream">
+  <SOAP:operation soapAction=""/>
+  <input>
+     <SOAP:body parts="Body" use="literal"/>
+  </input>
+  <output>
+     <SOAP:body parts="Body" use="literal"/>
+  </output>
+ </operation>
+ <operation name="addMember">
+  <SOAP:operation soapAction=""/>
+  <input>
+     <SOAP:body parts="Body" use="literal"/>
+  </input>
+  <output>
+     <SOAP:body parts="Body" use="literal"/>
+  </output>
+ </operation>
+ <operation name="delMember">
+  <SOAP:operation soapAction=""/>
+  <input>
+     <SOAP:body parts="Body" use="literal"/>
+  </input>
+  <output>
+     <SOAP:body parts="Body" use="literal"/>
+  </output>
+ </operation>
+ <operation name="enableSound">
+  <SOAP:operation soapAction=""/>
+  <input>
+     <SOAP:body parts="Body" use="literal"/>
+  </input>
+  <output>
+     <SOAP:body parts="Body" use="literal"/>
+  </output>
+ </operation>
+ <operation name="addConference">
+  <SOAP:operation soapAction=""/>
+  <input>
+     <SOAP:body parts="Body" use="literal"/>
+  </input>
+  <output>
+     <SOAP:body parts="Body" use="literal"/>
+  </output>
+ </operation>
+ <operation name="delConference">
+  <SOAP:operation soapAction=""/>
+  <input>
+     <SOAP:body parts="Body" use="literal"/>
+  </input>
+  <output>
+     <SOAP:body parts="Body" use="literal"/>
+  </output>
+ </operation>
+ <operation name="listConferences">
   <SOAP:operation soapAction=""/>
   <input>
      <SOAP:body parts="Body" use="literal"/>

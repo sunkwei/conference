@@ -76,6 +76,7 @@
 		C059D7E5191CF22400AF5FEE /* soapH.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = soapH.h; sourceTree = "<group>"; };
 		C059D7E6191CF22400AF5FEE /* soapServer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = soapServer.cpp; sourceTree = "<group>"; };
 		C059D7E7191CF22400AF5FEE /* soapStub.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = soapStub.h; sourceTree = "<group>"; };
+		C059D7EA191CF2F300AF5FEE /* mcu.README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = mcu.README; path = ../../../mcu.README; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +99,7 @@
 		C059D73C191CEE4900AF5FEE = {
 			isa = PBXGroup;
 			children = (
+				C059D7EA191CF2F300AF5FEE /* mcu.README */,
 				C059D7D6191CF18000AF5FEE /* libs */,
 				C059D7D4191CF10500AF5FEE /* gsoap */,
 				C059D7A4191CF0AB00AF5FEE /* mcu */,
