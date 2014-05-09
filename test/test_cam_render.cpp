@@ -60,7 +60,9 @@ static const char* choose_display_name()
 
 static MSFilter *get_render()
 {
-	MSFilter *render = ms_filter_new_from_name(choose_display_name());
+	const char *name = choose_display_name();
+	fprintf(stderr, "using render '%s'\n", name);
+	MSFilter *render = ms_filter_new_from_name(name);
 	return render;
 }
 
