@@ -1,0 +1,20 @@
+mcu 基本思路是：
+   member 申请发布媒体：addSource()，成功后，一般是一个 rtp endpoint，将媒体流发到次 endp 即可；
+   member 点播媒体：addSink()，指定点播那一路 source，mcu 负责转发该露 media
+   对于声音，一般一个会议只有一个声音，需要混合同时发言的 ...
+
+
+   wsapi:
+   		conflist = getConferenceList()：返回会议列表，conf_ids[]
+		confdesc = getConferenceDesc(conf_id): 返回指定会议描述
+
+		member = enterConference(conf_id, member_desc), 加入指定会议，使用 member_desc 身份
+		ok = leaveConference(conf_id, member), 离开会议 ...
+
+		source = addSource(conf_id, member_desc, source_desc), 申请发布 source_desc 描述的媒体
+		ok = delSource(conf_id, member_desc, source), 删除
+
+		sink = addSink(conf_id, member_desc, source), 申请点播 source
+		ok = delSink(conf_id, member_desc, sink), 删除
+
+		音频：...
