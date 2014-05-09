@@ -1,0 +1,361 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C059D7BB191CF0AB00AF5FEE /* Conference.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C059D7A5191CF0AB00AF5FEE /* Conference.cpp */; };
+		C059D7BC191CF0AB00AF5FEE /* log.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C059D7A8191CF0AB00AF5FEE /* log.cpp */; };
+		C059D7BD191CF0AB00AF5FEE /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C059D7AA191CF0AB00AF5FEE /* main.cpp */; };
+		C059D7BE191CF0AB00AF5FEE /* Member.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C059D7AB191CF0AB00AF5FEE /* Member.cpp */; };
+		C059D7BF191CF0AB00AF5FEE /* Server.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C059D7AD191CF0AB00AF5FEE /* Server.cpp */; };
+		C059D7C0191CF0AB00AF5FEE /* Sink.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C059D7AF191CF0AB00AF5FEE /* Sink.cpp */; };
+		C059D7C1191CF0AB00AF5FEE /* Source.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C059D7B1191CF0AB00AF5FEE /* Source.cpp */; };
+		C059D7C2191CF0AB00AF5FEE /* Stream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C059D7B3191CF0AB00AF5FEE /* Stream.cpp */; };
+		C059D7C3191CF0AB00AF5FEE /* util.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C059D7B5191CF0AB00AF5FEE /* util.cpp */; };
+		C059D7C4191CF0AB00AF5FEE /* webapi.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C059D7B7191CF0AB00AF5FEE /* webapi.cpp */; };
+		C059D7C5191CF0AB00AF5FEE /* WsImpl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C059D7B9191CF0AB00AF5FEE /* WsImpl.cpp */; };
+		C059D7DD191CF1D500AF5FEE /* libccext2-1.8.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C059D7D7191CF1D500AF5FEE /* libccext2-1.8.0.dylib */; };
+		C059D7DE191CF1D500AF5FEE /* libccgnu2-1.8.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C059D7D8191CF1D500AF5FEE /* libccgnu2-1.8.0.dylib */; };
+		C059D7DF191CF1D500AF5FEE /* libgsoap++.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C059D7D9191CF1D500AF5FEE /* libgsoap++.a */; };
+		C059D7E0191CF1D500AF5FEE /* libmediastreamer_base.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C059D7DA191CF1D500AF5FEE /* libmediastreamer_base.3.dylib */; };
+		C059D7E1191CF1D600AF5FEE /* libmediastreamer_voip.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C059D7DB191CF1D500AF5FEE /* libmediastreamer_voip.3.dylib */; };
+		C059D7E2191CF1D600AF5FEE /* libortp.9.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C059D7DC191CF1D500AF5FEE /* libortp.9.dylib */; };
+		C059D7E8191CF22400AF5FEE /* soapC.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C059D7E4191CF22400AF5FEE /* soapC.cpp */; };
+		C059D7E9191CF22400AF5FEE /* soapServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C059D7E6191CF22400AF5FEE /* soapServer.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C059D743191CEE4900AF5FEE /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		C059D745191CEE4900AF5FEE /* mcu */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = mcu; sourceTree = BUILT_PRODUCTS_DIR; };
+		C059D7A5191CF0AB00AF5FEE /* Conference.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Conference.cpp; sourceTree = "<group>"; };
+		C059D7A6191CF0AB00AF5FEE /* Conference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Conference.h; sourceTree = "<group>"; };
+		C059D7A7191CF0AB00AF5FEE /* const.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = const.h; sourceTree = "<group>"; };
+		C059D7A8191CF0AB00AF5FEE /* log.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = log.cpp; sourceTree = "<group>"; };
+		C059D7A9191CF0AB00AF5FEE /* log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = log.h; sourceTree = "<group>"; };
+		C059D7AA191CF0AB00AF5FEE /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		C059D7AB191CF0AB00AF5FEE /* Member.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Member.cpp; sourceTree = "<group>"; };
+		C059D7AC191CF0AB00AF5FEE /* Member.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Member.h; sourceTree = "<group>"; };
+		C059D7AD191CF0AB00AF5FEE /* Server.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Server.cpp; sourceTree = "<group>"; };
+		C059D7AE191CF0AB00AF5FEE /* Server.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Server.h; sourceTree = "<group>"; };
+		C059D7AF191CF0AB00AF5FEE /* Sink.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Sink.cpp; sourceTree = "<group>"; };
+		C059D7B0191CF0AB00AF5FEE /* Sink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sink.h; sourceTree = "<group>"; };
+		C059D7B1191CF0AB00AF5FEE /* Source.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Source.cpp; sourceTree = "<group>"; };
+		C059D7B2191CF0AB00AF5FEE /* Source.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Source.h; sourceTree = "<group>"; };
+		C059D7B3191CF0AB00AF5FEE /* Stream.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Stream.cpp; sourceTree = "<group>"; };
+		C059D7B4191CF0AB00AF5FEE /* Stream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stream.h; sourceTree = "<group>"; };
+		C059D7B5191CF0AB00AF5FEE /* util.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = util.cpp; sourceTree = "<group>"; };
+		C059D7B6191CF0AB00AF5FEE /* util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = util.h; sourceTree = "<group>"; };
+		C059D7B7191CF0AB00AF5FEE /* webapi.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = webapi.cpp; sourceTree = "<group>"; };
+		C059D7B8191CF0AB00AF5FEE /* webapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = webapi.h; sourceTree = "<group>"; };
+		C059D7B9191CF0AB00AF5FEE /* WsImpl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WsImpl.cpp; sourceTree = "<group>"; };
+		C059D7BA191CF0AB00AF5FEE /* WsImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WsImpl.h; sourceTree = "<group>"; };
+		C059D7D5191CF10500AF5FEE /* mcu.interface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mcu.interface.h; sourceTree = "<group>"; };
+		C059D7D7191CF1D500AF5FEE /* libccext2-1.8.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libccext2-1.8.0.dylib"; path = "../../../../../../../../usr/local/lib/libccext2-1.8.0.dylib"; sourceTree = "<group>"; };
+		C059D7D8191CF1D500AF5FEE /* libccgnu2-1.8.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libccgnu2-1.8.0.dylib"; path = "../../../../../../../../usr/local/lib/libccgnu2-1.8.0.dylib"; sourceTree = "<group>"; };
+		C059D7D9191CF1D500AF5FEE /* libgsoap++.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgsoap++.a"; path = "../../../../../../../../usr/local/lib/libgsoap++.a"; sourceTree = "<group>"; };
+		C059D7DA191CF1D500AF5FEE /* libmediastreamer_base.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libmediastreamer_base.3.dylib; path = ../../../../../../../../usr/local/lib/libmediastreamer_base.3.dylib; sourceTree = "<group>"; };
+		C059D7DB191CF1D500AF5FEE /* libmediastreamer_voip.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libmediastreamer_voip.3.dylib; path = ../../../../../../../../usr/local/lib/libmediastreamer_voip.3.dylib; sourceTree = "<group>"; };
+		C059D7DC191CF1D500AF5FEE /* libortp.9.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libortp.9.dylib; path = ../../../../../../../../usr/local/lib/libortp.9.dylib; sourceTree = "<group>"; };
+		C059D7E3191CF22400AF5FEE /* mcu.nsmap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mcu.nsmap; sourceTree = "<group>"; };
+		C059D7E4191CF22400AF5FEE /* soapC.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = soapC.cpp; sourceTree = "<group>"; };
+		C059D7E5191CF22400AF5FEE /* soapH.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = soapH.h; sourceTree = "<group>"; };
+		C059D7E6191CF22400AF5FEE /* soapServer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = soapServer.cpp; sourceTree = "<group>"; };
+		C059D7E7191CF22400AF5FEE /* soapStub.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = soapStub.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C059D742191CEE4900AF5FEE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C059D7E0191CF1D500AF5FEE /* libmediastreamer_base.3.dylib in Frameworks */,
+				C059D7DF191CF1D500AF5FEE /* libgsoap++.a in Frameworks */,
+				C059D7E2191CF1D600AF5FEE /* libortp.9.dylib in Frameworks */,
+				C059D7DE191CF1D500AF5FEE /* libccgnu2-1.8.0.dylib in Frameworks */,
+				C059D7DD191CF1D500AF5FEE /* libccext2-1.8.0.dylib in Frameworks */,
+				C059D7E1191CF1D600AF5FEE /* libmediastreamer_voip.3.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C059D73C191CEE4900AF5FEE = {
+			isa = PBXGroup;
+			children = (
+				C059D7D6191CF18000AF5FEE /* libs */,
+				C059D7D4191CF10500AF5FEE /* gsoap */,
+				C059D7A4191CF0AB00AF5FEE /* mcu */,
+				C059D746191CEE4900AF5FEE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C059D746191CEE4900AF5FEE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C059D745191CEE4900AF5FEE /* mcu */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C059D7A4191CF0AB00AF5FEE /* mcu */ = {
+			isa = PBXGroup;
+			children = (
+				C059D7A5191CF0AB00AF5FEE /* Conference.cpp */,
+				C059D7A6191CF0AB00AF5FEE /* Conference.h */,
+				C059D7A7191CF0AB00AF5FEE /* const.h */,
+				C059D7A8191CF0AB00AF5FEE /* log.cpp */,
+				C059D7A9191CF0AB00AF5FEE /* log.h */,
+				C059D7AA191CF0AB00AF5FEE /* main.cpp */,
+				C059D7AB191CF0AB00AF5FEE /* Member.cpp */,
+				C059D7AC191CF0AB00AF5FEE /* Member.h */,
+				C059D7AD191CF0AB00AF5FEE /* Server.cpp */,
+				C059D7AE191CF0AB00AF5FEE /* Server.h */,
+				C059D7AF191CF0AB00AF5FEE /* Sink.cpp */,
+				C059D7B0191CF0AB00AF5FEE /* Sink.h */,
+				C059D7B1191CF0AB00AF5FEE /* Source.cpp */,
+				C059D7B2191CF0AB00AF5FEE /* Source.h */,
+				C059D7B3191CF0AB00AF5FEE /* Stream.cpp */,
+				C059D7B4191CF0AB00AF5FEE /* Stream.h */,
+				C059D7B5191CF0AB00AF5FEE /* util.cpp */,
+				C059D7B6191CF0AB00AF5FEE /* util.h */,
+				C059D7B7191CF0AB00AF5FEE /* webapi.cpp */,
+				C059D7B8191CF0AB00AF5FEE /* webapi.h */,
+				C059D7B9191CF0AB00AF5FEE /* WsImpl.cpp */,
+				C059D7BA191CF0AB00AF5FEE /* WsImpl.h */,
+			);
+			name = mcu;
+			path = ../../../mcu/mcu;
+			sourceTree = "<group>";
+		};
+		C059D7D4191CF10500AF5FEE /* gsoap */ = {
+			isa = PBXGroup;
+			children = (
+				C059D7E3191CF22400AF5FEE /* mcu.nsmap */,
+				C059D7E4191CF22400AF5FEE /* soapC.cpp */,
+				C059D7E5191CF22400AF5FEE /* soapH.h */,
+				C059D7E6191CF22400AF5FEE /* soapServer.cpp */,
+				C059D7E7191CF22400AF5FEE /* soapStub.h */,
+				C059D7D5191CF10500AF5FEE /* mcu.interface.h */,
+			);
+			name = gsoap;
+			path = ../../../mcu/gsoap;
+			sourceTree = "<group>";
+		};
+		C059D7D6191CF18000AF5FEE /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				C059D7D7191CF1D500AF5FEE /* libccext2-1.8.0.dylib */,
+				C059D7D8191CF1D500AF5FEE /* libccgnu2-1.8.0.dylib */,
+				C059D7D9191CF1D500AF5FEE /* libgsoap++.a */,
+				C059D7DA191CF1D500AF5FEE /* libmediastreamer_base.3.dylib */,
+				C059D7DB191CF1D500AF5FEE /* libmediastreamer_voip.3.dylib */,
+				C059D7DC191CF1D500AF5FEE /* libortp.9.dylib */,
+			);
+			name = libs;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C059D744191CEE4900AF5FEE /* mcu */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C059D74E191CEE4900AF5FEE /* Build configuration list for PBXNativeTarget "mcu" */;
+			buildPhases = (
+				C059D741191CEE4900AF5FEE /* Sources */,
+				C059D742191CEE4900AF5FEE /* Frameworks */,
+				C059D743191CEE4900AF5FEE /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = mcu;
+			productName = mcu;
+			productReference = C059D745191CEE4900AF5FEE /* mcu */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C059D73D191CEE4900AF5FEE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = sunkw;
+			};
+			buildConfigurationList = C059D740191CEE4900AF5FEE /* Build configuration list for PBXProject "mcu" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = C059D73C191CEE4900AF5FEE;
+			productRefGroup = C059D746191CEE4900AF5FEE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C059D744191CEE4900AF5FEE /* mcu */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C059D741191CEE4900AF5FEE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C059D7C0191CF0AB00AF5FEE /* Sink.cpp in Sources */,
+				C059D7BC191CF0AB00AF5FEE /* log.cpp in Sources */,
+				C059D7E9191CF22400AF5FEE /* soapServer.cpp in Sources */,
+				C059D7C3191CF0AB00AF5FEE /* util.cpp in Sources */,
+				C059D7C4191CF0AB00AF5FEE /* webapi.cpp in Sources */,
+				C059D7E8191CF22400AF5FEE /* soapC.cpp in Sources */,
+				C059D7BB191CF0AB00AF5FEE /* Conference.cpp in Sources */,
+				C059D7C5191CF0AB00AF5FEE /* WsImpl.cpp in Sources */,
+				C059D7BF191CF0AB00AF5FEE /* Server.cpp in Sources */,
+				C059D7BD191CF0AB00AF5FEE /* main.cpp in Sources */,
+				C059D7BE191CF0AB00AF5FEE /* Member.cpp in Sources */,
+				C059D7C1191CF0AB00AF5FEE /* Source.cpp in Sources */,
+				C059D7C2191CF0AB00AF5FEE /* Stream.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		C059D74C191CEE4900AF5FEE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		C059D74D191CEE4900AF5FEE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		C059D74F191CEE4900AF5FEE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/OSX10.9.xctoolchain/usr/include,
+					/usr/local/include,
+				);
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		C059D750191CEE4900AF5FEE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/OSX10.9.xctoolchain/usr/include,
+					/usr/local/include,
+				);
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C059D740191CEE4900AF5FEE /* Build configuration list for PBXProject "mcu" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C059D74C191CEE4900AF5FEE /* Debug */,
+				C059D74D191CEE4900AF5FEE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C059D74E191CEE4900AF5FEE /* Build configuration list for PBXNativeTarget "mcu" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C059D74F191CEE4900AF5FEE /* Debug */,
+				C059D750191CEE4900AF5FEE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C059D73D191CEE4900AF5FEE /* Project object */;
+}

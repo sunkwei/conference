@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope
+  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+  xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:mcu="urn:mcu">
+ <SOAP-ENV:Body>
+  <mcu:Status>
+   <uptime>0.0</uptime>
+   <conferences>0</conferences>
+   <up-kbps5>0.0</up-kbps5>
+   <up-kbps60>0.0</up-kbps60>
+   <up-kbps300>0.0</up-kbps300>
+   <down-kbps5>0.0</down-kbps5>
+   <down-kbps60>0.0</down-kbps60>
+   <down-kbps300>0.0</down-kbps300>
+   <cpu>0.0</cpu>
+   <mem>0.0</mem>
+   <up-lost-ratio>0.0</up-lost-ratio>
+   <down-lost-ratio>0.0</down-lost-ratio>
+  </mcu:Status>
+ </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

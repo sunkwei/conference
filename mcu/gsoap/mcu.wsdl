@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="mcu"
+ targetNamespace="urn:mcu"
+ xmlns:tns="urn:mcu"
+ xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+ xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+ xmlns:mcu="urn:mcu"
+ xmlns:SOAP="http://schemas.xmlsoap.org/wsdl/soap/"
+ xmlns:HTTP="http://schemas.xmlsoap.org/wsdl/http/"
+ xmlns:MIME="http://schemas.xmlsoap.org/wsdl/mime/"
+ xmlns:DIME="http://schemas.xmlsoap.org/ws/2002/04/dime/wsdl/"
+ xmlns:WSDL="http://schemas.xmlsoap.org/wsdl/"
+ xmlns="http://schemas.xmlsoap.org/wsdl/">
+
+<types>
+
+ <schema targetNamespace="urn:mcu"
+  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+  xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:mcu="urn:mcu"
+  xmlns="http://www.w3.org/2001/XMLSchema"
+  elementFormDefault="unqualified"
+  attributeFormDefault="unqualified">
+  <import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+  <complexType name="VersionResponse"><!-- mcu__VersionResponse -->
+
+   <complexContent>
+    <restriction base="mcu:Version">
+    </restriction>
+   </complexContent>
+  </complexType>
+  <complexType name="StatusResponse"><!-- mcu__StatusResponse -->
+
+   <complexContent>
+    <restriction base="mcu:Status">
+    </restriction>
+   </complexContent>
+  </complexType>
+  <complexType name="Version"><!-- mcu__Version -->
+
+   <sequence>
+     <element name="major" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- mcu__Version::major -->
+     <element name="minor" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- mcu__Version::minor -->
+     <element name="desc" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/><!-- mcu__Version::desc -->
+   </sequence>
+  </complexType>
+  <complexType name="Status"><!-- mcu__Status -->
+
+   <sequence>
+     <element name="uptime" type="xsd:double" minOccurs="1" maxOccurs="1"/><!-- mcu__Status::uptime -->
+     <element name="conferences" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- mcu__Status::conferences -->
+     <element name="up-kbps5" type="xsd:double" minOccurs="1" maxOccurs="1"/><!-- mcu__Status::up_kbps5 -->
+     <element name="up-kbps60" type="xsd:double" minOccurs="1" maxOccurs="1"/><!-- mcu__Status::up_kbps60 -->
+     <element name="up-kbps300" type="xsd:double" minOccurs="1" maxOccurs="1"/><!-- mcu__Status::up_kbps300 -->
+     <element name="down-kbps5" type="xsd:double" minOccurs="1" maxOccurs="1"/><!-- mcu__Status::down_kbps5 -->
+     <element name="down-kbps60" type="xsd:double" minOccurs="1" maxOccurs="1"/><!-- mcu__Status::down_kbps60 -->
+     <element name="down-kbps300" type="xsd:double" minOccurs="1" maxOccurs="1"/><!-- mcu__Status::down_kbps300 -->
+     <element name="cpu" type="xsd:double" minOccurs="1" maxOccurs="1"/><!-- mcu__Status::cpu -->
+     <element name="mem" type="xsd:double" minOccurs="1" maxOccurs="1"/><!-- mcu__Status::mem -->
+     <element name="up-lost-ratio" type="xsd:double" minOccurs="1" maxOccurs="1"/><!-- mcu__Status::up_lost_ratio -->
+     <element name="down-lost-ratio" type="xsd:double" minOccurs="1" maxOccurs="1"/><!-- mcu__Status::down_lost_ratio -->
+   </sequence>
+  </complexType>
+  <!-- operation request element -->
+  <element name="getVersion">
+   <complexType>
+    <sequence>
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation response element -->
+  <element name="Version">
+   <complexType>
+    <sequence>
+     <element name="major" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- mcu__Version::major -->
+     <element name="minor" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- mcu__Version::minor -->
+     <element name="desc" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/><!-- mcu__Version::desc -->
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation request element -->
+  <element name="getStatus">
+   <complexType>
+    <sequence>
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation response element -->
+  <element name="Status">
+   <complexType>
+    <sequence>
+     <element name="uptime" type="xsd:double" minOccurs="1" maxOccurs="1"/><!-- mcu__Status::uptime -->
+     <element name="conferences" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- mcu__Status::conferences -->
+     <element name="up-kbps5" type="xsd:double" minOccurs="1" maxOccurs="1"/><!-- mcu__Status::up_kbps5 -->
+     <element name="up-kbps60" type="xsd:double" minOccurs="1" maxOccurs="1"/><!-- mcu__Status::up_kbps60 -->
+     <element name="up-kbps300" type="xsd:double" minOccurs="1" maxOccurs="1"/><!-- mcu__Status::up_kbps300 -->
+     <element name="down-kbps5" type="xsd:double" minOccurs="1" maxOccurs="1"/><!-- mcu__Status::down_kbps5 -->
+     <element name="down-kbps60" type="xsd:double" minOccurs="1" maxOccurs="1"/><!-- mcu__Status::down_kbps60 -->
+     <element name="down-kbps300" type="xsd:double" minOccurs="1" maxOccurs="1"/><!-- mcu__Status::down_kbps300 -->
+     <element name="cpu" type="xsd:double" minOccurs="1" maxOccurs="1"/><!-- mcu__Status::cpu -->
+     <element name="mem" type="xsd:double" minOccurs="1" maxOccurs="1"/><!-- mcu__Status::mem -->
+     <element name="up-lost-ratio" type="xsd:double" minOccurs="1" maxOccurs="1"/><!-- mcu__Status::up_lost_ratio -->
+     <element name="down-lost-ratio" type="xsd:double" minOccurs="1" maxOccurs="1"/><!-- mcu__Status::down_lost_ratio -->
+    </sequence>
+   </complexType>
+  </element>
+ </schema>
+
+</types>
+
+<message name="getVersion">
+ <part name="Body" element="mcu:getVersion"/><!-- mcu__getVersion::mcu__getVersion -->
+</message>
+
+<message name="Version">
+ <part name="Body" element="mcu:Version"/><!-- mcu__getVersion::ver -->
+</message>
+
+<message name="getStatus">
+ <part name="Body" element="mcu:getStatus"/><!-- mcu__getStatus::mcu__getStatus -->
+</message>
+
+<message name="Status">
+ <part name="Body" element="mcu:Status"/><!-- mcu__getStatus::res -->
+</message>
+
+<portType name="mcuPortType">
+ <operation name="getVersion">
+  <documentation>Service definition of function mcu__getVersion</documentation>
+  <input message="tns:getVersion"/>
+  <output message="tns:Version"/>
+ </operation>
+ <operation name="getStatus">
+  <documentation>Service definition of function mcu__getStatus</documentation>
+  <input message="tns:getStatus"/>
+  <output message="tns:Status"/>
+ </operation>
+</portType>
+
+<binding name="mcu" type="tns:mcuPortType">
+ <SOAP:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+ <operation name="getVersion">
+  <SOAP:operation soapAction=""/>
+  <input>
+     <SOAP:body parts="Body" use="literal"/>
+  </input>
+  <output>
+     <SOAP:body parts="Body" use="literal"/>
+  </output>
+ </operation>
+ <operation name="getStatus">
+  <SOAP:operation soapAction=""/>
+  <input>
+     <SOAP:body parts="Body" use="literal"/>
+  </input>
+  <output>
+     <SOAP:body parts="Body" use="literal"/>
+  </output>
+ </operation>
+</binding>
+
+<service name="mcu">
+ <documentation>gSOAP 2.8.17r generated service definition</documentation>
+ <port name="mcu" binding="tns:mcu">
+  <SOAP:address location="http://localhost:80"/>
+ </port>
+</service>
+
+</definitions>
