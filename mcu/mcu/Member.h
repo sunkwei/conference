@@ -11,5 +11,15 @@
 #define __mcu__Member__
 
 #include <iostream>
+#include "Source.h"
+#include "Sink.h"
+#include "Stream.h"
+
+class Member
+{
+public:
+    Member();
+    ~Member();
+};
 
 #endif /* defined(__mcu__Member__) */
