@@ -12,4 +12,19 @@
 
 #include <iostream>
 
+class SinkDesc
+{
+    
+};
+
+// 一个 Sink 对应一个 rtp sender，将数据发送到 peer
+class Sink
+{
+public:
+    Sink();
+    virtual ~Sink();
+    
+    SinkDesc desc();
+};
+
 #endif /* defined(__mcu__Sink__) */

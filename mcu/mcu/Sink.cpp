@@ -7,3 +7,19 @@
 //
 
 #include "Sink.h"
+
+Sink::Sink()
+{
+    
+}
+
+Sink::~Sink()
+{
+    
+}
+
+SinkDesc Sink::desc()
+{
+    SinkDesc desc;
+    return desc;
+}

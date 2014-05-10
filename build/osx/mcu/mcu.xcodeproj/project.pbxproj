@@ -80,6 +80,7 @@
 		C059D7EA191CF2F300AF5FEE /* mcu.README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = mcu.README; path = ../../../mcu.README; sourceTree = "<group>"; };
 		C059D7EB191D095C00AF5FEE /* KVConfig.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = KVConfig.cpp; sourceTree = "<group>"; };
 		C059D7EC191D095C00AF5FEE /* KVConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KVConfig.h; sourceTree = "<group>"; };
+		C06387F7191E4F1400B0D80D /* defined.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = defined.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +146,7 @@
 				C059D7BA191CF0AB00AF5FEE /* WsImpl.h */,
 				C059D7EB191D095C00AF5FEE /* KVConfig.cpp */,
 				C059D7EC191D095C00AF5FEE /* KVConfig.h */,
+				C06387F7191E4F1400B0D80D /* defined.h */,
 			);
 			name = mcu;
 			path = ../../../mcu/mcu;

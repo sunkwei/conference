@@ -92,15 +92,42 @@ int mcu__enableSound(soap *soap, int conf_id, int member_id, int enable, int &re
 
 int mcu__addConference(soap *soap, void *, mcu__ConferenceResponse &res)
 {
+    Server &server = get_server(soap);
+    
+    res.confid = server.conference_create();
+    res.desc = soap_strdup(soap, "");
+    res.members.__ptr = 0;      // 创建时，总是空
+    res.members.__size = 0;
+    
     return SOAP_OK;
 }
 
 int mcu__delConference(soap *soap, int conf_id)
 {
+    Server &server = get_server(soap);
+    server.conference_destroy(conf_id);
+    
     return SOAP_OK;
 }
 
 int mcu__listConferences(soap *soap, void *, mcu__ConferenceArrayResponse &res)
 {
+    Server &server = get_server(soap);
+    std::vector<ConferenceDesc> confdescs = server.conference_list();
+    
+    res.__ptr = 0;
+    res.__size = (int)confdescs.size();
+    if (res.__size > 0) {
+        res.__ptr = (struct mcu__Conference*)soap_malloc(soap, sizeof(struct mcu__Conference));
+        
+        int n = 0;
+        for (std::vector<ConferenceDesc>::iterator it = confdescs.begin(); it != confdescs.end(); ++it) {
+            // TODO: 填充
+            struct mcu__Conference *conf = &res.__ptr[n++];
+            
+            conf->confid = it->conf_id;
+        }
+    }
+    
     return SOAP_OK;
 }

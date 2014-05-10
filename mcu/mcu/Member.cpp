@@ -8,7 +8,7 @@
 
 #include "Member.h"
 
-Member::Member()
+Member::Member(int confid, int memid) : conf_id_(confid), member_id_(memid)
 {
     
 }
@@ -16,4 +16,13 @@ Member::Member()
 Member::~Member()
 {
     
+}
+
+MemberDesc Member::desc()
+{
+    MemberDesc desc;
+    desc.conf_id = conf_id_;
+    desc.member_id = member_id_;
+    
+    return desc;
 }

@@ -7,3 +7,19 @@
 //
 
 #include "Stream.h"
+
+Stream::Stream()
+{
+    
+}
+
+Stream::~Stream()
+{
+    
+}
+
+StreamDesc Stream::desc()
+{
+    StreamDesc desc;
+    return desc;
+}

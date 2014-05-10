@@ -13,4 +13,18 @@
 
 #include <iostream>
 
+class StreamDesc
+{
+    
+};
+
+class Stream
+{
+public:
+    Stream();
+    virtual ~Stream();
+    
+    StreamDesc desc();
+};
+
 #endif /* defined(__mcu__Stream__) */

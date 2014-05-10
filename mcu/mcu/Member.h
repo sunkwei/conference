@@ -11,15 +11,27 @@
 #define __mcu__Member__
 
 #include <iostream>
+#include <cc++/thread.h>
 #include "Source.h"
 #include "Sink.h"
 #include "Stream.h"
 
+struct MemberDesc
+{
+    int conf_id;
+    int member_id;
+};
+
 class Member
 {
+    int conf_id_, member_id_;
+    
 public:
-    Member();
+    Member(int confid, int memid);
     ~Member();
+    
+    MemberDesc desc();
+    
 };
 
 #endif /* defined(__mcu__Member__) */

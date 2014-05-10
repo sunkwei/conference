@@ -7,3 +7,22 @@
 //
 
 #include "Source.h"
+
+Source::Source()
+{
+    
+}
+
+Source::~Source()
+{
+    
+}
+
+SourceDesc Source::desc()
+{
+    SourceDesc desc;
+    
+    // TODO:
+    
+    return desc;
+}

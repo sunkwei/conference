@@ -12,4 +12,18 @@
 
 #include <iostream>
 
+class SourceDesc
+{
+    
+};
+
+class Source
+{
+public:
+    Source();
+    virtual ~Source();
+    
+    SourceDesc desc();
+};
+
 #endif /* defined(__mcu__Source__) */
