@@ -1,0 +1,3 @@
+SUBDIRS= mcu
+AUTOMAKE_OPTIONS= foreign
+
