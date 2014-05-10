@@ -46,12 +46,29 @@ int Server::conference_destroy(int conf_id)
     for (it = conferences_.begin(); it != conferences_.end(); ++it) {
         if ((*it)->desc().conf_id == conf_id) {
             conferences_.erase(it);
-            delete (*it);
+            (*it)->release();
             break;
         }
     }
     
     return 0;
+}
+
+Conference *Server::get_conference(int conf_id)
+{
+    Conference *conf = 0;
+    ost::MutexLock al(cs_conferences_);
+    
+    CONFERENCES::iterator it;
+    for (it = conferences_.begin(); it != conferences_.end(); ++it) {
+        if (conf_id == (*it)->desc().conf_id) {
+            conf = *it;
+            conf->addref();
+            break;
+        }
+    }
+    
+    return conf;
 }
 
 std::vector<ConferenceDesc> Server::conference_list()

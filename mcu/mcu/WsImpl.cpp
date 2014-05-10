@@ -77,6 +77,14 @@ int mcu__delAudioStream(soap *soap, int conf_id, int member_id, int streamid)
 
 int mcu__addMember(soap *soap, int conf_id, mcu__MemberResponse &res)
 {
+    Server &server = get_server(soap);
+    Conference *conf = server.get_conference(conf_id);
+    if (conf) {
+        // TODO: ...
+        
+        conf->release();
+    }
+    
     return SOAP_OK;
 }
 

@@ -34,6 +34,11 @@ public:
     int conference_create();
     int conference_destroy(int conf_id);
     
+    /** 返回 Conference，
+        使用完成后，必须调用 release() 释放！！！
+     */
+    Conference *get_conference(int conf_id);
+    
     /** 返回所有 Conference 的描述 .... */
     std::vector<ConferenceDesc> conference_list();
     

@@ -12,6 +12,7 @@
 
 #include <iostream>
 #include <cc++/thread.h>
+#include "Ref.h"
 #include "Source.h"
 #include "Sink.h"
 #include "Stream.h"
@@ -22,13 +23,13 @@ struct MemberDesc
     int member_id;
 };
 
-class Member
+class Member : public Ref
 {
     int conf_id_, member_id_;
     
+    virtual ~Member();
 public:
     Member(int confid, int memid);
-    ~Member();
     
     MemberDesc desc();
     

@@ -15,6 +15,7 @@
 #include <list>
 #include <vector>
 #include <cc++/thread.h>
+#include "Ref.h"
 #include "Member.h"
 
 struct ConferenceDesc
@@ -22,7 +23,7 @@ struct ConferenceDesc
     int conf_id;
 };
 
-class Conference
+class Conference : public Ref
 {
     typedef std::list<Member*> MEMBERS;
     MEMBERS members_;
@@ -32,10 +33,11 @@ class Conference
     
     int next_memeber_id_;
     ost::Mutex cs_next_member_id_;
+
+    virtual ~Conference();
     
 public:
     Conference(int conf_id);
-    ~Conference();
     
     ConferenceDesc desc();
     

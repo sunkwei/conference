@@ -38,7 +38,7 @@ int Conference::member_destroy(int member_id)
     for (it = members_.begin(); it != members_.end(); ++it) {
         if ((*it)->desc().member_id == member_id) {
             members_.erase(it);
-            delete *it;
+            (*it)->release();
             break;
         }
     }

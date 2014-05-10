@@ -27,6 +27,7 @@
 		C059D7E8191CF22400AF5FEE /* soapC.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C059D7E4191CF22400AF5FEE /* soapC.cpp */; };
 		C059D7E9191CF22400AF5FEE /* soapServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C059D7E6191CF22400AF5FEE /* soapServer.cpp */; };
 		C059D7ED191D095C00AF5FEE /* KVConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C059D7EB191D095C00AF5FEE /* KVConfig.cpp */; };
+		C06387FA191E5DB500B0D80D /* Ref.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C06387F8191E5DB500B0D80D /* Ref.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -81,6 +82,8 @@
 		C059D7EB191D095C00AF5FEE /* KVConfig.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = KVConfig.cpp; sourceTree = "<group>"; };
 		C059D7EC191D095C00AF5FEE /* KVConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KVConfig.h; sourceTree = "<group>"; };
 		C06387F7191E4F1400B0D80D /* defined.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = defined.h; sourceTree = "<group>"; };
+		C06387F8191E5DB500B0D80D /* Ref.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Ref.cpp; sourceTree = "<group>"; };
+		C06387F9191E5DB500B0D80D /* Ref.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ref.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +150,8 @@
 				C059D7EB191D095C00AF5FEE /* KVConfig.cpp */,
 				C059D7EC191D095C00AF5FEE /* KVConfig.h */,
 				C06387F7191E4F1400B0D80D /* defined.h */,
+				C06387F8191E5DB500B0D80D /* Ref.cpp */,
+				C06387F9191E5DB500B0D80D /* Ref.h */,
 			);
 			name = mcu;
 			path = ../../../mcu/mcu;
@@ -233,6 +238,7 @@
 				C059D7C0191CF0AB00AF5FEE /* Sink.cpp in Sources */,
 				C059D7BC191CF0AB00AF5FEE /* log.cpp in Sources */,
 				C059D7E9191CF22400AF5FEE /* soapServer.cpp in Sources */,
+				C06387FA191E5DB500B0D80D /* Ref.cpp in Sources */,
 				C059D7C3191CF0AB00AF5FEE /* util.cpp in Sources */,
 				C059D7C4191CF0AB00AF5FEE /* webapi.cpp in Sources */,
 				C059D7E8191CF22400AF5FEE /* soapC.cpp in Sources */,
