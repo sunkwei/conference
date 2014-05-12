@@ -1,3 +1,3 @@
-SUBDIRS=	mcu
+SUBDIRS=	mcu test
 AUTOMAKE_OPTIONS= foreign
 

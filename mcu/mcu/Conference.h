@@ -6,7 +6,7 @@
 //  Copyright (c) 2014年 sunkw. All rights reserved.
 //
 //  会议，包括唯一 id, + members ....
-
+//  媒体传输（Ticker, Filters ...）对象都在 Conference 层级构造，Member 仅仅包含属性信息 ....
 
 #ifndef __mcu__Conference__
 #define __mcu__Conference__
@@ -17,6 +17,7 @@
 #include <cc++/thread.h>
 #include "Ref.h"
 #include "Member.h"
+#include <mediastreamer2/msconference.h>    // audio conference
 
 struct ConferenceDesc
 {

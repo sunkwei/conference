@@ -37,5 +37,6 @@ AC_CHECK_FUNCS([gettimeofday strchr])
 AC_OUTPUT(Makefile
 		  mcu/Makefile
 		  mcu/mcu/Makefile
+		  test/Makefile
 		 )
 	

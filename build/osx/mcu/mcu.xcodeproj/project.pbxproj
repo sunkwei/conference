@@ -30,6 +30,16 @@
 		C06387FA191E5DB500B0D80D /* Ref.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C06387F8191E5DB500B0D80D /* Ref.cpp */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		C01437E91920EB9C00773184 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C01437E51920EB9B00773184 /* mcu_tester.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C01437D91920EB9B00773184;
+			remoteInfo = mcu_tester;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		C059D743191CEE4900AF5FEE /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -43,6 +53,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C01437E51920EB9B00773184 /* mcu_tester.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = mcu_tester.xcodeproj; path = ../mcu_tester/mcu_tester.xcodeproj; sourceTree = "<group>"; };
 		C059D745191CEE4900AF5FEE /* mcu */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = mcu; sourceTree = BUILT_PRODUCTS_DIR; };
 		C059D7A5191CF0AB00AF5FEE /* Conference.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Conference.cpp; sourceTree = "<group>"; };
 		C059D7A6191CF0AB00AF5FEE /* Conference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Conference.h; sourceTree = "<group>"; };
@@ -103,9 +114,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C01437E61920EB9B00773184 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C01437EA1920EB9C00773184 /* mcu_tester */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		C059D73C191CEE4900AF5FEE = {
 			isa = PBXGroup;
 			children = (
+				C01437E51920EB9B00773184 /* mcu_tester.xcodeproj */,
 				C059D7EA191CF2F300AF5FEE /* mcu.README */,
 				C059D7D6191CF18000AF5FEE /* libs */,
 				C059D7D4191CF10500AF5FEE /* gsoap */,
@@ -223,12 +243,28 @@
 			mainGroup = C059D73C191CEE4900AF5FEE;
 			productRefGroup = C059D746191CEE4900AF5FEE /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = C01437E61920EB9B00773184 /* Products */;
+					ProjectRef = C01437E51920EB9B00773184 /* mcu_tester.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				C059D744191CEE4900AF5FEE /* mcu */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		C01437EA1920EB9C00773184 /* mcu_tester */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = mcu_tester;
+			remoteRef = C01437E91920EB9C00773184 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C059D741191CEE4900AF5FEE /* Sources */ = {
