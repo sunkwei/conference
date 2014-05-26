@@ -1,0 +1,13 @@
+prefix=/usr
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+modules=0
+
+Name: libXML
+Version: 2.7.3
+Description: libXML library version2.
+Requires:
+Libs: -L${libdir} -lxml2
+Libs.private:     
+Cflags: -I${includedir}/libxml2 

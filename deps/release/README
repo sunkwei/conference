@@ -1,0 +1,8 @@
+files:
+	zonekey_mcu.exe：mcu server.
+	test_mcu2.exe: the tester client.
+	test_zonekeyh264source.exe: the tester for supply jp100hd/d2000 media.
+
+	using env 'xmpp_domain' to define the xmpp server.
+
+

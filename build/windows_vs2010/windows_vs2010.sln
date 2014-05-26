@@ -21,6 +21,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libiLBC", "..\..\mediastrea
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "zonekey_ilbc", "..\..\mediastreamer2\build\win32-vs2010\zonekey_ilbc\zonekey_ilbc.vcxproj", "{A7F6EF2F-8A4A-4795-93C1-50D1E7211C5B}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "zonekey_void", "..\..\zonekey\zonekey_void\zonekey_void.vcxproj", "{1F2053DD-BAA7-4214-8C85-5C1C85FB4B8B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -67,6 +69,10 @@ Global
 		{A7F6EF2F-8A4A-4795-93C1-50D1E7211C5B}.Debug|Win32.Build.0 = Debug|Win32
 		{A7F6EF2F-8A4A-4795-93C1-50D1E7211C5B}.Release|Win32.ActiveCfg = Release|Win32
 		{A7F6EF2F-8A4A-4795-93C1-50D1E7211C5B}.Release|Win32.Build.0 = Release|Win32
+		{1F2053DD-BAA7-4214-8C85-5C1C85FB4B8B}.Debug|Win32.ActiveCfg = Debug|Win32
+		{1F2053DD-BAA7-4214-8C85-5C1C85FB4B8B}.Debug|Win32.Build.0 = Debug|Win32
+		{1F2053DD-BAA7-4214-8C85-5C1C85FB4B8B}.Release|Win32.ActiveCfg = Release|Win32
+		{1F2053DD-BAA7-4214-8C85-5C1C85FB4B8B}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

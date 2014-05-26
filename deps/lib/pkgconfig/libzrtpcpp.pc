@@ -1,0 +1,15 @@
+prefix=C:/Program Files (x86)/libzrtpcpp
+exec_prefix=C:/Program Files (x86)/libzrtpcpp/bin
+libdir=C:/Program Files (x86)/libzrtpcpp/lib
+pkglibdir=${libdir}/pkgconfig
+includedir=C:/Program Files (x86)/libzrtpcpp/include
+pkgincludedir=${includedir}/pkgconfig
+
+Name: libzrtpcpp
+Description: GNU ZRTP core library
+Version: 2.1.0
+Requires: libcrypto >= 0.9.8
+Libs:  -L${libdir} -lzrtpcpp
+Cflags: -I${includedir}
+
+

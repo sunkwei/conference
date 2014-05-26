@@ -102,12 +102,6 @@
     <ClCompile Include="util.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\build\cJSON\cJSON.vcxproj">
-      <Project>{72886f14-3071-48b2-9419-6c8ebb7b85d3}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\..\build\win32-vs2010\zonekey_ilbc\zonekey_ilbc.vcxproj">
-      <Project>{a7f6ef2f-8a4a-4795-93c1-50d1e7211c5b}</Project>
-    </ProjectReference>
     <ProjectReference Include="..\..\build\zonekey_void\zonekey_void.vcxproj">
       <Project>{1f2053dd-baa7-4214-8c85-5c1c85fb4b8b}</Project>
     </ProjectReference>
@@ -131,6 +125,9 @@
     </ProjectReference>
     <ProjectReference Include="..\zonekey_video_mixer\zonekey_video_mixer.vcxproj">
       <Project>{27c2819a-c310-4c2f-877b-5ff2697761a6}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\zonekey_void\zonekey_void.vcxproj">
+      <Project>{1f2053dd-baa7-4214-8c85-5c1c85fb4b8b}</Project>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -1,0 +1,31 @@
+--- soup-gnutls.c	2009-08-15 16:02:08 +0200
++++ soup-gnutls.c~	2009-06-30 00:34:49 +0200
+@@ -390,12 +390,8 @@
+ 	SoupGNUTLSChannel *chan = transport_data;
+ 	ssize_t nread;
+ 
+-	nread = recv (chan->sockfd, buf, buflen,0);
+-#ifdef G_OS_WIN32
+-	chan->eagain = (nread == SOCKET_ERROR && WSAGetLastError()==WSAEWOULDBLOCK);
+-#else
++	nread = read (chan->sockfd, buf, buflen);
+ 	chan->eagain = (nread == -1 && errno == EAGAIN);
+-#endif
+ 	return nread;
+ }
+ 
+@@ -405,12 +401,9 @@
+ {
+ 	SoupGNUTLSChannel *chan = transport_data;
+ 	ssize_t nwrote;
+-	nwrote = send (chan->sockfd, buf, buflen,0);
+-#ifdef G_OS_WIN32
+-	chan->eagain = (nwrote == SOCKET_ERROR && WSAGetLastError()==WSAEWOULDBLOCK);
+-#else
++
++	nwrote = write (chan->sockfd, buf, buflen);
+ 	chan->eagain = (nwrote == -1 && errno == EAGAIN);
+-#endif
+ 	return nwrote;
+ }
+ 
