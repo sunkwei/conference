@@ -39,13 +39,13 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>../../linphone-deps/include;C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include;$(IncludePath)</IncludePath>
-    <LibraryPath>../../linphone-deps/lib;C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Lib\x86;$(LibraryPath)</LibraryPath>
+    <IncludePath>../../deps/include;$(IncludePath)</IncludePath>
+    <LibraryPath>../../deps/lib;../../deps/lib/msvc;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>../../linphone-deps/include;C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include;$(IncludePath)</IncludePath>
-    <LibraryPath>../../linphone-deps/lib;C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Lib\x86;$(LibraryPath)</LibraryPath>
+    <IncludePath>../../deps/include;$(IncludePath)</IncludePath>
+    <LibraryPath>../../deps/lib;../../deps/lib/msvc;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -105,14 +105,23 @@
     <ProjectReference Include="..\..\build\cJSON\cJSON.vcxproj">
       <Project>{72886f14-3071-48b2-9419-6c8ebb7b85d3}</Project>
     </ProjectReference>
-    <ProjectReference Include="..\..\build\win32-vs2010\mediastreamer2.vcxproj">
-      <Project>{4a07bb2b-f56e-4f1b-a729-d28b782ac128}</Project>
-    </ProjectReference>
     <ProjectReference Include="..\..\build\win32-vs2010\zonekey_ilbc\zonekey_ilbc.vcxproj">
       <Project>{a7f6ef2f-8a4a-4795-93c1-50d1e7211c5b}</Project>
     </ProjectReference>
     <ProjectReference Include="..\..\build\zonekey_void\zonekey_void.vcxproj">
       <Project>{1f2053dd-baa7-4214-8c85-5c1c85fb4b8b}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\mediastreamer2\build\win32-vs2010\mediastreamer2.vcxproj">
+      <Project>{4a07bb2b-f56e-4f1b-a729-d28b782ac128}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\mediastreamer2\build\win32-vs2010\zonekey_ilbc\zonekey_ilbc.vcxproj">
+      <Project>{a7f6ef2f-8a4a-4795-93c1-50d1e7211c5b}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ortp\build\win32native\oRTP.vcxproj">
+      <Project>{4a07bb2b-f56e-4f1b-a719-d28b782ac128}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\cJSON\cJSON.vcxproj">
+      <Project>{72886f14-3071-48b2-9419-6c8ebb7b85d3}</Project>
     </ProjectReference>
     <ProjectReference Include="..\zonekey_audio_mixer\zonekey_audio_mixer.vcxproj">
       <Project>{911d19e5-19a4-4fbd-a883-44637bff5ca2}</Project>

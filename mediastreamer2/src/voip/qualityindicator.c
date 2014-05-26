@@ -116,7 +116,7 @@ void ms_quality_indicator_update_local(MSQualityIndicator *qi){
 	const rtp_stats_t *stats=rtp_session_get_stats(qi->session);
 	int lost,late,recvcnt;
 	float loss_rate=0,late_rate=0;
-	uint32_t ext_seq=rtp_session_get_rcv_ext_seq_number(qi->session);
+	uint32_t ext_seq= 0; //rtp_session_get_rcv_ext_seq_number(qi->session);
 
 	recvcnt=stats->packet_recv-qi->last_packet_count;
 	if (recvcnt==0){

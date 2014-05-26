@@ -5,8 +5,8 @@
 	#include <iLBC_encode.h>
 	#include <iLBC_decode.h>
 #else
-	#include <ilbc/iLBC_encode.h>
-	#include <ilbc/iLBC_decode.h>
+	#include <iLBC/iLBC_encode.h>
+	#include <iLBC/iLBC_decode.h>
 #endif /*ANDROID*/
 
 #include "mediastreamer2/msfilter.h"
