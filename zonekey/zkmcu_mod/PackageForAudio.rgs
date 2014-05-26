@@ -1,0 +1,16 @@
+HKCR
+{
+	NoRemove CLSID
+	{
+		ForceRemove {DA4C9107-D8B0-4A28-B45C-E67E7B19A742} = s 'PackageForAudio Class'
+		{
+			ForceRemove Programmable
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			TypeLib = s '{507ACFD2-B14E-4161-991F-082EBD946D61}'
+			Version = s '1.0'
+		}
+	}
+}

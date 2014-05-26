@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope
+  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+  xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:zkmcu="urn:zkmcu">
+ <SOAP-ENV:Body>
+  <zkmcu:addSink>
+   <cid>0</cid>
+   <req>
+    <payload>0</payload>
+    <desc></desc>
+   </req>
+  </zkmcu:addSink>
+ </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

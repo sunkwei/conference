@@ -1,0 +1,119 @@
+﻿{
+	"conference":	{
+		"cid":	1,
+		"desc":	"YWJjZA==",
+		"mode":	"direct",
+		"uptime":	732.844000,
+		"streams":	[{
+				"streamid":	2,
+				"desc":	"audio(iLBC)",
+				"stat":	{
+					"bytes_sent":	1514412,
+					"bytes_recv":	1517512,
+					"packet_sent":	24426,
+					"packet_recv":	24477,
+					"packet_lost_sent":	0,
+					"packet_lost_recv":	1,
+					"jitter":	0
+				}
+			}, {
+				"streamid":	4,
+				"desc":	"y+/n4i1WR0E=",
+				"stat":	{
+					"bytes_sent":	0,
+					"bytes_recv":	73851370,
+					"packet_sent":	0,
+					"packet_recv":	62736,
+					"packet_lost_sent":	0,
+					"packet_lost_recv":	0,
+					"jitter":	0
+				}
+			}, {
+				"streamid":	6,
+				"desc":	"y+/n4i29zMqm",
+				"stat":	{
+					"bytes_sent":	0,
+					"bytes_recv":	184755294,
+					"packet_sent":	0,
+					"packet_recv":	139417,
+					"packet_lost_sent":	0,
+					"packet_lost_recv":	0,
+					"jitter":	0
+				}
+			}, {
+				"streamid":	8,
+				"desc":	"y+/n4i3Rp8n6",
+				"stat":	{
+					"bytes_sent":	0,
+					"bytes_recv":	3380630,
+					"packet_sent":	0,
+					"packet_recv":	3285,
+					"packet_lost_sent":	0,
+					"packet_lost_recv":	0,
+					"jitter":	0
+				}
+			}, {
+				"streamid":	10,
+				"desc":	"audio(iLBC)",
+				"stat":	{
+					"bytes_sent":	1493580,
+					"bytes_recv":	1489364,
+					"packet_sent":	24090,
+					"packet_recv":	24022,
+					"packet_lost_sent":	0,
+					"packet_lost_recv":	0,
+					"jitter":	0
+				}
+			}, {
+				"streamid":	12,
+				"desc":	"anAxMDBoZC3Rp8n6",
+				"stat":	{
+					"bytes_sent":	0,
+					"bytes_recv":	3334320,
+					"packet_sent":	0,
+					"packet_recv":	3240,
+					"packet_lost_sent":	0,
+					"packet_lost_recv":	0,
+					"jitter":	0
+				}
+			}],
+		"source":	[],
+		"sinks":	[{
+				"sinkid":	1,
+				"desc":	"anAxMDBoZC3Rp8n6",
+				"stat":	{
+					"sent":	3325058,
+					"packets":	3231,
+					"packets_lost":	0,
+					"jitter":	146
+				}
+			}, {
+				"sinkid":	2,
+				"desc":	"y+/n4i1WR0E=",
+				"stat":	{
+					"sent":	72910552,
+					"packets":	61922,
+					"packets_lost":	0,
+					"jitter":	198
+				}
+			}, {
+				"sinkid":	3,
+				"desc":	"y+/n4i29zMqm",
+				"stat":	{
+					"sent":	182367814,
+					"packets":	137609,
+					"packets_lost":	0,
+					"jitter":	298
+				}
+			}, {
+				"sinkid":	4,
+				"desc":	"y+/n4i3Rp8n6",
+				"stat":	{
+					"sent":	3325058,
+					"packets":	3231,
+					"packets_lost":	0,
+					"jitter":	136
+				}
+			}]
+	}
+}

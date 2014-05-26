@@ -1,0 +1,16 @@
+HKCR
+{
+	NoRemove CLSID
+	{
+		ForceRemove {72430667-E18B-485C-940A-DB3A43627E9A} = s 'ZqpsrcReader Class'
+		{
+			ForceRemove Programmable
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			TypeLib = s '{507ACFD2-B14E-4161-991F-082EBD946D61}'
+			Version = s '1.0'
+		}
+	}
+}

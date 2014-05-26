@@ -1,0 +1,16 @@
+HKCR
+{
+	NoRemove CLSID
+	{
+		ForceRemove {0B462363-F7BC-4C6A-AF3A-A719EE07FFDC} = s 'ZonekeyMCU_MOD Class'
+		{
+			ForceRemove Programmable
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			TypeLib = s '{507ACFD2-B14E-4161-991F-082EBD946D61}'
+			Version = s '1.0'
+		}
+	}
+}

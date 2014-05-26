@@ -1,0 +1,16 @@
+HKCR
+{
+	NoRemove CLSID
+	{
+		ForceRemove {56D6D83E-B4FD-4285-AA32-53317599BAE0} = s 'RecordMP4 Class'
+		{
+			ForceRemove Programmable
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			TypeLib = s '{708690C2-F5E5-498F-B849-AB8950348E7E}'
+			Version = s '1.0'
+		}
+	}
+}

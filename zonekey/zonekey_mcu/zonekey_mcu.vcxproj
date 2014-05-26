@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{22FDAEAD-1A48-44C9-8A17-5840254922ED}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>zonekey_mcu</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>../../linphone-deps/include;C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include;$(IncludePath)</IncludePath>
+    <LibraryPath>../../linphone-deps/lib;C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Lib\x86;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>../../linphone-deps/include;C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include;$(IncludePath)</IncludePath>
+    <LibraryPath>../../linphone-deps/lib;C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Lib\x86;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>iphlpapi.lib;zkrobot_ex.lib;ccgnu2.lib;ortp.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OptimizeReferences>false</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>Disabled</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>false</OptimizeReferences>
+      <AdditionalDependencies>iphlpapi.lib;zkrobot_ex.lib;ccgnu2.lib;ortp.lib;ws2_32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="Conference.cpp" />
+    <ClCompile Include="DirectorConference.cpp" />
+    <ClCompile Include="FreeConference.cpp" />
+    <ClCompile Include="H264Sink.cpp" />
+    <ClCompile Include="H264Source.cpp" />
+    <ClCompile Include="H264Stream.cpp" />
+    <ClCompile Include="ilbcSink.cpp" />
+    <ClCompile Include="iLBC_Stream.cpp" />
+    <ClCompile Include="log.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="PCMuStream.cpp" />
+    <ClCompile Include="Server.cpp" />
+    <ClCompile Include="Sink.cpp" />
+    <ClCompile Include="Source.cpp" />
+    <ClCompile Include="SpeexSink.cpp" />
+    <ClCompile Include="SpeexSource.cpp" />
+    <ClCompile Include="SpeexStream.cpp" />
+    <ClCompile Include="Stream.cpp" />
+    <ClCompile Include="util.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\build\cJSON\cJSON.vcxproj">
+      <Project>{72886f14-3071-48b2-9419-6c8ebb7b85d3}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\build\win32-vs2010\mediastreamer2.vcxproj">
+      <Project>{4a07bb2b-f56e-4f1b-a729-d28b782ac128}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\build\win32-vs2010\zonekey_ilbc\zonekey_ilbc.vcxproj">
+      <Project>{a7f6ef2f-8a4a-4795-93c1-50d1e7211c5b}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\build\zonekey_void\zonekey_void.vcxproj">
+      <Project>{1f2053dd-baa7-4214-8c85-5c1c85fb4b8b}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\zonekey_audio_mixer\zonekey_audio_mixer.vcxproj">
+      <Project>{911d19e5-19a4-4fbd-a883-44637bff5ca2}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\zonekey_publisher\zonekey_publisher.vcxproj">
+      <Project>{a7f9a659-893f-479f-acc0-8f8a77805cf6}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\zonekey_video_mixer\zonekey_video_mixer.vcxproj">
+      <Project>{27c2819a-c310-4c2f-877b-5ff2697761a6}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Conference.h" />
+    <ClInclude Include="DirectorConference.h" />
+    <ClInclude Include="FreeConference.h" />
+    <ClInclude Include="H264Sink.h" />
+    <ClInclude Include="H264Source.h" />
+    <ClInclude Include="H264Stream.h" />
+    <ClInclude Include="ilbcSink.h" />
+    <ClInclude Include="iLBC_Stream.h" />
+    <ClInclude Include="log.h" />
+    <ClInclude Include="main_def.h" />
+    <ClInclude Include="PCMuStream.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="Server.h" />
+    <ClInclude Include="Sink.h" />
+    <ClInclude Include="Source.h" />
+    <ClInclude Include="SpeexSink.h" />
+    <ClInclude Include="SpeexSource.h" />
+    <ClInclude Include="SpeexStream.h" />
+    <ClInclude Include="Stream.h" />
+    <ClInclude Include="util.h" />
+    <ClInclude Include="ver.h" />
+    <ClInclude Include="wsapi\zonekey.mcu.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="zonekey_mcu.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

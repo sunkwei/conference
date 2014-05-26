@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{FD3B0827-FECB-45E6-8FBA-583AF26D8A83}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>ZonekeyMCU</RootNamespace>
+    <ProjectName>ZonekeyMCU</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>../../linphone-deps/include;C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include;$(IncludePath)</IncludePath>
+    <LibraryPath>../../linphone-deps/lib;C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Lib\x86;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>../../linphone-deps/include;C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include;$(IncludePath)</IncludePath>
+    <LibraryPath>../../linphone-deps/lib;C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Lib\x86;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>ws2_32.lib;ccgnu2.lib;ortp.lib;zkrobot_ex.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>zkrobot_ex.lib;ws2_32.lib;ccgnu2.lib;ortp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="Conference.cpp" />
+    <ClCompile Include="log.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Member.cpp" />
+    <ClCompile Include="MemberStream.cpp" />
+    <ClCompile Include="MixerStream.cpp" />
+    <ClCompile Include="Server.cpp" />
+    <ClCompile Include="util.cpp" />
+    <ClCompile Include="VideoRecver.cpp" />
+    <ClCompile Include="VideoRecverYUV.cpp" />
+    <ClCompile Include="WorkerThread.cpp" />
+    <ClCompile Include="ZonekeyConference.cpp" />
+    <ClCompile Include="ZonekeyConferenceDirector.cpp" />
+    <ClCompile Include="ZonekeyConferenceFree.cpp" />
+    <ClCompile Include="ZonekeySink.cpp" />
+    <ClCompile Include="ZonekeyStream.cpp" />
+    <ClCompile Include="ZonekeyStreamAudio.cpp" />
+    <ClCompile Include="ZonekeyStreamVideoMixer.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Conference.h" />
+    <ClInclude Include="log.h" />
+    <ClInclude Include="Member.h" />
+    <ClInclude Include="MemberStream.h" />
+    <ClInclude Include="MixerStream.h" />
+    <ClInclude Include="Server.h" />
+    <ClInclude Include="util.h" />
+    <ClInclude Include="VideoRecver.h" />
+    <ClInclude Include="VideoRecverYUV.h" />
+    <ClInclude Include="WorkerThread.h" />
+    <ClInclude Include="ZonekeyConference.h" />
+    <ClInclude Include="ZonekeyConferenceDirector.h" />
+    <ClInclude Include="ZonekeyConferenceFree.h" />
+    <ClInclude Include="ZonekeySink.h" />
+    <ClInclude Include="ZonekeyStream.h" />
+    <ClInclude Include="ZonekeyStreamAudio.h" />
+    <ClInclude Include="ZonekeyStreamVideoMixer.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\build\win32-vs2010\mediastreamer2.vcxproj">
+      <Project>{4a07bb2b-f56e-4f1b-a729-d28b782ac128}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\zonekey_audio_mixer\zonekey_audio_mixer.vcxproj">
+      <Project>{911d19e5-19a4-4fbd-a883-44637bff5ca2}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\zonekey_publisher\zonekey_publisher.vcxproj">
+      <Project>{a7f9a659-893f-479f-acc0-8f8a77805cf6}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\zonekey_video_mixer\zonekey_video_mixer.vcxproj">
+      <Project>{27c2819a-c310-4c2f-877b-5ff2697761a6}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

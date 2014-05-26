@@ -1,0 +1,16 @@
+HKCR
+{
+	NoRemove CLSID
+	{
+		ForceRemove {CBDE8611-6C50-424B-9C8B-C03493C7173B} = s 'Zonekey_RawImage_RGB24 Class'
+		{
+			ForceRemove Programmable
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			TypeLib = s '{E9916619-8687-46A8-A42B-71069A7B6FFE}'
+			Version = s '1.0'
+		}
+	}
+}

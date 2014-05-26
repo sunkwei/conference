@@ -1,0 +1,72 @@
+// zkmcu_record.idl : zkmcu_record 的 IDL 源
+//
+
+// 此文件将由 MIDL 工具处理以
+// 产生类型库(zkmcu_record.tlb)和封送处理代码。
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(9209BB30-ED92-4E9E-8769-EE19D743CA53),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IRecordFLV : IDispatch{
+	[id(1), helpstring("指定完整文件名字，av=1 仅仅音频，2 仅仅视频，3 音视频都有")] HRESULT Open(BSTR filename, LONG av);
+	[id(2), helpstring("停止录像")] HRESULT Stop(void);
+	[id(3), helpstring("保存一帧 h264 视频帧")] HRESULT SaveH264Frame(DOUBLE stamp, BOOL key_frame, VARIANT data);
+	[id(4), helpstring("保存 aac 帧")] HRESULT SaveAACFrane(DOUBLE stamp, BOOL adts_head, VARIANT data);
+};
+[
+	object,
+	uuid(FF53202C-F365-4C8B-98FF-F347DEA35B8C),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IRecordMP4 : IDispatch{
+};
+[
+	uuid(708690C2-F5E5-498F-B849-AB8950348E7E),
+	version(1.0),
+]
+library zkmcu_recordLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(9DDF1AD6-7A83-4C74-ACEA-C3378E9E36E7)		
+	]
+	dispinterface _IRecordFLVEvents
+	{
+		properties:
+		methods:
+	};
+	[
+		uuid(7CCC853E-E07E-41D9-B428-B7F9A259E128)		
+	]
+	coclass RecordFLV
+	{
+		[default] interface IRecordFLV;
+		[default, source] dispinterface _IRecordFLVEvents;
+	};
+	[
+		uuid(7F2AA8C4-4B9D-494D-8EC7-730BD15B1BA7)		
+	]
+	dispinterface _IRecordMP4Events
+	{
+		properties:
+		methods:
+	};
+	[
+		uuid(56D6D83E-B4FD-4285-AA32-53317599BAE0)		
+	]
+	coclass RecordMP4
+	{
+		[default] interface IRecordMP4;
+		[default, source] dispinterface _IRecordMP4Events;
+	};
+};
+

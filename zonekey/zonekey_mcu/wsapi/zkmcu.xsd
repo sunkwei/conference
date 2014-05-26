@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <schema targetNamespace="urn:zkmcu"
+  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+  xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:zkmcu="urn:zkmcu"
+  xmlns="http://www.w3.org/2001/XMLSchema"
+  elementFormDefault="unqualified"
+  attributeFormDefault="unqualified">
+  <import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+  <complexType name="SysInfoResponse"><!-- zkmcu__SysInfoResponse -->
+
+   <complexContent>
+    <restriction base="zkmcu:SysInfo">
+    </restriction>
+   </complexContent>
+  </complexType>
+  <complexType name="ConferenceIdArrayResponse"><!-- zkmcu__ConferenceIdArrayResponse -->
+
+   <complexContent>
+    <restriction base="zkmcu:ConferenceIdArray">
+    </restriction>
+   </complexContent>
+  </complexType>
+  <complexType name="ConferenceInfoResponse"><!-- zkmcu__ConferenceInfoResponse -->
+
+   <complexContent>
+    <restriction base="zkmcu:ConferenceInfo">
+    </restriction>
+   </complexContent>
+  </complexType>
+  <complexType name="KeyValueArrayResponse"><!-- zkmcu__KeyValueArrayResponse -->
+
+   <complexContent>
+    <restriction base="zkmcu:KeyValueArray">
+    </restriction>
+   </complexContent>
+  </complexType>
+  <complexType name="SysInfo"><!-- zkmcu__SysInfo -->
+
+   <sequence>
+     <element name="cpu" type="xsd:double" minOccurs="1" maxOccurs="1"/><!-- zkmcu__SysInfo::cpu -->
+     <element name="mem" type="xsd:double" minOccurs="1" maxOccurs="1"/><!-- zkmcu__SysInfo::mem -->
+     <element name="net_sent" type="xsd:double" minOccurs="1" maxOccurs="1"/><!-- zkmcu__SysInfo::net_USCOREsent -->
+     <element name="net_recv" type="xsd:double" minOccurs="1" maxOccurs="1"/><!-- zkmcu__SysInfo::net_USCORErecv -->
+   </sequence>
+  </complexType>
+  <complexType name="CreateConference"><!-- zkmcu__CreateConference -->
+
+   <sequence>
+     <element name="mode" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- zkmcu__CreateConference::mode -->
+     <element name="livingcast" type="xsd:int" minOccurs="1" maxOccurs="0"/><!-- zkmcu__CreateConference::livingcast -->
+     <element name="desc" type="xsd:string" minOccurs="0" maxOccurs="0" nillable="true"/><!-- zkmcu__CreateConference::desc -->
+   </sequence>
+  </complexType>
+  <complexType name="ConferenceIdArray"><!-- zkmcu__ConferenceIdArray -->
+
+   <sequence>
+    <element name="item" type="xsd:int" minOccurs="0" maxOccurs="unbounded" nillable="false"/>
+   </sequence>
+  </complexType>
+  <complexType name="StreamInfo"><!-- zkmcu__StreamInfo -->
+
+   <sequence>
+     <element name="streamid" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- zkmcu__StreamInfo::streamid -->
+     <element name="desc" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/><!-- zkmcu__StreamInfo::desc -->
+     <element name="sent" type="xsd:long" minOccurs="1" maxOccurs="1"/><!-- zkmcu__StreamInfo::sent -->
+     <element name="recv" type="xsd:long" minOccurs="1" maxOccurs="1"/><!-- zkmcu__StreamInfo::recv -->
+     <element name="lost_sent" type="xsd:long" minOccurs="1" maxOccurs="1"/><!-- zkmcu__StreamInfo::lost_USCOREsent -->
+     <element name="lost_recv" type="xsd:long" minOccurs="1" maxOccurs="1"/><!-- zkmcu__StreamInfo::lost_USCORErecv -->
+     <element name="jitter" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- zkmcu__StreamInfo::jitter -->
+   </sequence>
+  </complexType>
+  <complexType name="StreamInfoArray"><!-- zkmcu__StreamInfoArray -->
+
+   <sequence>
+    <element name="item" type="zkmcu:StreamInfo" minOccurs="0" maxOccurs="unbounded" nillable="false"/>
+   </sequence>
+  </complexType>
+  <complexType name="SourceInfo"><!-- zkmcu__SourceInfo -->
+
+   <sequence>
+     <element name="sourceid" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- zkmcu__SourceInfo::sourceid -->
+     <element name="desc" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/><!-- zkmcu__SourceInfo::desc -->
+     <element name="lost" type="xsd:long" minOccurs="1" maxOccurs="1"/><!-- zkmcu__SourceInfo::lost -->
+     <element name="recv" type="xsd:long" minOccurs="1" maxOccurs="1"/><!-- zkmcu__SourceInfo::recv -->
+   </sequence>
+  </complexType>
+  <complexType name="SourceInfoArray"><!-- zkmcu__SourceInfoArray -->
+
+   <sequence>
+    <element name="item" type="zkmcu:SourceInfo" minOccurs="0" maxOccurs="unbounded" nillable="false"/>
+   </sequence>
+  </complexType>
+  <complexType name="SinkInfo"><!-- zkmcu__SinkInfo -->
+
+   <sequence>
+     <element name="sinkid" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- zkmcu__SinkInfo::sinkid -->
+     <element name="desc" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/><!-- zkmcu__SinkInfo::desc -->
+     <element name="sent" type="xsd:long" minOccurs="1" maxOccurs="1"/><!-- zkmcu__SinkInfo::sent -->
+     <element name="lost" type="xsd:long" minOccurs="1" maxOccurs="1"/><!-- zkmcu__SinkInfo::lost -->
+     <element name="jitter" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- zkmcu__SinkInfo::jitter -->
+   </sequence>
+  </complexType>
+  <complexType name="SinkInfoArray"><!-- zkmcu__SinkInfoArray -->
+
+   <sequence>
+    <element name="item" type="zkmcu:SinkInfo" minOccurs="0" maxOccurs="unbounded" nillable="false"/>
+   </sequence>
+  </complexType>
+  <complexType name="ConferenceInfo"><!-- zkmcu__ConferenceInfo -->
+
+   <sequence>
+     <element name="cid" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- zkmcu__ConferenceInfo::cid -->
+     <element name="mode" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- zkmcu__ConferenceInfo::mode -->
+     <element name="uptime" type="xsd:double" minOccurs="1" maxOccurs="1"/><!-- zkmcu__ConferenceInfo::uptime -->
+     <element name="desc" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/><!-- zkmcu__ConferenceInfo::desc -->
+     <element name="streams" type="zkmcu:StreamInfoArray" minOccurs="0" maxOccurs="1" nillable="true"/><!-- zkmcu__ConferenceInfo::streams -->
+     <element name="sources" type="zkmcu:SourceInfoArray" minOccurs="0" maxOccurs="1" nillable="true"/><!-- zkmcu__ConferenceInfo::sources -->
+     <element name="sinks" type="zkmcu:SinkInfoArray" minOccurs="0" maxOccurs="1" nillable="true"/><!-- zkmcu__ConferenceInfo::sinks -->
+   </sequence>
+  </complexType>
+  <complexType name="MediaEndPoint"><!-- zkmcu__MediaEndPoint -->
+
+   <sequence>
+     <element name="rtp_port" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- zkmcu__MediaEndPoint::rtp_USCOREport -->
+     <element name="rtcp_port" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- zkmcu__MediaEndPoint::rtcp_USCOREport -->
+     <element name="server_ip" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/><!-- zkmcu__MediaEndPoint::server_USCOREip -->
+   </sequence>
+  </complexType>
+  <complexType name="AddSourceRequest"><!-- zkmcu__AddSourceRequest -->
+
+   <sequence>
+     <element name="payload" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- zkmcu__AddSourceRequest::payload -->
+     <element name="desc" type="xsd:string" minOccurs="0" maxOccurs="0" nillable="true"/><!-- zkmcu__AddSourceRequest::desc -->
+   </sequence>
+  </complexType>
+  <complexType name="AddSinkRequest"><!-- zkmcu__AddSinkRequest -->
+
+   <sequence>
+     <element name="payload" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- zkmcu__AddSinkRequest::payload -->
+     <element name="desc" type="xsd:string" minOccurs="0" maxOccurs="0" nillable="true"/><!-- zkmcu__AddSinkRequest::desc -->
+   </sequence>
+  </complexType>
+  <complexType name="AddStreamRequest"><!-- zkmcu__AddStreamRequest -->
+
+   <sequence>
+     <element name="payload" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- zkmcu__AddStreamRequest::payload -->
+     <element name="desc" type="xsd:string" minOccurs="0" maxOccurs="0" nillable="true"/><!-- zkmcu__AddStreamRequest::desc -->
+   </sequence>
+  </complexType>
+  <complexType name="KeyValue"><!-- zkmcu__KeyValue -->
+
+   <sequence>
+     <element name="key" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/><!-- zkmcu__KeyValue::key -->
+     <element name="value" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/><!-- zkmcu__KeyValue::value -->
+   </sequence>
+  </complexType>
+  <complexType name="KeyValueArray"><!-- zkmcu__KeyValueArray -->
+
+   <sequence>
+    <element name="item" type="zkmcu:KeyValue" minOccurs="0" maxOccurs="unbounded" nillable="false"/>
+   </sequence>
+  </complexType>
+  <!-- operation request element -->
+  <element name="getVersion">
+   <complexType>
+    <sequence>
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation response element -->
+  <element name="getVersionResponse">
+   <complexType>
+    <sequence>
+     <element name="info" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/><!-- zkmcu__getVersion::info -->
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation request element -->
+  <element name="getSysInfo">
+   <complexType>
+    <sequence>
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation response element -->
+  <element name="SysInfo">
+   <complexType>
+    <sequence>
+     <element name="cpu" type="xsd:double" minOccurs="1" maxOccurs="1"/><!-- zkmcu__SysInfo::cpu -->
+     <element name="mem" type="xsd:double" minOccurs="1" maxOccurs="1"/><!-- zkmcu__SysInfo::mem -->
+     <element name="net_sent" type="xsd:double" minOccurs="1" maxOccurs="1"/><!-- zkmcu__SysInfo::net_USCOREsent -->
+     <element name="net_recv" type="xsd:double" minOccurs="1" maxOccurs="1"/><!-- zkmcu__SysInfo::net_USCORErecv -->
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation request element -->
+  <element name="createConference">
+   <complexType>
+    <sequence>
+     <element name="req" type="zkmcu:CreateConference" minOccurs="0" maxOccurs="1" nillable="true"/><!-- zkmcu__createConference::req -->
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation response element -->
+  <element name="CreateConferenceResponse">
+   <complexType>
+    <sequence>
+     <element name="cid" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- zkmcu__CreateConferenceResponse::cid -->
+     <element name="reason" type="xsd:string" minOccurs="0" maxOccurs="0" nillable="true"/><!-- zkmcu__CreateConferenceResponse::reason -->
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation request element -->
+  <element name="destroyConference">
+   <complexType>
+    <sequence>
+     <element name="cid" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- zkmcu__destroyConference::cid -->
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation request element -->
+  <element name="listConferences">
+   <complexType>
+    <sequence>
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation response element -->
+  <element name="listConferencesResponse">
+   <complexType>
+    <sequence>
+     <element name="res" type="zkmcu:ConferenceIdArrayResponse" minOccurs="1" maxOccurs="1"/><!-- zkmcu__listConferences::res -->
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation request element -->
+  <element name="infoConference">
+   <complexType>
+    <sequence>
+     <element name="cid" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- zkmcu__infoConference::cid -->
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation response element -->
+  <element name="ConferenceInfo">
+   <complexType>
+    <sequence>
+     <element name="cid" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- zkmcu__ConferenceInfo::cid -->
+     <element name="mode" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- zkmcu__ConferenceInfo::mode -->
+     <element name="uptime" type="xsd:double" minOccurs="1" maxOccurs="1"/><!-- zkmcu__ConferenceInfo::uptime -->
+     <element name="desc" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/><!-- zkmcu__ConferenceInfo::desc -->
+     <element name="streams" type="zkmcu:StreamInfoArray" minOccurs="0" maxOccurs="1" nillable="true"/><!-- zkmcu__ConferenceInfo::streams -->
+     <element name="sources" type="zkmcu:SourceInfoArray" minOccurs="0" maxOccurs="1" nillable="true"/><!-- zkmcu__ConferenceInfo::sources -->
+     <element name="sinks" type="zkmcu:SinkInfoArray" minOccurs="0" maxOccurs="1" nillable="true"/><!-- zkmcu__ConferenceInfo::sinks -->
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation request element -->
+  <element name="addSource">
+   <complexType>
+    <sequence>
+     <element name="cid" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- zkmcu__addSource::cid -->
+     <element name="req" type="zkmcu:AddSourceRequest" minOccurs="0" maxOccurs="1" nillable="true"/><!-- zkmcu__addSource::req -->
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation response element -->
+  <element name="AddSourceResponse">
+   <complexType>
+    <sequence>
+     <element name="sourceid" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- zkmcu__AddSourceResponse::sourceid -->
+     <element name="reason" type="xsd:string" minOccurs="0" maxOccurs="0" nillable="true"/><!-- zkmcu__AddSourceResponse::reason -->
+     <element name="media" type="zkmcu:MediaEndPoint" minOccurs="1" maxOccurs="1"/><!-- zkmcu__AddSourceResponse::media -->
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation request element -->
+  <element name="delSource">
+   <complexType>
+    <sequence>
+     <element name="cid" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- zkmcu__delSource::cid -->
+     <element name="sourceid" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- zkmcu__delSource::sourceid -->
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation request element -->
+  <element name="addSink">
+   <complexType>
+    <sequence>
+     <element name="cid" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- zkmcu__addSink::cid -->
+     <element name="req" type="zkmcu:AddSinkRequest" minOccurs="0" maxOccurs="1" nillable="true"/><!-- zkmcu__addSink::req -->
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation response element -->
+  <element name="AddSinkResponse">
+   <complexType>
+    <sequence>
+     <element name="sinkid" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- zkmcu__AddSinkResponse::sinkid -->
+     <element name="reason" type="xsd:string" minOccurs="0" maxOccurs="0" nillable="true"/><!-- zkmcu__AddSinkResponse::reason -->
+     <element name="media" type="zkmcu:MediaEndPoint" minOccurs="1" maxOccurs="1"/><!-- zkmcu__AddSinkResponse::media -->
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation request element -->
+  <element name="delSink">
+   <complexType>
+    <sequence>
+     <element name="cid" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- zkmcu__delSink::cid -->
+     <element name="sinkid" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- zkmcu__delSink::sinkid -->
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation request element -->
+  <element name="addStream">
+   <complexType>
+    <sequence>
+     <element name="cid" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- zkmcu__addStream::cid -->
+     <element name="req" type="zkmcu:AddStreamRequest" minOccurs="0" maxOccurs="1" nillable="true"/><!-- zkmcu__addStream::req -->
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation response element -->
+  <element name="AddStreamResponse">
+   <complexType>
+    <sequence>
+     <element name="streamid" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- zkmcu__AddStreamResponse::streamid -->
+     <element name="reason" type="xsd:string" minOccurs="0" maxOccurs="0" nillable="true"/><!-- zkmcu__AddStreamResponse::reason -->
+     <element name="media" type="zkmcu:MediaEndPoint" minOccurs="1" maxOccurs="1"/><!-- zkmcu__AddStreamResponse::media -->
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation request element -->
+  <element name="delStream">
+   <complexType>
+    <sequence>
+     <element name="cid" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- zkmcu__delStream::cid -->
+     <element name="sourceid" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- zkmcu__delStream::sourceid -->
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation request element -->
+  <element name="setParams">
+   <complexType>
+    <sequence>
+     <element name="cid" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- zkmcu__setParams::cid -->
+     <element name="req" type="zkmcu:KeyValueArray" minOccurs="0" maxOccurs="1" nillable="true"/><!-- zkmcu__setParams::req -->
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation request element -->
+  <element name="getParams">
+   <complexType>
+    <sequence>
+     <element name="cid" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- zkmcu__getParams::cid -->
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation response element -->
+  <element name="getParamsResponse">
+   <complexType>
+    <sequence>
+     <element name="res" type="zkmcu:KeyValueArrayResponse" minOccurs="1" maxOccurs="1"/><!-- zkmcu__getParams::res -->
+    </sequence>
+   </complexType>
+  </element>
+ </schema>
+

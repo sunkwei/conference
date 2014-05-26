@@ -1,0 +1,5 @@
+LIBRARY
+EXPORTS
+	zkvr_init
+	zkvr_open
+	zkvr_close

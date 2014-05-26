@@ -1,0 +1,2 @@
+SUBDIRS=zonekey_publisher zonekey_video_mixer zonekey_audio_mixer zonekey_mcu
+

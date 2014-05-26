@@ -1,0 +1,138 @@
+// zkmcu_mod.idl : zkmcu_mod 的 IDL 源
+//
+
+// 此文件将由 MIDL 工具处理以
+// 产生类型库(zkmcu_mod.tlb)和封送处理代码。
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(BDD1083D-3FF5-45C2-9D21-CF70912F18CB),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IZonekeyMCU_MOD : IDispatch{
+	[propget, id(1), helpstring("指定 MCU Jid，一般应该通过 root service 查询 mcu 类型服务得到")] HRESULT MCUJid([out, retval] BSTR* pVal);
+	[propput, id(1), helpstring("指定 MCU Jid，一般应该通过 root service 查询 mcu 类型服务得到")] HRESULT MCUJid([in] BSTR newVal);
+	[id(2), helpstring("从指定 cid 的 conference 中，点播 sid 指定的流。")] HRESULT Start(LONG cid, LONG payload, LONG sid);
+	[id(3), helpstring("停止点播，释放资源")] HRESULT Stop(void);
+	[propput, id(4)] HRESULT RecordFilename([in] BSTR newVal);
+	[propput, id(5)] HRESULT RtmpURL([in] BSTR newVal);
+};
+[
+	object,
+	uuid(7F066B7D-3FB5-46C7-957B-933E4C5B4134),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IZqpsrcReader : IDispatch{
+	[id(1)] HRESULT Open(BSTR url);
+	[id(2)] HRESULT Close(void);
+	[id(3)] HRESULT GetNextPacket([out,retval] IDispatch** package);
+};
+[
+	object,
+	uuid(F6973A54-2C58-4C32-BD53-BC223A5F9DDF),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IPackageForAudio : IDispatch{
+	[propget, id(1), helpstring("返回 byte 数组")] HRESULT Data([out, retval] VARIANT* pVal);
+	[propget, id(2), helpstring("返回时间戳，秒.")] HRESULT stamp([out, retval] DOUBLE* pVal);
+	[id(3)] HRESULT DataType([out,retval] LONG* type);
+};
+[
+	object,
+	uuid(49819523-5AA1-4587-AF04-2288ED071039),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IPackageForVideo : IDispatch{
+	[propget, id(1)] HRESULT Data([out, retval] VARIANT* pVal);
+	[propget, id(2)] HRESULT Stamp([out, retval] DOUBLE* pVal);
+	[propget, id(3)] HRESULT Key([out, retval] VARIANT_BOOL* pVal);
+	[id(4)] HRESULT DataType([out,retval] LONG* t);
+};
+[
+	object,
+	uuid(A304B4E1-940A-4E60-9246-28DD768E576B),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IZonekeyMCULivingcast : IDispatch{
+	[id(1)] HRESULT Open(BSTR url);
+	[id(2)] HRESULT Close(void);
+	[id(3)] HRESULT SendH264(double stamp, VARIANT data, BOOL key);
+	[id(4)] HRESULT SendAAC(double stamp, VARIANT data);
+};
+[
+	uuid(507ACFD2-B14E-4161-991F-082EBD946D61),
+	version(1.0),
+]
+library zkmcu_modLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(4AACB90D-8430-4D32-8225-5EBC880B8B07)
+	]
+	dispinterface _IZonekeyMCU_MODEvents
+	{
+		properties:
+		methods:
+			[id(1), helpstring("当已经得到完整帧后，通知应用.")] void CBMediaFrameGot(LONG payload, DOUBLE stamp, VARIANT data, BOOL key);
+			[id(2), helpstring("当无法恢复的错误发生时调用。")] void CBError(LONG code, BSTR some_info);
+	};
+	[
+		uuid(0B462363-F7BC-4C6A-AF3A-A719EE07FFDC)		
+	]
+	coclass ZonekeyMCU_MOD
+	{
+		[default] interface IZonekeyMCU_MOD;
+		[default, source] dispinterface _IZonekeyMCU_MODEvents;
+	};
+	[
+		uuid(72430667-E18B-485C-940A-DB3A43627E9A)		
+	]
+	coclass ZqpsrcReader
+	{
+		[default] interface IZqpsrcReader;
+	};
+	[
+		uuid(DA4C9107-D8B0-4A28-B45C-E67E7B19A742)		
+	]
+	coclass PackageForAudio
+	{
+		[default] interface IPackageForAudio;
+	};
+	[
+		uuid(B7360529-396D-45E8-917C-F1A92742BB34)		
+	]
+	coclass PackageForVideo
+	{
+		[default] interface IPackageForVideo;
+	};
+	[
+		uuid(B2835FE8-19DD-4C3F-9E8E-D173A8ED21F2)		
+	]
+	dispinterface _IZonekeyMCULivingcastEvents
+	{
+		properties:
+		methods:
+	};
+	[
+		uuid(CFB5C936-46E5-4956-95C0-6358E79D18D0)		
+	]
+	coclass ZonekeyMCULivingcast
+	{
+		[default] interface IZonekeyMCULivingcast;
+		[default, source] dispinterface _IZonekeyMCULivingcastEvents;
+	};
+};
+import "shobjidl.idl";

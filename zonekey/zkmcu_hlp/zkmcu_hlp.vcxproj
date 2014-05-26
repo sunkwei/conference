@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{0E52DE16-73D1-4229-81BF-8C882BDD68DB}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>zkmcu_hlp_h264_source</RootNamespace>
+    <ProjectName>zkmcu_hlp</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>C:\cygwin\home\luoqq\zkMM\3rd\win32-release\inc;../../linphone-deps/include;$(VCInstallDir)include;$(VCInstallDir)atlmfc\include;$(WindowsSdkDir)include;$(FrameworkSDKDir)\include</IncludePath>
+    <LibraryPath>../../linphone-deps/lib/msvc;../../linphone-deps/lib;$(VCInstallDir)lib;$(VCInstallDir)atlmfc\lib;$(WindowsSdkDir)lib;$(FrameworkSDKDir)\lib</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>../../linphone-deps/include;$(VCInstallDir)include;$(VCInstallDir)atlmfc\include;$(WindowsSdkDir)include;$(FrameworkSDKDir)\include;</IncludePath>
+    <LibraryPath>../../linphone-deps/lib/msvc;../../linphone-deps/lib;$(VCInstallDir)lib;$(VCInstallDir)atlmfc\lib;$(WindowsSdkDir)lib;$(FrameworkSDKDir)\lib</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;ZKMCU_HLP_H264_SOURCE_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ModuleDefinitionFile>exports.def</ModuleDefinitionFile>
+      <AdditionalDependencies>opencv_highgui231.lib;opencv_core231.lib;libx264.a;libgcc.a;libmingwex.lib;avcodec.lib;swscale.lib;ws2_32.lib;iphlpapi.lib;zkDshowPlayer.lib;ortp.lib;ccgnu2.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OptimizeReferences>false</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;ZKMCU_HLP_H264_SOURCE_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>false</OptimizeReferences>
+      <ModuleDefinitionFile>exports.def</ModuleDefinitionFile>
+      <AdditionalDependencies>opencv_highgui231.lib;opencv_core231.lib;libx264.a;libgcc.a;libmingwex.lib;avcodec.lib;swscale.lib;ws2_32.lib;iphlpapi.lib;ortp.lib;ccgnu2.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="rtcp_hlp.h" />
+    <ClInclude Include="zkmcu_hlp.h" />
+    <ClInclude Include="zkmcu_hlp_audio_stream.h" />
+    <ClInclude Include="zkmcu_hlp_conference.h" />
+    <ClInclude Include="zkmcu_hlp_h264_render.h" />
+    <ClInclude Include="zkmcu_hlp_h264_source.h" />
+    <ClInclude Include="zkmcu_hlp_local_h264.h" />
+    <ClInclude Include="zkmcu_hlp_webcam.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="rtcp_hlp.cpp" />
+    <ClCompile Include="zkmcu_hlp.cpp" />
+    <ClCompile Include="zkmcu_hlp_audio_stream.cpp" />
+    <ClCompile Include="zkmcu_hlp_conference.cpp" />
+    <ClCompile Include="zkmcu_hlp_h264_render.cpp" />
+    <ClCompile Include="zkmcu_hlp_h264_source.cpp" />
+    <ClCompile Include="zkmcu_hlp_local_h264.cpp" />
+    <ClCompile Include="zkmcu_hlp_webcam.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="exports.def" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\build\win32-vs2010\mediastreamer2.vcxproj">
+      <Project>{4a07bb2b-f56e-4f1b-a729-d28b782ac128}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\build\zonekey_void\zonekey_void.vcxproj">
+      <Project>{1f2053dd-baa7-4214-8c85-5c1c85fb4b8b}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\xmpp\xmpp.vcxproj">
+      <Project>{0c8b18ba-b325-4472-8468-190cb22a107d}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\zonekey_h264_source\zonekey_h264_source.vcxproj">
+      <Project>{bcd42b6a-a9ad-4752-befb-d26d0f6391ac}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\zonekey_yuv_sink\zonekey_yuv_sink.vcxproj">
+      <Project>{98b50998-408b-4783-ad3d-54f2769ce3ec}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="zkmcu_hlp.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

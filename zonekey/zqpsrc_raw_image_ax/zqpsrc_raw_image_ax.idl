@@ -1,0 +1,76 @@
+// zqpsrc_raw_image_ax.idl : zqpsrc_raw_image_ax 的 IDL 源
+//
+
+// 此文件将由 MIDL 工具处理以
+// 产生类型库(zqpsrc_raw_image_ax.tlb)和封送处理代码。
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(CD4B4E9A-B31E-467D-BDE6-F333D24F8A56),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IZonekey_ZqpktRawImage : IDispatch{
+	[id(1), helpstring("连接指定的 zqpkt 源")] HRESULT Open(BSTR url);
+	[id(2)] HRESULT Close(void);
+	[id(3), helpstring("阻塞返回下一帧图像，如果失败，返回 0")] HRESULT GetNext([out,retval] IDispatch** img);
+};
+[
+	object,
+	uuid(4BD81911-B75D-4481-8D36-CBB478320928),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IZonekey_RawImage_RGB24 : IDispatch{
+	[propget, id(1)] HRESULT Width([out, retval] LONG* pVal);
+	[propget, id(2)] HRESULT Height([out, retval] LONG* pVal);
+	[propget, id(3)] HRESULT BytesPerLine([out, retval] LONG* pVal);
+	[propget, id(4), helpstring("图像数据数组")] HRESULT Data([out, retval] VARIANT* pVal);
+};
+[
+	object,
+	uuid(F04E20CB-BE8B-4EA3-B147-F401FF6B0EDF),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IJVS960Channel : IDispatch{
+	[id(1)] HRESULT Open(LONG channel_no);
+	[id(2)] HRESULT Close(void);
+	[id(3)] HRESULT GetNext([out,retval] IDispatch** img);
+};
+[
+	uuid(E9916619-8687-46A8-A42B-71069A7B6FFE),
+	version(1.0),
+]
+library zqpsrc_raw_image_axLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(9A4C4356-BEE9-4A05-ADBD-F1706A3982AF)		
+	]
+	coclass Zonekey_ZqpktRawImage
+	{
+		[default] interface IZonekey_ZqpktRawImage;
+	};
+	[
+		uuid(CBDE8611-6C50-424B-9C8B-C03493C7173B)		
+	]
+	coclass Zonekey_RawImage_RGB24
+	{
+		[default] interface IZonekey_RawImage_RGB24;
+	};
+	[
+		uuid(1C90C6E5-91AC-433B-8F11-7AFBBB444A5A)		
+	]
+	coclass JVS960Channel
+	{
+		[default] interface IJVS960Channel;
+	};
+};
+

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope
+  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+  xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:zkmcu="urn:zkmcu">
+ <SOAP-ENV:Body>
+  <zkmcu:ConferenceInfo>
+   <cid>0</cid>
+   <mode>0</mode>
+   <uptime>0.0</uptime>
+   <desc></desc>
+   <streams>
+    <item>
+     <streamid>0</streamid>
+     <desc></desc>
+     <sent>0</sent>
+     <recv>0</recv>
+     <lost_sent>0</lost_sent>
+     <lost_recv>0</lost_recv>
+     <jitter>0</jitter>
+    </item>
+   
+    <item>
+     <streamid>0</streamid>
+     <desc></desc>
+     <sent>0</sent>
+     <recv>0</recv>
+     <lost_sent>0</lost_sent>
+     <lost_recv>0</lost_recv>
+     <jitter>0</jitter>
+    </item>
+   </streams>
+   <sources>
+    <item>
+     <sourceid>0</sourceid>
+     <desc></desc>
+     <lost>0</lost>
+     <recv>0</recv>
+    </item>
+   
+    <item>
+     <sourceid>0</sourceid>
+     <desc></desc>
+     <lost>0</lost>
+     <recv>0</recv>
+    </item>
+   </sources>
+   <sinks>
+    <item>
+     <sinkid>0</sinkid>
+     <desc></desc>
+     <sent>0</sent>
+     <lost>0</lost>
+     <jitter>0</jitter>
+    </item>
+   
+    <item>
+     <sinkid>0</sinkid>
+     <desc></desc>
+     <sent>0</sent>
+     <lost>0</lost>
+     <jitter>0</jitter>
+    </item>
+   </sinks>
+  </zkmcu:ConferenceInfo>
+ </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
