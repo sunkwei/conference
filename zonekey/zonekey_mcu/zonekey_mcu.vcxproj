@@ -102,6 +102,10 @@
     <ClCompile Include="SpeexStream.cpp" />
     <ClCompile Include="Stream.cpp" />
     <ClCompile Include="util.cpp" />
+    <ClCompile Include="wsapi\ServerImpl.cpp" />
+    <ClCompile Include="wsapi\soapC.cpp" />
+    <ClCompile Include="wsapi\soapServer.cpp" />
+    <ClCompile Include="wsapi\stdsoap2.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\build\zonekey_void\zonekey_void.vcxproj">
@@ -154,6 +158,8 @@
     <ClInclude Include="Stream.h" />
     <ClInclude Include="util.h" />
     <ClInclude Include="ver.h" />
+    <ClInclude Include="wsapi\soapH.h" />
+    <ClInclude Include="wsapi\soapStub.h" />
     <ClInclude Include="wsapi\zonekey.mcu.h" />
   </ItemGroup>
   <ItemGroup>
